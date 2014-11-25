@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WardsParadox</title>
-    <description>Jekyll is a pretty cool site generator, don&#39;t ya think? https://jekyllrb.com/
+    <description>Why Hello There! Just a reminder that I am not a developer, just a tweaker and explorer.
 </description>
     <link>https://wardsparadox.github.io/</link>
     <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 18 Nov 2014 20:26:44 -0700</pubDate>
-    <lastBuildDate>Tue, 18 Nov 2014 20:26:44 -0700</lastBuildDate>
+    <pubDate>Tue, 25 Nov 2014 16:34:33 -0700</pubDate>
+    <lastBuildDate>Tue, 25 Nov 2014 16:34:33 -0700</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -28,11 +28,9 @@
 
 </description>
         <pubDate>Tue, 18 Nov 2014 12:33:32 -0700</pubDate>
-        <link>https://wardsparadox.github.io/jekyll/update/2014/11/18/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/jekyll/update/2014/11/18/welcome-to-jekyll.html</guid>
+        <link>https://wardsparadox.github.io/update/2014/11/18/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/update/2014/11/18/welcome-to-jekyll.html</guid>
         
-        
-        <category>jekyll</category>
         
         <category>update</category>
         

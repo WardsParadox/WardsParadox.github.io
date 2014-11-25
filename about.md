@@ -4,8 +4,13 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Hello!
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+My name is Zack McCauley, often using the alias WardsParadox for many things.
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+This is just a little bio page for my Github account. Funny enough, I am not a developer; at least in my eyes. I just on occasion tweak or explore things. Sometimes I write up my own little scripts and stuff for other to use if it helps them. I am currently trying to learn more about some of the languages my favorite projects.
+
+I am always trying to help, but I like to help effeciently. That is why I always try to write BASH scripts to help me out with that.
+
+Thanks for stopping bye!
+~ WardsParadox aka Zack McCauley

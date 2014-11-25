@@ -5,7 +5,15 @@
 
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{{ site.description }}">
-    <link rel="stylesheet" href="{{ "/css/hover.css" | prepend: site.baseurl}}">
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <!--Hover CSS http://ianlunn.github.io/Hover/ -->
+    <link rel="stylesheet" href="{{ "/css/hover.css" | prepend: site.baseurl}}">
+
+    <!--Github Activity Widget http://caseyscarborough.github.io/github-activity/ -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+    <link rel="stylesheet" href="./github-activity/github-activity-0.1.0.min.css">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+    <script type="text/javascript" src="./github-activity/github-activity-0.1.0.min.js"></script>
+
 </head>
