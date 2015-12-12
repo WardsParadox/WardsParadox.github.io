@@ -1,12 +1,31 @@
 # Site settings
-title:
-email:
-description: > # this means to ignore newlines until "baseurl:"
-  Why Hello There!
-  Just a reminder that I am not a developer, just a tweaker and explorer.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://wardsparadox.github.io" # the base hostname & protocol for your site
+title: "-WardsParadox-<br/>Noob Extraordinaire"
+email: wpgraphix@gmail.com
+description: "A little side blog, rarely updated."
+baseurl: ""
+url: "https://wardsparadox.github.io/"
+title_description: "<i class=\"fa fa-apple\"></i>Python Novice<br/><i class=\"fa fa-terminal\"></i>Terminal Junkie<br/><i class=\"fa fa-chrome\"></i>Chrome Lover<br/><i class=\"fa fa-google\"></i>Google Apps Admin"
+title_image: "https://avatars3.githubusercontent.com/u/8117192?v=3&s=500a"
+google_analytics: ""
+#disqus_account: WardsParadox
+github_repository: https://github.com/WardsParadox/wardsparadox.github.io
+#addthis_id: r
+post_limit: 5
+
+# Social usernames/URLs
+#twitter_username: _jacobtomlinson
 github_username:  WardsParadox
+#linkedin_link: http://carte-noire.jacobtomlinson.co.uk/
+#google_plus_link: http://carte-noire.jacobtomlinson.co.uk/
+#stackoverflow_link: http://carte-noire.jacobtomlinson.co.uk/
+slack_link: http://macadmins.org/
+# Footer
+footer_left: "Theme by <a href=\"https://twitter.com/_JacobTomlinson\">Jacob Tomlinson</a>"
+footer_right: ""
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
+permalink: pretty
+exclude: [vendor]
