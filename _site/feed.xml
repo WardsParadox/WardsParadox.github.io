@@ -5,45 +5,9 @@
     <description>A little side blog, rarely updated.</description>
     <link>https://wardsparadox.github.io//</link>
     <atom:link href="https://wardsparadox.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 05 Jan 2016 15:40:47 -0700</pubDate>
-    <lastBuildDate>Tue, 05 Jan 2016 15:40:47 -0700</lastBuildDate>
+    <pubDate>Fri, 22 Jan 2016 09:56:25 -0700</pubDate>
+    <lastBuildDate>Fri, 22 Jan 2016 09:56:25 -0700</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
-    
-      <item>
-        <title>Pump up the GAM Notes</title>
-        <description></description>
-        <pubDate>Tue, 05 Jan 2016 00:00:00 -0700</pubDate>
-        <link>https://wardsparadox.github.io//2016/01/05/pump-up-the-gam-notes/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io//2016/01/05/pump-up-the-gam-notes/</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Adding a &quot;Coming Soon&quot; Ribbon to the Munki Showcase</title>
-        <description>&lt;p&gt;I have been doing some testing and it seems that with the latest OS X El Capitan release, our district can finally move to El Capitan. At the same time I have been doing some testing of Office 2016 for Mac. I have been moving our district to deploying software with Munki. It&amp;#39;s been two years and has already saved us hundreds of man hours.&lt;/p&gt;
-
-&lt;p&gt;I was aware of the conditional items ability with Munki. I wanted a little bit of time in case and final issues came about. So I set the optional installs to become available to be the 2nd of January, 2016; the day before our teachers and staff members came back. Make sure you escape the greater than symbol&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;key&amp;gt;conditional_items&amp;lt;/key&amp;gt;
-&amp;lt;array&amp;gt;
-  &amp;lt;dict&amp;gt;
-    &amp;lt;key&amp;gt;condition&amp;lt;/key&amp;gt;
-    &amp;lt;string&amp;gt;date `&amp;amp;gt;` CAST(&amp;quot;2016-01-02T00:00:00Z&amp;quot;, &amp;quot;NSDate&amp;quot;)&amp;lt;/string&amp;gt;
-    &amp;lt;key&amp;gt;optional_installs&amp;lt;/key&amp;gt;
-    &amp;lt;array&amp;gt;
-      &amp;lt;string&amp;gt;InstallOSX&amp;lt;/string&amp;gt;
-      &amp;lt;string&amp;gt;MSOffice2016&amp;lt;/string&amp;gt;
-    &amp;lt;/array&amp;gt;
-  &amp;lt;/dict&amp;gt;
-&amp;lt;/array&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-</description>
-        <pubDate>Sat, 12 Dec 2015 00:00:00 -0700</pubDate>
-        <link>https://wardsparadox.github.io//2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io//2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
-        
-        
-      </item>
     
   </channel>
 </rss>
