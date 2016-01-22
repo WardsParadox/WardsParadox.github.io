@@ -1,10 +1,10 @@
 # Site settings
-title: "-WardsParadox-<br/>Noob Extraordinaire"
+title: "Noob Extraordinaire"
 email: wpgraphix@gmail.com
 description: "A little side blog, rarely updated."
 baseurl: ""
 url: "https://wardsparadox.github.io/"
-title_description: "<i class=\"fa fa-apple\"></i>Python Novice<br/><i class=\"fa fa-terminal\"></i>Terminal Junkie<br/><i class=\"fa fa-chrome\"></i>Chrome Lover<br/><i class=\"fa fa-google\"></i>Google Apps Admin"
+title_description: "<i class=\"fa fa-apple\"></i> Python Addict<br/><i class=\"fa fa-terminal\"></i> Terminal Junkie<br/><i class=\"fa fa-chrome\"></i> Chrome Lover<br/><i class=\"fa fa-google\"></i> Google Apps Admin"
 title_image: "https://avatars3.githubusercontent.com/u/8117192?v=3&s=500a"
 google_analytics: ""
 #disqus_account: WardsParadox
@@ -28,4 +28,5 @@ markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
 permalink: pretty
+highlighter: true
 exclude: [vendor]
