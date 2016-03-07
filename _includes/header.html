@@ -7,7 +7,16 @@
       <li><a href="{{ site.baseurl }}/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
       <li><a href="{{ site.baseurl }}/search/"><i class="fa fa-search"></i> Search</a></li>
     </ul>
-
+    <h1>Tag Cloud</h1>
+    {% assign tags = site.tags | sort %}
+    {% for tag in tags %}
+     <span class="site-tag">
+        <a href="/tag/{{ tag | first | slugify }}/"
+            style="font-size: {{ tag | last | size  |  times: 4 | plus: 80  }}%">
+                {{ tag[0] | replace:'-', ' ' }} ({{ tag | last | size }})
+        </a>
+    </span>
+    {% endfor %}
     {% include social_links.html %}
   </div>
 </nav>
