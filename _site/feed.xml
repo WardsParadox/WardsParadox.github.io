@@ -5,9 +5,55 @@
     <description>A little side blog, rarely updated.</description>
     <link>https://wardsparadox.github.io//</link>
     <atom:link href="https://wardsparadox.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 22 Jan 2016 10:01:18 -0700</pubDate>
-    <lastBuildDate>Fri, 22 Jan 2016 10:01:18 -0700</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2016 19:45:40 -0700</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2016 19:45:40 -0700</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>TIL 00 - Welcome to Today I Learned</title>
+        <description>&lt;p&gt;Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I&amp;#39;ve learned. Thank you for reading, I hope you enjoy or learn something as well!&lt;/p&gt;
+</description>
+        <pubDate>Fri, 04 Mar 2016 14:20:02 -0700</pubDate>
+        <link>https://wardsparadox.github.io//2016/03/04/til-00-welcome-to-today-i-learned/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io//2016/03/04/til-00-welcome-to-today-i-learned/</guid>
+        
+        <category>TIL</category>
+        
+        <category>Python</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>TIL 01 - Get a OS X Preference via Python</title>
+        <description>&lt;p&gt;As I am trying to learn more of the Python programming language (version 2.7.* as that is what is currently built-in to OS X), I find little challenges to help process what I have learned of it. Recently I was introduced to the &lt;code&gt;Foundation&lt;/code&gt; frameworks that come with OS X. For a while I was writing scripts that required &lt;code&gt;plistlib&lt;/code&gt; which could only read the XML version of a plist. OS X stores preferences in binary plist form. In order to use &lt;code&gt;plistlib&lt;/code&gt; then, I was shelling out using &lt;code&gt;subprocess&lt;/code&gt; and converting the plist to xml form temporarily. As I am trying to stay away from some of the &amp;quot;bad Mac Admin&amp;quot; practices, I found myself needing a way to read preferences without messing with the hard files. I could use &lt;code&gt;subprocess.check_output&lt;/code&gt; and read the results of defaults, but why add more complexity (just my opinion). Here is what I came up with, there is a breakdown further down
+(this example uses the Munki preference file):&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;#!/usr/bin/python
+from Foundation import CFPreferencesCopyValue, \
+                       kCFPreferencesAnyUser, \
+                       kCFPreferencesAnyHost
+def getpreferencekey(str):
+&amp;#39;&amp;#39;&amp;#39;
+Returns Value for Requested Key in ManagedInstalls
+&amp;#39;&amp;#39;&amp;#39;
+return CFPreferencesCopyValue(str, &amp;quot;/Library/Preferences/ManagedInstalls&amp;quot;,
+                              kCFPreferencesAnyUser, kCFPreferencesAnyHost)
+munki_cid = getpreferencekey(&amp;quot;ClientIdentifier&amp;quot;)
+munki_server = getpreferencekey(&amp;quot;SoftwareRepoURL&amp;quot;)
+print munki_cid
+print munki_server&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+</description>
+        <pubDate>Fri, 04 Mar 2016 00:00:00 -0700</pubDate>
+        <link>https://wardsparadox.github.io//2016/03/04/til-01-get-a-os-x-preference-via-python/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io//2016/03/04/til-01-get-a-os-x-preference-via-python/</guid>
+        
+        <category>TIL</category>
+        
+        <category>Python</category>
+        
+        
+      </item>
     
   </channel>
 </rss>
