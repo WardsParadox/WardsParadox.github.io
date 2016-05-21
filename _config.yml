@@ -1,28 +1,30 @@
 # Site settings
-title: Your awesome title
-tagline: And Tagline
-email: gayanvirajith@gmail.com
+title: Zack McCauley
+tagline: Fixer of Machines, Breaker of Code
+# email:
 description: > # this means to ignore newlines until "baseurl:"
-  Hi, I’m a professional UI/UX designer and web developer. 
-  I love being minimal and creative.
-baseurl: "/gaya" # the subpath of your site, e.g. /blog/
-url: "http://gayan.me" # the base hostname & protocol for your site
-logourl: /assets/images/logo.png # Site logo
-author: "Tom Warlker"
-author_thumbnail: "/assets/images/avatar.jpg" # Author avatar
+  Hi, I’m a macadmin for a school district in Montana. I like to program
+  things sometimes. I am always learning.
+baseurl: "" # the subpath of your site, e.g. /blog/
+#url: "http://127.0.0.1:4000"
+url: "https://wardsparadox.github.io" # the base hostname & protocol for your site
+logourl: /assets/images/logo.jpg # Site logo
+author: "Zack McCauley"
+author_thumbnail: "/assets/images/avatar.png" # Author avatar
 # Theme customization - please change from the defaults!
 theme:
   # Color for sidebar bar, links, etc
-  highlight_color: "#205081" #205081" # "#272935"
+  #highlight_color: "#205081" #205081" # "#272935"
+  highlight_color: "#2192BB" #272935" # "#2192BB"
   # Social media links, leave blank to ignore
-  social: 
-    github: gayanvirajith
-    twitter: gayanvirajith
-    facebook: gayanvirajith
-    gplus: +gayanvirajith
+  social:
+    github: wardsparadox
+    #twitter: gayanvirajith
+    #facebook: gayanvirajith
+    gplus: 108452882684071984253
     # dribble: gayanvirajith
-    pinterest: gayanvirajith
-
+    #pinterest: gayanvirajith
+    slack: zack_mccauley @ macadmins.com
   # Enable share buttons on post footer
   show_share_buttons: true
 
@@ -33,20 +35,20 @@ theme:
   # disqus_shortname: gaya-webcreate
 
   # Google Analytics/Webmaster key, leave blank to ignore
-  google_analytics_key: 
-  google_webmaster_key: 
+  google_analytics_key:
+  google_webmaster_key:
 
 # Build settings
 markdown: kramdown
 
 # Permalinks
-permalink:        pretty
+permalink: pretty
 
 # Pagination config
 paginate: 5
 
 # Files/Folders to be excluded from generated _site folder
-exclude: 
+exclude:
   - CNAME
   - Gemfile
   - Rakefile
@@ -59,3 +61,4 @@ exclude:
 sass:
   sass_dir: assets/css/_sass
   style: :compressed
+gems: [jekyll-paginate]

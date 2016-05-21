@@ -2,21 +2,21 @@
 layout: page
 title: About me
 permalink: /about/
-banner_image: sample-banner-image-2.jpg
+banner_image: sample-banner-image-3.jpg
 banner_image_alt: About me
 ---
+Hello!
 
-Hi, I am Tom Warlker. I am a professional UI/UX designrer and web developer. I love being minimal and creative.
+My name is Zack McCauley, often using the alias WardsParadox for many things.
 
-I prefer to serve with Php and Ruby based stacks and also love to work 
-on [Jekyll][jekyll] and [Processwire CMS/CMF][pw].
+This is just a little bio page for my Github account. Funny enough, I am not a developer; at least in my eyes. I just on occasion tweak or explore things. Sometimes I write up my own little scripts and stuff for other to use if it helps them. I am currently trying to learn more about some of the languages my favorite projects.
 
-### Contact me
+I am always trying to help, but I like to help efficiently. That is why I always try to write BASH/Python scripts to help me out with that.
 
-Say `Hello` at gayanvirajith@gmail.com or find
-me on
+Thanks for stopping bye! ~ WardsParadox aka Zack McCauley
 
----
+Logo Credit:
+[Vector logo circuit board tree by mastermindsro on Flickr](https://www.flickr.com/photos/9216660@N02/12780929034)
 
 {% include social.html %}
 
