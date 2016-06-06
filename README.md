@@ -1,4 +1,6 @@
 [My blog](https://wardsparadox.github.io)
+
+
 Just my blog. It runs on:
 [jekyll]: http://jekyllrb.com
 Gaya Jekyll Theme with some color/code modifications
