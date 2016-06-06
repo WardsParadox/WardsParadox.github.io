@@ -8,10 +8,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Zack McCauley</title>
+    <title>Adding a "Coming Soon" Ribbon to the Munki Showcase - Zack McCauley</title>
     <meta name="description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
 ">
-    <meta property="og:locale" content="en_US"><meta property="og:type" content="website"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="https://wardsparadox.github.io/"><meta property="article:author" content="https://wardsparadox.github.io/about">
+    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Adding a "Coming Soon" Ribbon to the Munki Showcase - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/"><meta property="article:published_time" content="2015-12-12T00:00:00-07:00"><meta property="article:author" content="https://wardsparadox.github.io/about">
 
     
 
@@ -20,7 +20,7 @@
     <link rel="alternate" type="application/rss+xml" href="https://wardsparadox.github.io/feed.xml">
     <link rel="shortcut icon" href="https://wardsparadox.github.io/favicon.ico">
     <link rel="prefetch" href="https://wardsparadox.github.io">
-    <link rel="canonical" href="https://wardsparadox.github.io/">
+    <link rel="canonical" href="https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/">
     <link rel="stylesheet"
     href="https://wardsparadox.github.io/assets/css/main.css">
 
@@ -51,138 +51,92 @@
       </div>
 
       <div class="container content">
-          <div class="posts">
+          <div class="post">
+
   
+
   
-  <article class="post">
 
-    
-
-    <h1 class="post-title">
-      <a href="https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/">
-        TIL 02 - Multiple Inputs For One Argument
-      </a>
-    </h1>
-
-    <p class="post-meta">
-    
-    <span class="post-date">
-    Jun 5, 2016  
-    </span>
-    </p>
-
-    <p>I use a tool called <a href="https://github.com/nmcspadden/OutsetDockProfiler/" target="_blank" title="This script creates a package to use with Outset that will install a user-level profile for a specific user of your choice.">Outset Dock Profiler</a> made by <a href="https://osxdominion.wordpress.com/" target="_blank">Nick McSpadden</a>. It’s great and for user accounts where I only need to target one profile, it works great! <i class="fa fa-thumbs-o-up fg-lg"></i></p>
-
-
-    <a href="https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/">
-      Continue reading »
-    </a>
-  </article>
-  
-  
-  <article class="post">
-
-    
-
-    <h1 class="post-title">
-      <a href="https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/">
-        TIL 01 - Get a OS X Preference via Python
-      </a>
-    </h1>
-
-    <p class="post-meta">
-    
-    <span class="post-date">
-    Mar 6, 2016  
-    </span>
-    </p>
-
-    <p>As I am trying to learn more of the Python programming language (version 2.7.* as that is what is currently built-in to OS X), I find little challenges to help process what I have learned of it. Recently I was introduced to the <code class="highlighter-rouge">Foundation</code> frameworks that come with OS X. For a while I was writing scripts that required <code class="highlighter-rouge">plistlib</code> which could only read the XML version of a plist. OS X stores preferences in binary plist form. In order to use <code class="highlighter-rouge">plistlib</code> then, I was shelling out using <code class="highlighter-rouge">subprocess</code> and converting the plist to xml form temporarily. As I am trying to stay away from some of the “bad Mac Admin” practices, I found myself needing a way to read preferences without messing with the hard files. I could use <code class="highlighter-rouge">subprocess.check_output</code> and read the results of defaults, but why add more complexity (just my opinion). Here is what I came up with (this example uses the Munki preference file):</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
-<span class="kn">from</span> <span class="nn">Foundation</span> <span class="kn">import</span> <span class="n">CFPreferencesCopyValue</span><span class="p">,</span> \
-                       <span class="n">kCFPreferencesAnyUser</span><span class="p">,</span> \
-                       <span class="n">kCFPreferencesAnyHost</span>
-<span class="k">def</span> <span class="nf">getpreferencekey</span><span class="p">(</span><span class="n">keytolookup</span><span class="p">):</span>
-    <span class="s">'''
-    Returns Value for Requested Key in ManagedInstalls
-    '''</span>
-    <span class="k">return</span> <span class="n">CFPreferencesCopyValue</span><span class="p">(</span><span class="n">keytolookup</span><span class="p">,</span> <span class="s">"/Library/Preferences/ManagedInstalls"</span><span class="p">,</span>
-                              <span class="n">kCFPreferencesAnyUser</span><span class="p">,</span> <span class="n">kCFPreferencesAnyHost</span><span class="p">)</span>
-<span class="n">munki_cid</span> <span class="o">=</span> <span class="n">getpreferencekey</span><span class="p">(</span><span class="s">"ClientIdentifier"</span><span class="p">)</span>
-<span class="n">munki_server</span> <span class="o">=</span> <span class="n">getpreferencekey</span><span class="p">(</span><span class="s">"SoftwareRepoURL"</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">munki_cid</span>
-<span class="k">print</span> <span class="n">munki_server</span></code></pre></figure>
-
-
-    <a href="https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/">
-      Continue reading »
-    </a>
-  </article>
-  
-  
-  <article class="post">
-
-    
-
-    <h1 class="post-title">
-      <a href="https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/">
-        TIL 00 - Welcome to Today I Learned
-      </a>
-    </h1>
-
-    <p class="post-meta">
-    
-    <span class="post-date">
-    Mar 4, 2016  
-    </span>
-    </p>
-
-    <p>Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I’ve learned. Thank you for reading, I hope you enjoy or learn something as well!</p>
-
-    <a href="https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/">
-      Continue reading »
-    </a>
-  </article>
-  
-  
-  <article class="post">
-
-    
-
-    <h1 class="post-title">
-      <a href="https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/">
-        Adding a "Coming Soon" Ribbon to the Munki Showcase
-      </a>
-    </h1>
-
+  <header class="post-header">
+    <h1 class="post-title">Adding a "Coming Soon" Ribbon to the Munki Showcase</h1>
     <p class="post-meta">
     
     <span class="post-date">
     Dec 12, 2015  
     </span>
     </p>
+  </header>
 
+  <article class="post-content">
     <p>I have been doing some testing and it seems that with the latest OS X El Capitan release, our district can finally move to El Capitan. At the same time I have been doing some testing of Office 2016 for Mac. I have been moving our district to deploying software with Munki. It’s been two years and has already saved us hundreds of man hours.</p>
 
+<p>I was aware of the conditional items ability with Munki. I wanted a little bit of time in case and final issues came about. So I set the optional installs to become available to be the 2nd of January, 2016; the day before our teachers and staff members came back. Make sure you escape the greater than symbol</p>
 
-    <a href="https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/">
-      Continue reading »
-    </a>
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;key&gt;</span>conditional_items<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;array&gt;</span>
+  <span class="nt">&lt;dict&gt;</span>
+    <span class="nt">&lt;key&gt;</span>condition<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>date `<span class="ni">&amp;gt;</span>` CAST("2016-01-02T00:00:00Z", "NSDate")<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>optional_installs<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;array&gt;</span>
+      <span class="nt">&lt;string&gt;</span>InstallOSX<span class="nt">&lt;/string&gt;</span>
+      <span class="nt">&lt;string&gt;</span>MSOffice2016<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;/array&gt;</span>
+  <span class="nt">&lt;/dict&gt;</span>
+<span class="nt">&lt;/array&gt;</span></code></pre></figure>
+
+    
   </article>
+
+  
+    <div class="related-posts">
+      <h4>Related Posts</h4>
+      <ul>
+        
+          <li>
+            <h5>
+              <a href="https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/">
+                TIL 02 - Multiple Inputs For One Argument
+                <small>05 Jun 2016</small>
+              </a>
+            </h5>
+          </li>
+        
+          <li>
+            <h5>
+              <a href="https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/">
+                TIL 01 - Get a OS X Preference via Python
+                <small>06 Mar 2016</small>
+              </a>
+            </h5>
+          </li>
+        
+          <li>
+            <h5>
+              <a href="https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/">
+                TIL 00 - Welcome to Today I Learned
+                <small>04 Mar 2016</small>
+              </a>
+            </h5>
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  <div class="author-info">
+    
+      <div class="author">   <a href="https://wardsparadox.github.io/about">    <img      src="https://wardsparadox.github.io/assets/images/avatar.png"      alt="Zack McCauley" width="60" height="60" />  </a>    <h5>Author</h4>  <h6>    <a href="https://wardsparadox.github.io/about">      Zack McCauley    </a>  </h5>  <p>    Find me on            <a title="wardsparadox on GitHub"            href="https://github.com/wardsparadox"            class="github" target="_blank">Github</a>                /        <a title="zack_mccauley @ macadmins.org on slack"            href="https://macadmins.org/"            class="slack" target="_blank">Slack</a>                /        <a title="108452882684071984253 on Google Plus"            href="https://plus.google.com/108452882684071984253"            class="google" target="_blank">Google</a>      </p></div>
+
+    
+  
+    
+      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title=" on Twitter"           href="https://twitter.com/intent/tweet?original_referer=https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/&amp;text=Adding a "Coming Soon" Ribbon to the Munki Showcase&amp;url=https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/&amp;t=Adding a "Coming Soon" Ribbon to the Munki Showcase"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
+      
+  </div>
+  
   
 </div>
-
-
-
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    "url": "https://wardsparadox.github.io/"
-    }
-}
-</script>
 
       </div>
       <a href="#0" class="wc-top">Top</a>
