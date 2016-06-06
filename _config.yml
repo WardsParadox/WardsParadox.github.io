@@ -6,8 +6,8 @@ description: > # this means to ignore newlines until "baseurl:"
   Hi, I’m a macadmin for a school district in Montana. I like to program
   things sometimes. I am always learning.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://127.0.0.1:4000"
-#url: "https://wardsparadox.github.io" # the base hostname & protocol for your site
+#url: "http://127.0.0.1:4000"
+url: "https://wardsparadox.github.io" # the base hostname & protocol for your site
 logourl: /assets/images/logo.jpg # Site logo
 author: "Zack McCauley"
 author_thumbnail: "/assets/images/avatar.png" # Author avatar
