@@ -8,10 +8,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TIL 02 - Multiple Inputs For One Argument - Zack McCauley</title>
+    <title>Munkireport-PHP on Debian 8.3 - Zack McCauley</title>
     <meta name="description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
 ">
-    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="TIL 02 - Multiple Inputs For One Argument - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/"><meta property="article:published_time" content="2016-06-05T15:43:30-06:00"><meta property="article:author" content="http://127.0.0.1:4000/about">
+    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Munkireport-PHP on Debian 8.3 - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="http://127.0.0.1:4000/2016/06/09/munkireport-php-on-debian-8-3/"><meta property="article:published_time" content="2016-06-09T16:46:00-06:00"><meta property="article:author" content="http://127.0.0.1:4000/about">
 
     
 
@@ -20,7 +20,7 @@
     <link rel="alternate" type="application/rss+xml" href="http://127.0.0.1:4000/feed.xml">
     <link rel="shortcut icon" href="http://127.0.0.1:4000/favicon.ico">
     <link rel="prefetch" href="http://127.0.0.1:4000">
-    <link rel="canonical" href="http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/">
+    <link rel="canonical" href="http://127.0.0.1:4000/2016/06/09/munkireport-php-on-debian-8-3/">
     <link rel="stylesheet"
     href="http://127.0.0.1:4000/assets/css/main.css">
 
@@ -58,22 +58,19 @@
   
 
   <header class="post-header">
-    <h1 class="post-title">TIL 02 - Multiple Inputs For One Argument</h1>
+    <h1 class="post-title">Munkireport-PHP on Debian 8.3</h1>
     <p class="post-meta">
     
     <span class="post-date">
-    Jun 5, 2016  
+    Jun 9, 2016  
     </span>
     </p>
   </header>
 
   <article class="post-content">
-    <p>I use a tool called <a href="https://github.com/nmcspadden/OutsetDockProfiler/" target="_blank" title="This script creates a package to use with Outset that will install a user-level profile for a specific user of your choice.">Outset Dock Profiler</a> made by <a href="https://osxdominion.wordpress.com/" target="_blank">Nick McSpadden</a>. It’s great and for user accounts where I only need to target one profile, it works great! <i class="fa fa-thumbs-o-up fg-lg"></i></p>
+    <p>So Wednesday our Munkireport server decided to take a huge dump and become un-usable via any sort of login. Thankfully it was still accessible via <code class="highlighter-rouge">ssh</code>. I was able to get a mysql backup (x2 for safety) off of it. I believe the <code class="highlighter-rouge">CoreStorage</code> part of the hybrid drive is what bit the dust after an update. Thankfully I had already gotten a new Debian server running for our (munki)[https://github.com/munki/munki] server.</p>
 
-<p>There has always been one thing about it that bothered me. If I had multiple profiles for a user, I couldn’t use this tool. Sure I could use it to build an initial package and modify the script. I’ve done it before but it can be easy for me (my brain is the size of a pea after all) to forget. I decided to learn about <code class="highlighter-rouge">argparse</code> and add the ability to use multiple profiles. Now not only does it support multiple profiles but it will also organize the profiles into the appropriate folders by username. This means that regardless of the number of profiles you need, as separating out the payload makes management of them easier, it will “install” them all as long as you have targeted the right user. Check it out on my github.
-I am thinking about pull-requesting it back to Nick, but I’m sure there are other issues that I created. Let me know what you think.</p>
-
-<p><a href="https://github.com/wardsparadox/OutsetDockProfiler" target="_blank" title="My fork">My fork of OutsetDockProfiler</a></p>
+<p>As we are doing a physical inventory, this was critical info we could not afford to loose.</p>
     
   </article>
 
@@ -81,6 +78,15 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
     <div class="related-posts">
       <h4>Related Posts</h4>
       <ul>
+        
+          <li>
+            <h5>
+              <a href="http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/">
+                TIL 02 - Multiple Inputs For One Argument
+                <small>05 Jun 2016</small>
+              </a>
+            </h5>
+          </li>
         
           <li>
             <h5>
@@ -100,15 +106,6 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
             </h5>
           </li>
         
-          <li>
-            <h5>
-              <a href="http://127.0.0.1:4000/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/">
-                Adding a "Coming Soon" Ribbon to the Munki Showcase
-                <small>12 Dec 2015</small>
-              </a>
-            </h5>
-          </li>
-        
       </ul>
     </div>
   
@@ -120,7 +117,7 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
     
   
     
-      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title=" on Twitter"           href="https://twitter.com/intent/tweet?original_referer=http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/&amp;text=TIL 02 - Multiple Inputs For One Argument&amp;url=http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/&amp;t=TIL 02 - Multiple Inputs For One Argument"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
+      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title=" on Twitter"           href="https://twitter.com/intent/tweet?original_referer=http://127.0.0.1:4000/2016/06/09/munkireport-php-on-debian-8-3/&amp;text=Munkireport-PHP on Debian 8.3&amp;url=http://127.0.0.1:4000/2016/06/09/munkireport-php-on-debian-8-3/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=http://127.0.0.1:4000/2016/06/09/munkireport-php-on-debian-8-3/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:4000/2016/06/09/munkireport-php-on-debian-8-3/&amp;t=Munkireport-PHP on Debian 8.3"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
       
   </div>
   

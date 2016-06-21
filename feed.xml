@@ -4,24 +4,24 @@
     <title>Zack McCauley</title>
     <description>Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
 </description>
-    <link>https://wardsparadox.github.io/</link>
-    <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 05 Jun 2016 22:47:55 -0600</pubDate>
-    <lastBuildDate>Sun, 05 Jun 2016 22:47:55 -0600</lastBuildDate>
+    <link>http://127.0.0.1:4000/</link>
+    <atom:link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 21 Jun 2016 13:23:58 -0600</pubDate>
+    <lastBuildDate>Tue, 21 Jun 2016 13:23:58 -0600</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>TIL 02 - Multiple Inputs For One Argument</title>
         <description>&lt;p&gt;I use a tool called &lt;a href=&quot;https://github.com/nmcspadden/OutsetDockProfiler/&quot; target=&quot;_blank&quot; title=&quot;This script creates a package to use with Outset that will install a user-level profile for a specific user of your choice.&quot;&gt;Outset Dock Profiler&lt;/a&gt; made by &lt;a href=&quot;https://osxdominion.wordpress.com/&quot; target=&quot;_blank&quot;&gt;Nick McSpadden&lt;/a&gt;. It’s great and for user accounts where I only need to target one profile, it works great! &lt;i class=&quot;fa fa-thumbs-o-up fg-lg&quot;&gt;&lt;/i&gt;&lt;/p&gt;
 
-&lt;p&gt;There has always been one thing about it that bothered me. If I had multiple profiles for a user, I couldn’t use this tool. Sure I could use it to build an initial package and modify the script. I’ve done it before but it can be easy for me (my brain is the size of a pea after all) to forget. I decided to learn about&lt;code class=&quot;highlight language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;/code&gt; and add the ability to use multiple profiles. Now not only does it support multiple profiles but it will also organize the profiles into the appropriate folders by username. This means that regardless of the number of profiles you need, as separating out the payload makes management of them easier, it will “install” them all as long as you have targeted the right user. Check it out on my github.
+&lt;p&gt;There has always been one thing about it that bothered me. If I had multiple profiles for a user, I couldn’t use this tool. Sure I could use it to build an initial package and modify the script. I’ve done it before but it can be easy for me (my brain is the size of a pea after all) to forget. I decided to learn about &lt;code class=&quot;highlighter-rouge&quot;&gt;argparse&lt;/code&gt; and add the ability to use multiple profiles. Now not only does it support multiple profiles but it will also organize the profiles into the appropriate folders by username. This means that regardless of the number of profiles you need, as separating out the payload makes management of them easier, it will “install” them all as long as you have targeted the right user. Check it out on my github.
 I am thinking about pull-requesting it back to Nick, but I’m sure there are other issues that I created. Let me know what you think.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/wardsparadox/OutsetDockProfiler&quot; target=&quot;_blank&quot; title=&quot;My fork&quot;&gt;My fork of OutsetDockProfiler&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 05 Jun 2016 15:43:30 -0600</pubDate>
-        <link>https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/</guid>
+        <link>http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/</guid>
         
         <category>TIL</category>
         
@@ -51,8 +51,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 
 </description>
         <pubDate>Sun, 06 Mar 2016 00:00:00 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</guid>
+        <link>http://127.0.0.1:4000/2016/03/06/til-01-get-a-os-x-preference-via-python/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2016/03/06/til-01-get-a-os-x-preference-via-python/</guid>
         
         <category>TIL</category>
         
@@ -66,8 +66,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
         <description>&lt;p&gt;Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I’ve learned. Thank you for reading, I hope you enjoy or learn something as well!&lt;/p&gt;
 </description>
         <pubDate>Fri, 04 Mar 2016 14:20:02 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/</guid>
+        <link>http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/</guid>
         
         <category>TIL</category>
         
@@ -97,8 +97,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 
 </description>
         <pubDate>Sat, 12 Dec 2015 00:00:00 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
+        <link>http://127.0.0.1:4000/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
         
         
       </item>
