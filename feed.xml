@@ -4,11 +4,32 @@
     <title>Zack McCauley</title>
     <description>Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
 </description>
-    <link>https://wardsparadox.github.io/</link>
-    <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Jun 2016 13:54:27 -0600</pubDate>
-    <lastBuildDate>Tue, 21 Jun 2016 13:54:27 -0600</lastBuildDate>
+    <link>http://127.0.0.1:4000/</link>
+    <atom:link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 27 Jun 2016 14:22:51 -0600</pubDate>
+    <lastBuildDate>Mon, 27 Jun 2016 14:22:51 -0600</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>TIL 02 -- Get Model Info via Python via Serial</title>
+        <description>&lt;p&gt;A while back I learned about this website, &lt;a href=&quot;http://support-sp.apple.com/sp/product?cc=&quot;&gt;Apple Config Code Lookup&lt;/a&gt;, when I was building my first info grab script for an inventory. I have since evolved that script into a full Info Viewer (inventory is done via &lt;a href=&quot;https://github.com/munkireport/munkireport-php&quot;&gt;MunkiReport-PHP&lt;/a&gt;). One thing I was always missing was the output from the Apple Config Code Lookup; since I am migrating most of my shell scripts to Python, I figured I might as well add it. I am also learning to modularize my scripts whenever possible as well. This has made things really easy to combine scripts or call them from others. I also wanted to be able to call this script if fed a serial as well. Here we go.&lt;/p&gt;
+
+&lt;p&gt;The old shell script I have is this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;curl -s http://support-sp.apple.com/sp/product?cc&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;system_profiler SPHardwareDataType | awk &lt;span class=&quot;s1&quot;&gt;&#39;/Serial/ {print $4}&#39;&lt;/span&gt; | cut -c 9-&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; | sed &lt;span class=&quot;s1&quot;&gt;&#39;s|.*&amp;lt;configCode&amp;gt;\(.*\)&amp;lt;/configCode&amp;gt;.*|\1|&#39;&lt;/span&gt; | tr &lt;span class=&quot;s1&quot;&gt;&#39;,&#39;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;.&#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;To me..that’s very ugly and very foreign as I am still learning &lt;code class=&quot;highlighter-rouge&quot;&gt;RegEx&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;sed&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 27 Jun 2016 12:49:00 -0600</pubDate>
+        <link>http://127.0.0.1:4000/2016/06/27/til-02-get-model-info-via-python-via-serial/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2016/06/27/til-02-get-model-info-via-python-via-serial/</guid>
+        
+        <category>TIL</category>
+        
+        <category>Python</category>
+        
+        
+      </item>
     
       <item>
         <title>TIL 02 - Multiple Inputs For One Argument</title>
@@ -20,8 +41,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 &lt;p&gt;&lt;a href=&quot;https://github.com/wardsparadox/OutsetDockProfiler&quot; target=&quot;_blank&quot; title=&quot;My fork&quot;&gt;My fork of OutsetDockProfiler&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 05 Jun 2016 15:43:30 -0600</pubDate>
-        <link>https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/</guid>
+        <link>http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/</guid>
         
         <category>TIL</category>
         
@@ -51,8 +72,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 
 </description>
         <pubDate>Sun, 06 Mar 2016 00:00:00 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</guid>
+        <link>http://127.0.0.1:4000/2016/03/06/til-01-get-a-os-x-preference-via-python/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2016/03/06/til-01-get-a-os-x-preference-via-python/</guid>
         
         <category>TIL</category>
         
@@ -66,8 +87,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
         <description>&lt;p&gt;Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I’ve learned. Thank you for reading, I hope you enjoy or learn something as well!&lt;/p&gt;
 </description>
         <pubDate>Fri, 04 Mar 2016 14:20:02 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/</guid>
+        <link>http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/</guid>
         
         <category>TIL</category>
         
@@ -97,8 +118,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 
 </description>
         <pubDate>Sat, 12 Dec 2015 00:00:00 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
+        <link>http://127.0.0.1:4000/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
         
         
       </item>
