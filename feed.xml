@@ -6,9 +6,27 @@
 </description>
     <link>https://wardsparadox.github.io/</link>
     <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Nov 2016 17:40:33 -0700</pubDate>
-    <lastBuildDate>Tue, 29 Nov 2016 17:40:33 -0700</lastBuildDate>
+    <pubDate>Tue, 29 Nov 2016 19:02:29 -0700</pubDate>
+    <lastBuildDate>Tue, 29 Nov 2016 19:02:29 -0700</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>I made a thing..well sorta</title>
+        <description>&lt;p&gt;It seems that I have learned &lt;em&gt;A LOT&lt;/em&gt; in recent months concerning Python. Again huge shout out to &lt;a href=&quot;https://github.com/nmcspadden/&quot;&gt;Nick McSpadden&lt;/a&gt; and &lt;a href=&quot;https://github.com/pudquick/&quot;&gt;froger&lt;/a&gt; for helping me get to where I am knowledge wise today. In between now and my last post, Nick helped me understand the &lt;code class=&quot;highlighter-rouge&quot;&gt;dict&lt;/code&gt; datatype. Turns out python can use translate &lt;code class=&quot;highlighter-rouge&quot;&gt;dict&lt;/code&gt; into the plist equivalents! The more you know eh?&lt;/p&gt;
+
+&lt;p&gt;The reason he was helping me on this was because I had an idea to take his &lt;a href=&quot;https://github.com/nmcspadden/PrinterGenerator&quot;&gt;PrinterGenerator&lt;/a&gt; tool and make it work in a different way. The input was roughly the same but the output was instead a printer profile that could be used outside of Munki or with Munki (v2.2 added the ability to install profiles). I had just taken some of the code and translated it to work with a template plist. Instead with his help, I was able to replace a lot of the code and change it into a more efficient tool for plists aka profiles.&lt;/p&gt;
+
+&lt;p&gt;I have since added the ability to open the ppd’s (which most are just gzip-ed &lt;code class=&quot;highlighter-rouge&quot;&gt;ppd&lt;/code&gt; text files) and extract the model “NickName”, which Apple uses to determine the exact type of the machine. The code is on GitHub of course. I encourage you to look at it and suggest any fixes and features.
+Link: &lt;a href=&quot;https://www.github.com/WardsParadox/PrinterProfileGenerator&quot;&gt;PrinterProfileGenerator&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 29 Nov 2016 17:43:56 -0700</pubDate>
+        <link>https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/</guid>
+        
+        <category>Python</category>
+        
+        
+      </item>
     
       <item>
         <title>TIL 03 -- Get Model Info via Python via Serial</title>
