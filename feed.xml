@@ -6,12 +6,12 @@
 </description>
     <link>https://wardsparadox.github.io/</link>
     <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Nov 2016 17:38:46 -0700</pubDate>
-    <lastBuildDate>Tue, 29 Nov 2016 17:38:46 -0700</lastBuildDate>
+    <pubDate>Tue, 29 Nov 2016 17:40:33 -0700</pubDate>
+    <lastBuildDate>Tue, 29 Nov 2016 17:40:33 -0700</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
-        <title>TIL 02 -- Get Model Info via Python via Serial</title>
+        <title>TIL 03 -- Get Model Info via Python via Serial</title>
         <description>&lt;p&gt;A while back I learned about this website, &lt;a href=&quot;http://support-sp.apple.com/sp/product?cc=&quot;&gt;Apple Config Code Lookup&lt;/a&gt;, when I was building my first info grab script for an inventory. I have since evolved that script into a full Info Viewer (inventory is done via &lt;a href=&quot;https://github.com/munkireport/munkireport-php&quot;&gt;MunkiReport-PHP&lt;/a&gt;). One thing I was always missing was the output from the Apple Config Code Lookup; since I am migrating most of my shell scripts to Python, I figured I might as well add it. I am also learning to modularize my scripts whenever possible as well. This has made things really easy to combine scripts or call them from others. I also wanted to be able to call this script if fed a serial as well. Here we go.&lt;/p&gt;
 
 &lt;p&gt;The old shell script I have is this:&lt;/p&gt;
@@ -21,8 +21,8 @@
 &lt;p&gt;To me..that’s very ugly and very foreign as I am still learning &lt;code class=&quot;highlighter-rouge&quot;&gt;RegEx&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;sed&lt;/code&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 27 Jun 2016 12:49:00 -0600</pubDate>
-        <link>https://wardsparadox.github.io/2016/06/27/til-02-get-model-info-via-python-via-serial/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/06/27/til-02-get-model-info-via-python-via-serial/</guid>
+        <link>https://wardsparadox.github.io/2016/06/27/til-03-get-model-info-via-python-via-serial/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2016/06/27/til-03-get-model-info-via-python-via-serial/</guid>
         
         <category>TIL</category>
         
