@@ -4,10 +4,10 @@
     <title>Zack McCauley</title>
     <description>Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
 </description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Nov 2016 17:15:44 -0700</pubDate>
-    <lastBuildDate>Tue, 29 Nov 2016 17:15:44 -0700</lastBuildDate>
+    <link>https://wardsparadox.github.io/</link>
+    <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 29 Nov 2016 17:30:17 -0700</pubDate>
+    <lastBuildDate>Tue, 29 Nov 2016 17:30:17 -0700</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -20,8 +20,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 &lt;p&gt;&lt;a href=&quot;https://github.com/wardsparadox/OutsetDockProfiler&quot; target=&quot;_blank&quot; title=&quot;My fork&quot;&gt;My fork of OutsetDockProfiler&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 05 Jun 2016 15:43:30 -0600</pubDate>
-        <link>http://localhost:4000/2016/06/05/multiple-inputs-with-one-argument/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/06/05/multiple-inputs-with-one-argument/</guid>
+        <link>https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/</guid>
         
         <category>TIL</category>
         
@@ -51,8 +51,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 
 </description>
         <pubDate>Sun, 06 Mar 2016 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/2016/03/06/til-01-get-a-os-x-preference-via-python/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/03/06/til-01-get-a-os-x-preference-via-python/</guid>
+        <link>https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</guid>
         
         <category>TIL</category>
         
@@ -66,8 +66,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
         <description>&lt;p&gt;Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I’ve learned. Thank you for reading, I hope you enjoy or learn something as well!&lt;/p&gt;
 </description>
         <pubDate>Fri, 04 Mar 2016 14:20:02 -0700</pubDate>
-        <link>http://localhost:4000/2016/03/04/til-00-welcome-to-today-i-learned/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/03/04/til-00-welcome-to-today-i-learned/</guid>
+        <link>https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/</guid>
         
         <category>TIL</category>
         
@@ -97,8 +97,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 
 </description>
         <pubDate>Sat, 12 Dec 2015 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
+        <link>https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
         
         
       </item>
