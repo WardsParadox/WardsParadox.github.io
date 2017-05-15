@@ -4,10 +4,10 @@
     <title>Zack McCauley</title>
     <description>Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
 </description>
-    <link>http://127.0.0.1:4000/</link>
-    <atom:link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 15 May 2017 09:52:28 -0600</pubDate>
-    <lastBuildDate>Mon, 15 May 2017 09:52:28 -0600</lastBuildDate>
+    <link>https://wardsparadox.github.io/</link>
+    <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 15 May 2017 09:54:41 -0600</pubDate>
+    <lastBuildDate>Mon, 15 May 2017 09:54:41 -0600</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -87,8 +87,8 @@ To do this was pretty easy once I got a good explanation from &lt;a href=&quot;h
 &lt;p&gt;If you have custom scripts that can be generalized, please make a fork of the main repo, adjust your scripts to be in reverse domain format such as &lt;code class=&quot;highlighter-rouge&quot;&gt;com.github.yourusername.hello-it.scriptname.sh&lt;/code&gt;, add a ReadMe.md following the templates in the repo and move them to a folder with the same script name. We can add so much to Hello IT and make it better with more community scripts.&lt;/p&gt;
 </description>
         <pubDate>Fri, 12 May 2017 08:17:00 -0600</pubDate>
-        <link>http://127.0.0.1:4000/2017/05/12/hello-it-setup-and-deployment/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000/2017/05/12/hello-it-setup-and-deployment/</guid>
+        <link>https://wardsparadox.github.io/2017/05/12/hello-it-setup-and-deployment/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2017/05/12/hello-it-setup-and-deployment/</guid>
         
         <category>Hello IT</category>
         
@@ -105,8 +105,8 @@ To do this was pretty easy once I got a good explanation from &lt;a href=&quot;h
 Link: &lt;a href=&quot;https://www.github.com/WardsParadox/PrinterProfileGenerator&quot;&gt;PrinterProfileGenerator&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 29 Nov 2016 17:43:56 -0700</pubDate>
-        <link>http://127.0.0.1:4000/2016/11/29/i-made-a-thingwell-sorta/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000/2016/11/29/i-made-a-thingwell-sorta/</guid>
+        <link>https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/</guid>
         
         <category>Python</category>
         
@@ -124,8 +124,8 @@ Link: &lt;a href=&quot;https://www.github.com/WardsParadox/PrinterProfileGenerat
 &lt;p&gt;To me..that’s very ugly and very foreign as I am still learning &lt;code class=&quot;highlighter-rouge&quot;&gt;RegEx&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;sed&lt;/code&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 27 Jun 2016 12:49:00 -0600</pubDate>
-        <link>http://127.0.0.1:4000/2016/06/27/til-03-get-model-info-via-python-via-serial/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000/2016/06/27/til-03-get-model-info-via-python-via-serial/</guid>
+        <link>https://wardsparadox.github.io/2016/06/27/til-03-get-model-info-via-python-via-serial/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2016/06/27/til-03-get-model-info-via-python-via-serial/</guid>
         
         <category>TIL</category>
         
@@ -144,8 +144,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 &lt;p&gt;&lt;a href=&quot;https://github.com/wardsparadox/OutsetDockProfiler&quot; target=&quot;_blank&quot; title=&quot;My fork&quot;&gt;My fork of OutsetDockProfiler&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 05 Jun 2016 15:43:30 -0600</pubDate>
-        <link>http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/</guid>
+        <link>https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/</guid>
         
         <category>TIL</category>
         
@@ -175,8 +175,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 
 </description>
         <pubDate>Sun, 06 Mar 2016 00:00:00 -0700</pubDate>
-        <link>http://127.0.0.1:4000/2016/03/06/til-01-get-a-os-x-preference-via-python/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000/2016/03/06/til-01-get-a-os-x-preference-via-python/</guid>
+        <link>https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</guid>
         
         <category>TIL</category>
         
@@ -190,8 +190,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
         <description>&lt;p&gt;Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I’ve learned. Thank you for reading, I hope you enjoy or learn something as well!&lt;/p&gt;
 </description>
         <pubDate>Fri, 04 Mar 2016 14:20:02 -0700</pubDate>
-        <link>http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/</guid>
+        <link>https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/</guid>
         
         <category>TIL</category>
         
@@ -221,8 +221,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 
 </description>
         <pubDate>Sat, 12 Dec 2015 00:00:00 -0700</pubDate>
-        <link>http://127.0.0.1:4000/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
+        <link>https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
         
         
       </item>
