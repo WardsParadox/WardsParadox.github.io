@@ -4,11 +4,96 @@
     <title>Zack McCauley</title>
     <description>Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
 </description>
-    <link>https://wardsparadox.github.io/</link>
-    <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 11 Jan 2017 18:48:10 -0700</pubDate>
-    <lastBuildDate>Wed, 11 Jan 2017 18:48:10 -0700</lastBuildDate>
+    <link>http://127.0.0.1:4000/</link>
+    <atom:link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 15 May 2017 09:52:28 -0600</pubDate>
+    <lastBuildDate>Mon, 15 May 2017 09:52:28 -0600</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>Hello-IT Setup and Deployment</title>
+        <description>&lt;p&gt;I have recently been playing with a tool called &lt;a href=&quot;https://github.com/ygini/Hello-IT&quot;&gt;Hello IT&lt;/a&gt;. It has been a wonderful tool in testing and I am getting excited to send it out here in our district. I believe it will help our staff be able to communicate to us effectively. Our current layout looks like this:
+&lt;img src=&quot;/assets/images/content images/HelloIT Menu Layout.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;!--more--&gt;
+To do this was pretty easy once I got a good explanation from &lt;a href=&quot;https://github.com/ygini&quot;&gt;@ygini&lt;/a&gt; on the &lt;i class=&quot;fa fa-apple fg-lg&quot;&gt;&lt;/i&gt;&lt;a href=&quot;https://macadmins.org&quot;&gt;MacAdmins.org&lt;/a&gt; slack. He pointed out many flaws with my understanding. Take for example script items. You can choose &lt;code class=&quot;highlighter-rouge&quot;&gt;path&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;script&lt;/code&gt; as the way to call the script. It’s &lt;em&gt;much&lt;/em&gt; easier to use the script method. Drop your script in the &lt;code class=&quot;highlighter-rouge&quot;&gt;CustomScript&lt;/code&gt; directory, check it’s permissions and call it the script like this:&lt;/p&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;functionIdentifier&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;public.script.item&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;settings&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;script&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;com.github.ygini.hello-it.wardsparadox.serialnumber.sh&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;title&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;SNInfo&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Let’s break the preferences down a bit. Each &lt;code class=&quot;highlighter-rouge&quot;&gt;item&lt;/code&gt; is stored inside a &lt;code class=&quot;highlighter-rouge&quot;&gt;dict&lt;/code&gt;. There is a &lt;code class=&quot;highlighter-rouge&quot;&gt;key&lt;/code&gt; called &lt;code class=&quot;highlighter-rouge&quot;&gt;functionIdentifier&lt;/code&gt; that tells HITp which type of item it is. You can create custom items but I have not had a need for that. There are &lt;code class=&quot;highlighter-rouge&quot;&gt;[public.open.application, public.open.resource, public.quit, public.script.item, public.separator, public.submenu, public.test.http, public.title]&lt;/code&gt; available as &lt;code class=&quot;highlighter-rouge&quot;&gt;functionIdentifier&lt;/code&gt;’s. You can find all of the explanations for each of these on the &lt;a href=&quot;https://github.com/ygini/Hello-IT/wiki/&quot;&gt;Wiki&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To build a deployment package, I recommend &lt;a href=&quot;https://www.github.com/munki/munki-pkg&quot;&gt;munki-pkg&lt;/a&gt; as it is simple, it wraps native frameworks and is incredibly quick to get going. First create a new &lt;code class=&quot;highlighter-rouge&quot;&gt;munkipkg&lt;/code&gt; project:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$:&lt;/span&gt; munkipkg --create hello-it-deployment
+&lt;span class=&quot;nv&quot;&gt;$:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ./hello-it-deployment
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;At this point you will notice a folder structure like such:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
+├── build
+├── build-info.plist
+├── payload
+└── scripts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Edit the &lt;code class=&quot;highlighter-rouge&quot;&gt;build-info.plist&lt;/code&gt; and change several things to match the appropriate settings down below.&lt;/p&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;plist&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;distribution_style&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;false/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;identifier&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;com.github.yourusername.hello-it-deployment&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;install_location&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;/Library/Application Support/CustomScripts&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;name&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;hello-it-deployment-${version}.pkg&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;ownership&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;recommended&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;postinstall_action&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;none&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;suppress_bundle_relocation&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;version&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;1.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Once all the scripts you want to deploy are in the payload folder, you will need to change the permissions and ownership so they run correctly. To do this run (assuming you are still in the same directory inside your terminal session):&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$:&lt;/span&gt; sudo chown -R root:wheel payload
+&lt;span class=&quot;nv&quot;&gt;$:&lt;/span&gt; sudo chmod -R 755 payload
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Your package is now ready to be built. Go over all the files again, make sure your &lt;code class=&quot;highlighter-rouge&quot;&gt;build-info.plist&lt;/code&gt; is correct, and build your package.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$:&lt;/span&gt; munkipkg build /path/to/hello-it-deployment
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This will create a package in the &lt;code class=&quot;highlighter-rouge&quot;&gt;build&lt;/code&gt; directory of your project. You can use &lt;code class=&quot;highlighter-rouge&quot;&gt;munkiimport&lt;/code&gt; or any other deployment tool to deploy this package now. If using &lt;a href=&quot;https://www.munki.org/&quot;&gt;munki&lt;/a&gt;, make sure to mark this as an &lt;code class=&quot;highlighter-rouge&quot;&gt;update_for&lt;/code&gt; for the Hello IT App. I recommend deploying the app and using the “KeepAlive” feature mentioned in the &lt;a href=&quot;https://github.com/ygini/Hello-IT/wiki/Launching-App&quot;&gt;wiki&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You will also need to deploy the preferences for your setup. I highly recommend using a configuration profile to do this. It makes management incredibly easy to maintain and update. I have tried to document the &lt;code class=&quot;highlighter-rouge&quot;&gt;dict&lt;/code&gt;’s needed for the scripts in the Repo, but if you have custom scripts, all I can do is recommend checking my example configuration profile in the main repo &lt;a href=&quot;https://github.com/ygini/Hello-IT/blob/master/example/HelloITConfiguration_example.mobileconfig&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;sidenote&quot;&gt;Sidenote:&lt;/h3&gt;
+&lt;p&gt;If you have custom scripts that can be generalized, please make a fork of the main repo, adjust your scripts to be in reverse domain format such as &lt;code class=&quot;highlighter-rouge&quot;&gt;com.github.yourusername.hello-it.scriptname.sh&lt;/code&gt;, add a ReadMe.md following the templates in the repo and move them to a folder with the same script name. We can add so much to Hello IT and make it better with more community scripts.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 12 May 2017 08:17:00 -0600</pubDate>
+        <link>http://127.0.0.1:4000/2017/05/12/hello-it-setup-and-deployment/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2017/05/12/hello-it-setup-and-deployment/</guid>
+        
+        <category>Hello IT</category>
+        
+        
+      </item>
     
       <item>
         <title>I made a thing..well sorta</title>
@@ -20,8 +105,8 @@
 Link: &lt;a href=&quot;https://www.github.com/WardsParadox/PrinterProfileGenerator&quot;&gt;PrinterProfileGenerator&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 29 Nov 2016 17:43:56 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/</guid>
+        <link>http://127.0.0.1:4000/2016/11/29/i-made-a-thingwell-sorta/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2016/11/29/i-made-a-thingwell-sorta/</guid>
         
         <category>Python</category>
         
@@ -39,8 +124,8 @@ Link: &lt;a href=&quot;https://www.github.com/WardsParadox/PrinterProfileGenerat
 &lt;p&gt;To me..that’s very ugly and very foreign as I am still learning &lt;code class=&quot;highlighter-rouge&quot;&gt;RegEx&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;sed&lt;/code&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 27 Jun 2016 12:49:00 -0600</pubDate>
-        <link>https://wardsparadox.github.io/2016/06/27/til-03-get-model-info-via-python-via-serial/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/06/27/til-03-get-model-info-via-python-via-serial/</guid>
+        <link>http://127.0.0.1:4000/2016/06/27/til-03-get-model-info-via-python-via-serial/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2016/06/27/til-03-get-model-info-via-python-via-serial/</guid>
         
         <category>TIL</category>
         
@@ -59,8 +144,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 &lt;p&gt;&lt;a href=&quot;https://github.com/wardsparadox/OutsetDockProfiler&quot; target=&quot;_blank&quot; title=&quot;My fork&quot;&gt;My fork of OutsetDockProfiler&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 05 Jun 2016 15:43:30 -0600</pubDate>
-        <link>https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/</guid>
+        <link>http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/</guid>
         
         <category>TIL</category>
         
@@ -90,8 +175,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 
 </description>
         <pubDate>Sun, 06 Mar 2016 00:00:00 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</guid>
+        <link>http://127.0.0.1:4000/2016/03/06/til-01-get-a-os-x-preference-via-python/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2016/03/06/til-01-get-a-os-x-preference-via-python/</guid>
         
         <category>TIL</category>
         
@@ -105,8 +190,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
         <description>&lt;p&gt;Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I’ve learned. Thank you for reading, I hope you enjoy or learn something as well!&lt;/p&gt;
 </description>
         <pubDate>Fri, 04 Mar 2016 14:20:02 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/</guid>
+        <link>http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/</guid>
         
         <category>TIL</category>
         
@@ -136,8 +221,8 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 
 </description>
         <pubDate>Sat, 12 Dec 2015 00:00:00 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
+        <link>http://127.0.0.1:4000/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
         
         
       </item>

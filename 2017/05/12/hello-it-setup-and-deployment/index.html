@@ -8,10 +8,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TIL 00 - Welcome to Today I Learned - Zack McCauley</title>
+    <title>Hello-IT Setup and Deployment - Zack McCauley</title>
     <meta name="description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
 ">
-    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="TIL 00 - Welcome to Today I Learned - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/"><meta property="article:published_time" content="2016-03-04T14:20:02-07:00"><meta property="article:author" content="http://127.0.0.1:4000/about">
+    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Hello-IT Setup and Deployment - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="http://127.0.0.1:4000/2017/05/12/hello-it-setup-and-deployment/"><meta property="article:published_time" content="2017-05-12T08:17:00-06:00"><meta property="article:author" content="http://127.0.0.1:4000/about">
 
     
 
@@ -22,7 +22,7 @@
     <link rel="alternate" type="application/rss+xml" href="http://127.0.0.1:4000/feed.xml">
     <link rel="shortcut icon" href="http://127.0.0.1:4000/favicon.ico">
     <link rel="prefetch" href="http://127.0.0.1:4000">
-    <link rel="canonical" href="http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/">
+    <link rel="canonical" href="http://127.0.0.1:4000/2017/05/12/hello-it-setup-and-deployment/">
     <link rel="stylesheet"
     href="http://127.0.0.1:4000/assets/css/main.css">
     <!-- Favicons -->
@@ -80,21 +80,93 @@
   
 
   <header class="post-header">
-    <h1 class="post-title">TIL 00 - Welcome to Today I Learned</h1>
+    <h1 class="post-title">Hello-IT Setup and Deployment</h1>
     <p class="post-meta">
     
       <span class="categories">
-      TIL and Python
+      Hello IT
       </span> |
     
     <span class="post-date">
-    Mar 4, 2016
+    May 12, 2017
     </span>
     </p>
   </header>
 
   <article class="post-content">
-    <p>Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I’ve learned. Thank you for reading, I hope you enjoy or learn something as well!</p>
+    <p>I have recently been playing with a tool called <a href="https://github.com/ygini/Hello-IT">Hello IT</a>. It has been a wonderful tool in testing and I am getting excited to send it out here in our district. I believe it will help our staff be able to communicate to us effectively. Our current layout looks like this:
+<img src="/assets/images/content images/HelloIT Menu Layout.jpg" alt="" />
+<!--more-->
+To do this was pretty easy once I got a good explanation from <a href="https://github.com/ygini">@ygini</a> on the <i class="fa fa-apple fg-lg"></i><a href="https://macadmins.org">MacAdmins.org</a> slack. He pointed out many flaws with my understanding. Take for example script items. You can choose <code class="highlighter-rouge">path</code> or <code class="highlighter-rouge">script</code> as the way to call the script. It’s <em>much</em> easier to use the script method. Drop your script in the <code class="highlighter-rouge">CustomScript</code> directory, check it’s permissions and call it the script like this:</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;dict&gt;</span>
+  <span class="nt">&lt;key&gt;</span>functionIdentifier<span class="nt">&lt;/key&gt;</span>
+  <span class="nt">&lt;string&gt;</span>public.script.item<span class="nt">&lt;/string&gt;</span>
+  <span class="nt">&lt;key&gt;</span>settings<span class="nt">&lt;/key&gt;</span>
+  <span class="nt">&lt;dict&gt;</span>
+    <span class="nt">&lt;key&gt;</span>script<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>com.github.ygini.hello-it.wardsparadox.serialnumber.sh<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>title<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>SNInfo<span class="nt">&lt;/string&gt;</span>
+  <span class="nt">&lt;/dict&gt;</span>
+<span class="nt">&lt;/dict&gt;</span>
+</code></pre>
+</div>
+
+<p>Let’s break the preferences down a bit. Each <code class="highlighter-rouge">item</code> is stored inside a <code class="highlighter-rouge">dict</code>. There is a <code class="highlighter-rouge">key</code> called <code class="highlighter-rouge">functionIdentifier</code> that tells HITp which type of item it is. You can create custom items but I have not had a need for that. There are <code class="highlighter-rouge">[public.open.application, public.open.resource, public.quit, public.script.item, public.separator, public.submenu, public.test.http, public.title]</code> available as <code class="highlighter-rouge">functionIdentifier</code>’s. You can find all of the explanations for each of these on the <a href="https://github.com/ygini/Hello-IT/wiki/">Wiki</a>.</p>
+
+<p>To build a deployment package, I recommend <a href="https://www.github.com/munki/munki-pkg">munki-pkg</a> as it is simple, it wraps native frameworks and is incredibly quick to get going. First create a new <code class="highlighter-rouge">munkipkg</code> project:</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nv">$:</span> munkipkg --create hello-it-deployment
+<span class="nv">$:</span> <span class="nb">cd</span> ./hello-it-deployment
+</code></pre>
+</div>
+<p>At this point you will notice a folder structure like such:</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>.
+├── build
+├── build-info.plist
+├── payload
+└── scripts
+</code></pre>
+</div>
+<p>Edit the <code class="highlighter-rouge">build-info.plist</code> and change several things to match the appropriate settings down below.</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="cp">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span>
+<span class="nt">&lt;plist</span> <span class="na">version=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;dict&gt;</span>
+	<span class="nt">&lt;key&gt;</span>distribution_style<span class="nt">&lt;/key&gt;</span>
+	<span class="nt">&lt;false/&gt;</span>
+	<span class="nt">&lt;key&gt;</span>identifier<span class="nt">&lt;/key&gt;</span>
+	<span class="nt">&lt;string&gt;</span>com.github.yourusername.hello-it-deployment<span class="nt">&lt;/string&gt;</span>
+	<span class="nt">&lt;key&gt;</span>install_location<span class="nt">&lt;/key&gt;</span>
+	<span class="nt">&lt;string&gt;</span>/Library/Application Support/CustomScripts<span class="nt">&lt;/string&gt;</span>
+	<span class="nt">&lt;key&gt;</span>name<span class="nt">&lt;/key&gt;</span>
+	<span class="nt">&lt;string&gt;</span>hello-it-deployment-${version}.pkg<span class="nt">&lt;/string&gt;</span>
+	<span class="nt">&lt;key&gt;</span>ownership<span class="nt">&lt;/key&gt;</span>
+	<span class="nt">&lt;string&gt;</span>recommended<span class="nt">&lt;/string&gt;</span>
+	<span class="nt">&lt;key&gt;</span>postinstall_action<span class="nt">&lt;/key&gt;</span>
+	<span class="nt">&lt;string&gt;</span>none<span class="nt">&lt;/string&gt;</span>
+	<span class="nt">&lt;key&gt;</span>suppress_bundle_relocation<span class="nt">&lt;/key&gt;</span>
+	<span class="nt">&lt;true/&gt;</span>
+	<span class="nt">&lt;key&gt;</span>version<span class="nt">&lt;/key&gt;</span>
+	<span class="nt">&lt;string&gt;</span>1.0<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;/dict&gt;</span>
+<span class="nt">&lt;/plist&gt;</span>
+</code></pre>
+</div>
+<p>Once all the scripts you want to deploy are in the payload folder, you will need to change the permissions and ownership so they run correctly. To do this run (assuming you are still in the same directory inside your terminal session):</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nv">$:</span> sudo chown -R root:wheel payload
+<span class="nv">$:</span> sudo chmod -R 755 payload
+</code></pre>
+</div>
+<p>Your package is now ready to be built. Go over all the files again, make sure your <code class="highlighter-rouge">build-info.plist</code> is correct, and build your package.</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code> <span class="nv">$:</span> munkipkg build /path/to/hello-it-deployment
+</code></pre>
+</div>
+<p>This will create a package in the <code class="highlighter-rouge">build</code> directory of your project. You can use <code class="highlighter-rouge">munkiimport</code> or any other deployment tool to deploy this package now. If using <a href="https://www.munki.org/">munki</a>, make sure to mark this as an <code class="highlighter-rouge">update_for</code> for the Hello IT App. I recommend deploying the app and using the “KeepAlive” feature mentioned in the <a href="https://github.com/ygini/Hello-IT/wiki/Launching-App">wiki</a>.</p>
+
+<p>You will also need to deploy the preferences for your setup. I highly recommend using a configuration profile to do this. It makes management incredibly easy to maintain and update. I have tried to document the <code class="highlighter-rouge">dict</code>’s needed for the scripts in the Repo, but if you have custom scripts, all I can do is recommend checking my example configuration profile in the main repo <a href="https://github.com/ygini/Hello-IT/blob/master/example/HelloITConfiguration_example.mobileconfig">here</a></p>
+
+<h3 id="sidenote">Sidenote:</h3>
+<p>If you have custom scripts that can be generalized, please make a fork of the main repo, adjust your scripts to be in reverse domain format such as <code class="highlighter-rouge">com.github.yourusername.hello-it.scriptname.sh</code>, add a ReadMe.md following the templates in the repo and move them to a folder with the same script name. We can add so much to Hello IT and make it better with more community scripts.</p>
 
   </article>
 
@@ -102,15 +174,6 @@
     <div class="related-posts">
       <h4>Related Posts</h4>
       <ul>
-        
-          <li>
-            <h5>
-              <a href="http://127.0.0.1:4000/2017/05/12/hello-it-setup-and-deployment/">
-                Hello-IT Setup and Deployment
-                <small>12 May 2017</small>
-              </a>
-            </h5>
-          </li>
         
           <li>
             <h5>
@@ -130,6 +193,15 @@
             </h5>
           </li>
         
+          <li>
+            <h5>
+              <a href="http://127.0.0.1:4000/2016/06/05/multiple-inputs-with-one-argument/">
+                TIL 02 - Multiple Inputs For One Argument
+                <small>05 Jun 2016</small>
+              </a>
+            </h5>
+          </li>
+        
       </ul>
     </div>
   
@@ -141,7 +213,7 @@
     
 
     
-      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title=" on Twitter"           href="https://twitter.com/intent/tweet?original_referer=http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/&amp;text=TIL 00 - Welcome to Today I Learned&amp;url=http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:4000/2016/03/04/til-00-welcome-to-today-i-learned/&amp;t=TIL 00 - Welcome to Today I Learned"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
+      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title=" on Twitter"           href="https://twitter.com/intent/tweet?original_referer=http://127.0.0.1:4000/2017/05/12/hello-it-setup-and-deployment/&amp;text=Hello-IT Setup and Deployment&amp;url=http://127.0.0.1:4000/2017/05/12/hello-it-setup-and-deployment/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=http://127.0.0.1:4000/2017/05/12/hello-it-setup-and-deployment/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:4000/2017/05/12/hello-it-setup-and-deployment/&amp;t=Hello-IT Setup and Deployment"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
     
   </div>
 
