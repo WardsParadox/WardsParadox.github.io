@@ -81,6 +81,47 @@
     
 
     <h1 class="post-title">
+      <a href="https://wardsparadox.github.io/2017/05/29/dock-maintainer-defined/">
+        Dock-maintainer: Defined
+      </a>
+    </h1>
+
+    <p class="post-meta">
+    
+      <span class="categories">
+      dock-maintainer, python
+      </span> |
+    
+    <span class="post-date">
+    May 29, 2017
+    </span>
+    </p>
+
+    <p>Recently I created a tool called dock-maintainer. This post goes over a couple things but mainly serves to explain why I created it and why I needed it instead of using other solutions. Traditionally this job (maintaining Dock configurations) has been handled in a multitude of ways. There have been many ways to do this. One can use configuration profiles, puppet/salt/chef/etc, outset with a script (a method I used until recently).</p>
+
+<p>I found a few problems with the previous methods. With configuration profiles, I could not find a reliable way to deploy a Dock payload for a specified user. If you installed it via <a href="https://www.munki.org/">munki</a>, this forced it for all users. I forked and changed Nick McSpadden’s tool, <a href="https://github.com/nmcspadden/`OutSet`DockProfiler">OutSet Dock Profiler</a>. This packaged the profile and created a script to load it via outset at login. The rewrite allowed for multiple profiles to be loaded via outset per user. This created another issue; upon login due to parental controls being loaded, it would prompt for a password to allow managed preferences changes. There was also issues that it created a singular install script that could affect other things in edge cases. This was purely due to my fork and the script part not being correctly modified to handle multiple profiles.</p>
+
+<p>I have never used puppet or chef or anything of the sort, so that method was out. I eventually settled on using <a href="https://github.com/chilcote/outset"><code class="highlighter-rouge">OutSet</code></a> to deploy an initial Dock setup script using <code class="highlighter-rouge">[dockutil](https://github.com/kcrawford/dockutil)</code>. This included a shortcut in the Dock to the <code class="highlighter-rouge">/Applications</code> folder for ease of use. I thought that this may be enough for most needs.</p>
+
+<p>Due to our district using parental controls (soon to be changing, more on that soon), Chrome V58 stopped working with accounts using parental controls again. It would not launch correctly, if at all. I had many teachers come to me asking if I could add Firefox to the Docks on the student labs. I informed them to use Spotlight or the Applications folder shortcut already on the Dock. They stated it was difficult for the K-3 students to use those two and that it would really help to have it on the Dock. I lock the dock (our students being notorious for removing icons) using several managed preferences I found during my research into using Configuration profiles. This made it difficult for staff to add icons to dock without knowing how to use <code class="highlighter-rouge">dockutil</code> via terminal. What is nice is that the managed preferences don’t prevent <code class="highlighter-rouge">dockutil</code> from editing the <code class="highlighter-rouge">plist</code> as needed.</p>
+
+<p>As I had already deployed <code class="highlighter-rouge">dockutil</code> to all the machines district wide, I knew that I needed to find a solution that to wrap <code class="highlighter-rouge">dockutil</code> and make it easier to setup and adjust docks without having to run a script on each machine for each change using ARD. This made me consider writing a tool to do this for me. I saw <a href="https://github.com/ygini/DockServiceManager">ygini</a> had created a wrapper for MDMs and <code class="highlighter-rouge">dockutil</code> but that wasn’t in the same way I wanted. I settled and wrote dock-maintainer which allowed me to specify an account whose dock I wanted to modify, and host the files on a simple web server. It uses <code class="highlighter-rouge">OutSet</code> to handle the updater and script to maintain the dock, and uses <code class="highlighter-rouge">dockutil</code> to modify the dock itself. It also auto downloads the file based on the “Last Modified” header (huge tip from @elios on the <a href="macadmins.org">macadmins</a> slack for recommending this!), so only if it needs to by storing those dates in extended attributes of the file. If it detects any changes, it clears the entire dock to ensure a clean run of adding all the items back in. It also exits cleanly if it detects no changes and doesn’t mess the dock.</p>
+
+<p>To take advantage of this tool, you will need to have a web server, a text editor, and have the short name of the account you wish to manage handy. I would recommend using a <code class="highlighter-rouge">munki</code> repo if you already have one as it is setup in the same fashion. I created a folder in my <code class="highlighter-rouge">munki</code> repo called <code class="highlighter-rouge">docksetups</code>. In this I created a <code class="highlighter-rouge">plist</code> for every user that I wish to manage (remember it’s the short name that is returned not the users full name), with no file extension. In each <code class="highlighter-rouge">plist</code> there must be two arrays, one called Apps and one called Others. In each array use string elements with the full path to the item you want in the dock. In the Others array you can use ~ to reference items in the HOME directory of that user. You will then need to set the preferences up on the machines you wish to manage. The domain is <code class="highlighter-rouge">com.github.wardsparadox.dock-maintainer</code>. There are two keys, <code class="highlighter-rouge">ManagedUser</code> and <code class="highlighter-rouge">ServerURL</code>. The <code class="highlighter-rouge">ManagedUser</code> key must be the same as the name of <code class="highlighter-rouge">plist</code> and the the short name as the user you wish to manage. The server URL key is the path to the server folder you setup i.e.: <code class="highlighter-rouge">http://munki.example.com/munki_repo/docksetups</code>.</p>
+
+<p>I plan to add more logging features in the future. I hope this article makes the creation of yet another tool more understood.</p>
+
+    <a href="https://wardsparadox.github.io/2017/05/29/dock-maintainer-defined/">
+      Continue reading »
+    </a>
+  </article>
+  
+  
+  <article class="post">
+
+    
+
+    <h1 class="post-title">
       <a href="https://wardsparadox.github.io/2017/05/12/hello-it-setup-and-deployment/">
         Hello-IT Setup and Deployment
       </a>
@@ -205,51 +246,6 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
 <p><a href="https://github.com/wardsparadox/OutsetDockProfiler" target="_blank" title="My fork">My fork of OutsetDockProfiler</a></p>
 
     <a href="https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/">
-      Continue reading »
-    </a>
-  </article>
-  
-  
-  <article class="post">
-
-    
-
-    <h1 class="post-title">
-      <a href="https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/">
-        TIL 01 - Get a OS X Preference via Python
-      </a>
-    </h1>
-
-    <p class="post-meta">
-    
-      <span class="categories">
-      Python, TIL
-      </span> |
-    
-    <span class="post-date">
-    Mar 6, 2016
-    </span>
-    </p>
-
-    <p>As I am trying to learn more of the Python programming language (version 2.7.* as that is what is currently built-in to OS X), I find little challenges to help process what I have learned of it. Recently I was introduced to the <code class="highlighter-rouge">Foundation</code> frameworks that come with OS X. For a while I was writing scripts that required <code class="highlighter-rouge">plistlib</code> which could only read the XML version of a plist. OS X stores preferences in binary plist form. In order to use <code class="highlighter-rouge">plistlib</code> then, I was shelling out using <code class="highlighter-rouge">subprocess</code> and converting the plist to xml form temporarily. As I am trying to stay away from some of the “bad Mac Admin” practices, I found myself needing a way to read preferences without messing with the hard files. I could use <code class="highlighter-rouge">subprocess.check_output</code> and read the results of defaults, but why add more complexity (just my opinion). Here is what I came up with (this example uses the Munki preference file):</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
-<span class="kn">from</span> <span class="nn">Foundation</span> <span class="kn">import</span> <span class="n">CFPreferencesCopyValue</span><span class="p">,</span> \
-                       <span class="n">kCFPreferencesAnyUser</span><span class="p">,</span> \
-                       <span class="n">kCFPreferencesAnyHost</span>
-<span class="k">def</span> <span class="nf">getpreferencekey</span><span class="p">(</span><span class="n">keytolookup</span><span class="p">):</span>
-    <span class="s">'''
-    Returns Value for Requested Key in ManagedInstalls
-    '''</span>
-    <span class="k">return</span> <span class="n">CFPreferencesCopyValue</span><span class="p">(</span><span class="n">keytolookup</span><span class="p">,</span> <span class="s">"/Library/Preferences/ManagedInstalls"</span><span class="p">,</span>
-                              <span class="n">kCFPreferencesAnyUser</span><span class="p">,</span> <span class="n">kCFPreferencesAnyHost</span><span class="p">)</span>
-<span class="n">munki_cid</span> <span class="o">=</span> <span class="n">getpreferencekey</span><span class="p">(</span><span class="s">"ClientIdentifier"</span><span class="p">)</span>
-<span class="n">munki_server</span> <span class="o">=</span> <span class="n">getpreferencekey</span><span class="p">(</span><span class="s">"SoftwareRepoURL"</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">munki_cid</span>
-<span class="k">print</span> <span class="n">munki_server</span></code></pre></figure>
-
-
-    <a href="https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/">
       Continue reading »
     </a>
   </article>

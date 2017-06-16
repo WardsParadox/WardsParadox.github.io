@@ -81,6 +81,51 @@
     
 
     <h1 class="post-title">
+      <a href="https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/">
+        TIL 01 - Get a OS X Preference via Python
+      </a>
+    </h1>
+
+    <p class="post-meta">
+    
+      <span class="categories">
+      Python, TIL
+      </span> |
+    
+    <span class="post-date">
+    Mar 6, 2016
+    </span>
+    </p>
+
+    <p>As I am trying to learn more of the Python programming language (version 2.7.* as that is what is currently built-in to OS X), I find little challenges to help process what I have learned of it. Recently I was introduced to the <code class="highlighter-rouge">Foundation</code> frameworks that come with OS X. For a while I was writing scripts that required <code class="highlighter-rouge">plistlib</code> which could only read the XML version of a plist. OS X stores preferences in binary plist form. In order to use <code class="highlighter-rouge">plistlib</code> then, I was shelling out using <code class="highlighter-rouge">subprocess</code> and converting the plist to xml form temporarily. As I am trying to stay away from some of the “bad Mac Admin” practices, I found myself needing a way to read preferences without messing with the hard files. I could use <code class="highlighter-rouge">subprocess.check_output</code> and read the results of defaults, but why add more complexity (just my opinion). Here is what I came up with (this example uses the Munki preference file):</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
+<span class="kn">from</span> <span class="nn">Foundation</span> <span class="kn">import</span> <span class="n">CFPreferencesCopyValue</span><span class="p">,</span> \
+                       <span class="n">kCFPreferencesAnyUser</span><span class="p">,</span> \
+                       <span class="n">kCFPreferencesAnyHost</span>
+<span class="k">def</span> <span class="nf">getpreferencekey</span><span class="p">(</span><span class="n">keytolookup</span><span class="p">):</span>
+    <span class="s">'''
+    Returns Value for Requested Key in ManagedInstalls
+    '''</span>
+    <span class="k">return</span> <span class="n">CFPreferencesCopyValue</span><span class="p">(</span><span class="n">keytolookup</span><span class="p">,</span> <span class="s">"/Library/Preferences/ManagedInstalls"</span><span class="p">,</span>
+                              <span class="n">kCFPreferencesAnyUser</span><span class="p">,</span> <span class="n">kCFPreferencesAnyHost</span><span class="p">)</span>
+<span class="n">munki_cid</span> <span class="o">=</span> <span class="n">getpreferencekey</span><span class="p">(</span><span class="s">"ClientIdentifier"</span><span class="p">)</span>
+<span class="n">munki_server</span> <span class="o">=</span> <span class="n">getpreferencekey</span><span class="p">(</span><span class="s">"SoftwareRepoURL"</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">munki_cid</span>
+<span class="k">print</span> <span class="n">munki_server</span></code></pre></figure>
+
+
+    <a href="https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/">
+      Continue reading »
+    </a>
+  </article>
+  
+  
+  <article class="post">
+
+    
+
+    <h1 class="post-title">
       <a href="https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/">
         TIL 00 - Welcome to Today I Learned
       </a>

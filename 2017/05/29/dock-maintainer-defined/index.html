@@ -8,10 +8,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>I made a thing..well sorta - Zack McCauley</title>
+    <title>Dock-maintainer: Defined - Zack McCauley</title>
     <meta name="description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
 ">
-    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="I made a thing..well sorta - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/"><meta property="article:published_time" content="2016-11-29T17:43:56-07:00"><meta property="article:author" content="https://wardsparadox.github.io/about">
+    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Dock-maintainer: Defined - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="https://wardsparadox.github.io/2017/05/29/dock-maintainer-defined/"><meta property="article:published_time" content="2017-05-29T16:00:00-06:00"><meta property="article:author" content="https://wardsparadox.github.io/about">
 
     
 
@@ -22,7 +22,7 @@
     <link rel="alternate" type="application/rss+xml" href="https://wardsparadox.github.io/feed.xml">
     <link rel="shortcut icon" href="https://wardsparadox.github.io/favicon.ico">
     <link rel="prefetch" href="https://wardsparadox.github.io">
-    <link rel="canonical" href="https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/">
+    <link rel="canonical" href="https://wardsparadox.github.io/2017/05/29/dock-maintainer-defined/">
     <link rel="stylesheet"
     href="https://wardsparadox.github.io/assets/css/main.css">
     <!-- Favicons -->
@@ -80,26 +80,33 @@
   
 
   <header class="post-header">
-    <h1 class="post-title">I made a thing..well sorta</h1>
+    <h1 class="post-title">Dock-maintainer: Defined</h1>
     <p class="post-meta">
     
       <span class="categories">
-      Python
+      dock-maintainer, python
       </span> |
     
     <span class="post-date">
-    Nov 29, 2016
+    May 29, 2017
     </span>
     </p>
   </header>
 
   <article class="post-content">
-    <p>It seems that I have learned <em>A LOT</em> in recent months concerning Python. Again huge shout out to <a href="https://github.com/nmcspadden/">Nick McSpadden</a> and <a href="https://github.com/pudquick/">froger</a> for helping me get to where I am knowledge wise today. In between now and my last post, Nick helped me understand the <code class="highlighter-rouge">dict</code> datatype. Turns out python can use translate <code class="highlighter-rouge">dict</code> into the plist equivalents! The more you know eh?</p>
+    <p>Recently I created a tool called dock-maintainer. This post goes over a couple things but mainly serves to explain why I created it and why I needed it instead of using other solutions. Traditionally this job (maintaining Dock configurations) has been handled in a multitude of ways. There have been many ways to do this. One can use configuration profiles, puppet/salt/chef/etc, outset with a script (a method I used until recently).</p>
 
-<p>The reason he was helping me on this was because I had an idea to take his <a href="https://github.com/nmcspadden/PrinterGenerator">PrinterGenerator</a> tool and make it work in a different way. The input was roughly the same but the output was instead a printer profile that could be used outside of Munki or with Munki (v2.2 added the ability to install profiles). I had just taken some of the code and translated it to work with a template plist. Instead with his help, I was able to replace a lot of the code and change it into a more efficient tool for plists aka profiles.</p>
+<p>I found a few problems with the previous methods. With configuration profiles, I could not find a reliable way to deploy a Dock payload for a specified user. If you installed it via <a href="https://www.munki.org/">munki</a>, this forced it for all users. I forked and changed Nick McSpadden’s tool, <a href="https://github.com/nmcspadden/`OutSet`DockProfiler">OutSet Dock Profiler</a>. This packaged the profile and created a script to load it via outset at login. The rewrite allowed for multiple profiles to be loaded via outset per user. This created another issue; upon login due to parental controls being loaded, it would prompt for a password to allow managed preferences changes. There was also issues that it created a singular install script that could affect other things in edge cases. This was purely due to my fork and the script part not being correctly modified to handle multiple profiles.</p>
 
-<p>I have since added the ability to open the ppd’s (which most are just gzip-ed <code class="highlighter-rouge">ppd</code> text files) and extract the model “NickName”, which Apple uses to determine the exact type of the machine. The code is on GitHub of course. I encourage you to look at it and suggest any fixes and features.
-Link: <a href="https://www.github.com/WardsParadox/PrinterProfileGenerator">PrinterProfileGenerator</a></p>
+<p>I have never used puppet or chef or anything of the sort, so that method was out. I eventually settled on using <a href="https://github.com/chilcote/outset"><code class="highlighter-rouge">OutSet</code></a> to deploy an initial Dock setup script using <code class="highlighter-rouge">[dockutil](https://github.com/kcrawford/dockutil)</code>. This included a shortcut in the Dock to the <code class="highlighter-rouge">/Applications</code> folder for ease of use. I thought that this may be enough for most needs.</p>
+
+<p>Due to our district using parental controls (soon to be changing, more on that soon), Chrome V58 stopped working with accounts using parental controls again. It would not launch correctly, if at all. I had many teachers come to me asking if I could add Firefox to the Docks on the student labs. I informed them to use Spotlight or the Applications folder shortcut already on the Dock. They stated it was difficult for the K-3 students to use those two and that it would really help to have it on the Dock. I lock the dock (our students being notorious for removing icons) using several managed preferences I found during my research into using Configuration profiles. This made it difficult for staff to add icons to dock without knowing how to use <code class="highlighter-rouge">dockutil</code> via terminal. What is nice is that the managed preferences don’t prevent <code class="highlighter-rouge">dockutil</code> from editing the <code class="highlighter-rouge">plist</code> as needed.</p>
+
+<p>As I had already deployed <code class="highlighter-rouge">dockutil</code> to all the machines district wide, I knew that I needed to find a solution that to wrap <code class="highlighter-rouge">dockutil</code> and make it easier to setup and adjust docks without having to run a script on each machine for each change using ARD. This made me consider writing a tool to do this for me. I saw <a href="https://github.com/ygini/DockServiceManager">ygini</a> had created a wrapper for MDMs and <code class="highlighter-rouge">dockutil</code> but that wasn’t in the same way I wanted. I settled and wrote dock-maintainer which allowed me to specify an account whose dock I wanted to modify, and host the files on a simple web server. It uses <code class="highlighter-rouge">OutSet</code> to handle the updater and script to maintain the dock, and uses <code class="highlighter-rouge">dockutil</code> to modify the dock itself. It also auto downloads the file based on the “Last Modified” header (huge tip from @elios on the <a href="macadmins.org">macadmins</a> slack for recommending this!), so only if it needs to by storing those dates in extended attributes of the file. If it detects any changes, it clears the entire dock to ensure a clean run of adding all the items back in. It also exits cleanly if it detects no changes and doesn’t mess the dock.</p>
+
+<p>To take advantage of this tool, you will need to have a web server, a text editor, and have the short name of the account you wish to manage handy. I would recommend using a <code class="highlighter-rouge">munki</code> repo if you already have one as it is setup in the same fashion. I created a folder in my <code class="highlighter-rouge">munki</code> repo called <code class="highlighter-rouge">docksetups</code>. In this I created a <code class="highlighter-rouge">plist</code> for every user that I wish to manage (remember it’s the short name that is returned not the users full name), with no file extension. In each <code class="highlighter-rouge">plist</code> there must be two arrays, one called Apps and one called Others. In each array use string elements with the full path to the item you want in the dock. In the Others array you can use ~ to reference items in the HOME directory of that user. You will then need to set the preferences up on the machines you wish to manage. The domain is <code class="highlighter-rouge">com.github.wardsparadox.dock-maintainer</code>. There are two keys, <code class="highlighter-rouge">ManagedUser</code> and <code class="highlighter-rouge">ServerURL</code>. The <code class="highlighter-rouge">ManagedUser</code> key must be the same as the name of <code class="highlighter-rouge">plist</code> and the the short name as the user you wish to manage. The server URL key is the path to the server folder you setup i.e.: <code class="highlighter-rouge">http://munki.example.com/munki_repo/docksetups</code>.</p>
+
+<p>I plan to add more logging features in the future. I hope this article makes the creation of yet another tool more understood.</p>
 
   </article>
 
@@ -110,18 +117,18 @@ Link: <a href="https://www.github.com/WardsParadox/PrinterProfileGenerator">Prin
         
           <li>
             <h5>
-              <a href="https://wardsparadox.github.io/2017/05/29/dock-maintainer-defined/">
-                Dock-maintainer: Defined
-                <small>29 May 2017</small>
+              <a href="https://wardsparadox.github.io/2017/05/12/hello-it-setup-and-deployment/">
+                Hello-IT Setup and Deployment
+                <small>12 May 2017</small>
               </a>
             </h5>
           </li>
         
           <li>
             <h5>
-              <a href="https://wardsparadox.github.io/2017/05/12/hello-it-setup-and-deployment/">
-                Hello-IT Setup and Deployment
-                <small>12 May 2017</small>
+              <a href="https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/">
+                I made a thing..well sorta
+                <small>29 Nov 2016</small>
               </a>
             </h5>
           </li>
@@ -146,7 +153,7 @@ Link: <a href="https://www.github.com/WardsParadox/PrinterProfileGenerator">Prin
     
 
     
-      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title=" on Twitter"           href="https://twitter.com/intent/tweet?original_referer=https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/&amp;text=I made a thing..well sorta&amp;url=https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/&amp;t=I made a thing..well sorta"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
+      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title=" on Twitter"           href="https://twitter.com/intent/tweet?original_referer=https://wardsparadox.github.io/2017/05/29/dock-maintainer-defined/&amp;text=Dock-maintainer: Defined&amp;url=https://wardsparadox.github.io/2017/05/29/dock-maintainer-defined/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=https://wardsparadox.github.io/2017/05/29/dock-maintainer-defined/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=https://wardsparadox.github.io/2017/05/29/dock-maintainer-defined/&amp;t=Dock-maintainer: Defined"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
     
   </div>
 
