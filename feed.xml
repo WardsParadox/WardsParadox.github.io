@@ -6,13 +6,80 @@
 </description>
     <link>https://wardsparadox.github.io/</link>
     <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 17 Jun 2017 14:38:44 -0600</pubDate>
-    <lastBuildDate>Sat, 17 Jun 2017 14:38:44 -0600</lastBuildDate>
+    <pubDate>Tue, 16 Jan 2018 12:43:58 -0700</pubDate>
+    <lastBuildDate>Tue, 16 Jan 2018 12:43:58 -0700</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
+        <title>Deploying DetectX Swift with Munki</title>
+        <description>&lt;p&gt;DetectX Swift is an alternative to MalwareBytes Anti-Malware and was more economical for our district to use. It also is faster and more what we were looking for. I highly recommend it! This is a write up based on how we are deploying it here.&lt;/p&gt;
+
+&lt;!--more--&gt;
+&lt;h3 id=&quot;first-things-first-if-you-are-reading-this-you-will-need-a-management-license-from-sqwarq-for-detectx-swift-cost-is-299-usd-once-you-have-this-make-note-of-the-information-in-the-email-with-the-account-information&quot;&gt;&lt;strong&gt;First things first, if you are reading this, you will need a Management License from Sqwarq for DetectX Swift; Cost is $299 USD. Once you have this, make note of the information in the email with the account information.&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;We decided to deploy it to &lt;code class=&quot;highlighter-rouge&quot;&gt;/Applications/Utilities&lt;/code&gt;. This makes it still easy to access but out of the standard users view. We deploy it via Munki as well. You will also need to add a &lt;code class=&quot;highlighter-rouge&quot;&gt;post-install&lt;/code&gt; script to register the client. Thankfully DetectX Swift allows for re-registering with no issue, so you can “register” it after every installation. Here is the &lt;code class=&quot;highlighter-rouge&quot;&gt;pkginfo&lt;/code&gt; dict for the &lt;a href=&quot;https://github.com/autopkg/autopkg&quot;&gt;autopkg&lt;/a&gt; recipe:&lt;/p&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;pkginfo&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;catalogs&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;testing&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;description&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;DetectX Swift is a shareware security and troubleshooting tool that uses a combination of hardcoded search definitions along with live updates and predictive heuristics to detect both known and unknown threats and issues. It provides the user with multiple analytical capabilities regarding both the system’s current state and changes to its state over time related to its ongoing security and performance.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;category&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;Utlities&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;developer&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;Philip Stokes&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;display_name&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;DetectX Swift&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;name&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;%NAME%&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;unattended_install&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;items_to_copy&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;destination_path&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;/Applications/Utilities&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;source_item&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;DetectX Swift.app&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;minimum_os_version&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;10.11&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;postinstall_script&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;#!/bin/bash
+&quot;/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX Swift&quot; register -key &quot;KEYNUMBER&quot; -email &quot;REGISTEREDEMAIL&quot;
+
+&quot;/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX\ Swift&quot; search -aj &quot;/usr/local/munki/preflight.d/cache/detectx.json&quot;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If you are using MunkiReport-PHP, there is a module I created in the current WIP branch. WIP is not stable for production, but should be entering beta soon. In order to use the module you will need to create a launchDaemon targeting DetectX Swift’s CLI tool to output a JSON file. There is an example in the module READMD file.
+&lt;img src=&quot;/assets/images/content images/detectXWidget.png&quot; alt=&quot;detectXWidget&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I am deploying a boot-every script with &lt;a href=&quot;https://github.com/chilcote/outset&quot;&gt;Outset&lt;/a&gt; that does the same thing. I packaged this up as an &lt;code class=&quot;highlighter-rouge&quot;&gt;update_for&lt;/code&gt; in Munki. This will provide a dashboard that will give you in-depth look at the current status of your fleet. The client tab will show you exactly what each client shows for each infection. The command structure for this is as follows:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Swift&quot;&lt;/span&gt; search -aj &lt;span class=&quot;s2&quot;&gt;&quot;/usr/local/munki/preflight.d/cache/detectx.json&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This will scan (if you are running it independently you must run it as root!) all users homes and report on it’s findings. It is fairly quick. If you combine all of this together you get an auto-updating anti-malware solution that reports to a dashboard for every machine you deploy it too. If there are machines supsected of having malware, we call the employee and request they do a quick restart so that the &lt;code class=&quot;highlighter-rouge&quot;&gt;boot-every&lt;/code&gt; script has a chance to report, then perform a Munki update check to send the data to us. So far this has proven effective and useful here.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 15 Jan 2018 10:25:00 -0700</pubDate>
+        <link>https://wardsparadox.github.io/2018/01/15/deploying-detectx-swift-with-munki/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2018/01/15/deploying-detectx-swift-with-munki/</guid>
+        
+        <category>munki</category>
+        
+        
+      </item>
+    
+      <item>
         <title>Dock-maintainer: Defined</title>
-        <description>&lt;p&gt;Recently I created a tool called dock-maintainer. This post goes over a couple things but mainly serves to explain why I created it and why I needed it instead of using other solutions. Traditionally this job (maintaining Dock configurations) has been handled in a multitude of ways. There have been many ways to do this. One can use configuration profiles, puppet/salt/chef/etc, &lt;code class=&quot;highlighter-rouge&quot;&gt;outset&lt;/code&gt; with a script (a method I used until recently).&lt;/p&gt;
+        <description>&lt;p&gt;Recently I created a tool called dock-maintainer. This post goes over a couple things but mainly serves to explain why I created it and why I needed it instead of using other solutions. Traditionally this job (maintaining Dock configurations) has been handled in a multitude of ways. There have been many ways to do this. One can use configuration profiles, puppet/salt/chef/etc, &lt;code class=&quot;highlighter-rouge&quot;&gt;outset&lt;/code&gt; with a script (a method I used until recently).
+&lt;!--more--&gt;&lt;/p&gt;
 
 &lt;p&gt;I found a few problems with the previous methods. With configuration profiles, I could not find a reliable way to deploy a Dock payload for a specified user. If you installed it via &lt;a href=&quot;https://www.munki.org/&quot;&gt;munki&lt;/a&gt;, this forced it for all users. I forked and changed Nick McSpadden’s tool, &lt;a href=&quot;https://github.com/nmcspadden/outsetDockProfiler&quot;&gt;Outset Dock Profiler&lt;/a&gt;. This packaged the profile and created a script to load it via &lt;code class=&quot;highlighter-rouge&quot;&gt;outset&lt;/code&gt; at login. The rewrite allowed for multiple profiles to be loaded via &lt;code class=&quot;highlighter-rouge&quot;&gt;outset&lt;/code&gt; per user. This created another issue; upon login due to parental controls being loaded, it would prompt for a password to allow managed preferences changes. There was also issues that it created a singular install script that could affect other things in edge cases. This was purely due to my fork and the script part not being correctly modified to handle multiple profiles.&lt;/p&gt;
 

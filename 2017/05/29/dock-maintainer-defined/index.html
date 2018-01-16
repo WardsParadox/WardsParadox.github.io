@@ -94,7 +94,8 @@
   </header>
 
   <article class="post-content">
-    <p>Recently I created a tool called dock-maintainer. This post goes over a couple things but mainly serves to explain why I created it and why I needed it instead of using other solutions. Traditionally this job (maintaining Dock configurations) has been handled in a multitude of ways. There have been many ways to do this. One can use configuration profiles, puppet/salt/chef/etc, <code class="highlighter-rouge">outset</code> with a script (a method I used until recently).</p>
+    <p>Recently I created a tool called dock-maintainer. This post goes over a couple things but mainly serves to explain why I created it and why I needed it instead of using other solutions. Traditionally this job (maintaining Dock configurations) has been handled in a multitude of ways. There have been many ways to do this. One can use configuration profiles, puppet/salt/chef/etc, <code class="highlighter-rouge">outset</code> with a script (a method I used until recently).
+<!--more--></p>
 
 <p>I found a few problems with the previous methods. With configuration profiles, I could not find a reliable way to deploy a Dock payload for a specified user. If you installed it via <a href="https://www.munki.org/">munki</a>, this forced it for all users. I forked and changed Nick McSpadden’s tool, <a href="https://github.com/nmcspadden/outsetDockProfiler">Outset Dock Profiler</a>. This packaged the profile and created a script to load it via <code class="highlighter-rouge">outset</code> at login. The rewrite allowed for multiple profiles to be loaded via <code class="highlighter-rouge">outset</code> per user. This created another issue; upon login due to parental controls being loaded, it would prompt for a password to allow managed preferences changes. There was also issues that it created a singular install script that could affect other things in edge cases. This was purely due to my fork and the script part not being correctly modified to handle multiple profiles.</p>
 
@@ -117,6 +118,15 @@
         
           <li>
             <h5>
+              <a href="https://wardsparadox.github.io/2018/01/15/deploying-detectx-swift-with-munki/">
+                Deploying DetectX Swift with Munki
+                <small>15 Jan 2018</small>
+              </a>
+            </h5>
+          </li>
+        
+          <li>
+            <h5>
               <a href="https://wardsparadox.github.io/2017/05/12/hello-it-setup-and-deployment/">
                 Hello-IT Setup and Deployment
                 <small>12 May 2017</small>
@@ -129,15 +139,6 @@
               <a href="https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/">
                 I made a thing..well sorta
                 <small>29 Nov 2016</small>
-              </a>
-            </h5>
-          </li>
-        
-          <li>
-            <h5>
-              <a href="https://wardsparadox.github.io/2016/06/27/til-03-get-model-info-via-python-via-serial/">
-                TIL 03 -- Get Model Info via Python via Serial
-                <small>27 Jun 2016</small>
               </a>
             </h5>
           </li>
