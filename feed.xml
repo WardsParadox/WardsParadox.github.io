@@ -6,9 +6,35 @@
 </description>
     <link>https://wardsparadox.github.io/</link>
     <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 Jan 2018 12:48:16 -0700</pubDate>
-    <lastBuildDate>Tue, 16 Jan 2018 12:48:16 -0700</lastBuildDate>
+    <pubDate>Mon, 29 Jan 2018 13:56:12 -0700</pubDate>
+    <lastBuildDate>Mon, 29 Jan 2018 13:56:12 -0700</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>Faster Munki Downloads from Nginx</title>
+        <description>&lt;p&gt;Through multiple issues over the last month or so, I decided to completely rebuild my Munki server. This server is semi-critical in our district as all configurations are now sent out via Munki. As I was waiting for Ubuntu 16 to install and do some base configurations, I started looking for some guides on how to increase performance. I stumbled across &lt;a href=&quot;http://nginx.org/en/docs/ngx_core_module.html#worker_cpu_affinity&quot;&gt;worker_cpu_affinity&lt;/a&gt;.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;This can be a bit dangerous to mess with, and shouldn’t have to be messed with, at least from a couple topics on it. I’m not sure if Nginx was being correctly assigned, but I decided to try and associate the worker processes with specific cores. My Nginx config (&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/nginx/nginx.conf&lt;/code&gt;) has these two lines in the outermost section of the config file. Since making this change, both Munki and MunkiReport have had huge increases in performance.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-JSON&quot;&gt;worker_processes    4;
+worker_cpu_affinity 0001 0010 0100 1000;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this performance increase, I have seen our Munki client timeout’s drop to single digit percentages of what we had before. I’ve also seen just how fast things download. For example, the MS Office 2016 Pkg installer is approx 2 GB in size. When doing a few machines out at a couple of schools, this would normally take 5-10 minutes to download a piece. I have now seen that download take under 2 minutes for all machines. I’m glad this was able to help us, and maybe it will help you.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 29 Jan 2018 09:22:00 -0700</pubDate>
+        <link>https://wardsparadox.github.io/2018/01/29/faster-munki-downloads-from-nginx/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2018/01/29/faster-munki-downloads-from-nginx/</guid>
+        
+        <category>Munki</category>
+        
+        <category>nginx</category>
+        
+        <category>webserver</category>
+        
+        
+      </item>
     
       <item>
         <title>Deploying DetectX Swift with Munki</title>
