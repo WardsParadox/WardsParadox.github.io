@@ -6,8 +6,8 @@
 </description>
     <link>https://wardsparadox.github.io/</link>
     <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 29 Jan 2018 13:56:12 -0700</pubDate>
-    <lastBuildDate>Mon, 29 Jan 2018 13:56:12 -0700</lastBuildDate>
+    <pubDate>Mon, 29 Jan 2018 13:57:47 -0700</pubDate>
+    <lastBuildDate>Mon, 29 Jan 2018 13:57:47 -0700</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -27,7 +27,7 @@ worker_cpu_affinity 0001 0010 0100 1000;
         <link>https://wardsparadox.github.io/2018/01/29/faster-munki-downloads-from-nginx/</link>
         <guid isPermaLink="true">https://wardsparadox.github.io/2018/01/29/faster-munki-downloads-from-nginx/</guid>
         
-        <category>Munki</category>
+        <category>munki</category>
         
         <category>nginx</category>
         
