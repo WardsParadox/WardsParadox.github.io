@@ -6,8 +6,8 @@
 </description>
     <link>https://wardsparadox.github.io/</link>
     <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 29 Jan 2018 13:57:47 -0700</pubDate>
-    <lastBuildDate>Mon, 29 Jan 2018 13:57:47 -0700</lastBuildDate>
+    <pubDate>Mon, 29 Jan 2018 13:59:09 -0700</pubDate>
+    <lastBuildDate>Mon, 29 Jan 2018 13:59:09 -0700</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -228,7 +228,7 @@ Link: &lt;a href=&quot;https://www.github.com/WardsParadox/PrinterProfileGenerat
         <link>https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/</link>
         <guid isPermaLink="true">https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/</guid>
         
-        <category>Python</category>
+        <category>python</category>
         
         
       </item>
@@ -249,7 +249,7 @@ Link: &lt;a href=&quot;https://www.github.com/WardsParadox/PrinterProfileGenerat
         
         <category>TIL</category>
         
-        <category>Python</category>
+        <category>python</category>
         
         
       </item>
@@ -269,13 +269,13 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
         
         <category>TIL</category>
         
-        <category>Python</category>
+        <category>python</category>
         
         
       </item>
     
       <item>
-        <title>TIL 01 - Get a OS X Preference via Python</title>
+        <title>TIL 01 - Get a OS X Preference via python</title>
         <description>&lt;p&gt;As I am trying to learn more of the Python programming language (version 2.7.* as that is what is currently built-in to OS X), I find little challenges to help process what I have learned of it. Recently I was introduced to the &lt;code class=&quot;highlighter-rouge&quot;&gt;Foundation&lt;/code&gt; frameworks that come with OS X. For a while I was writing scripts that required &lt;code class=&quot;highlighter-rouge&quot;&gt;plistlib&lt;/code&gt; which could only read the XML version of a plist. OS X stores preferences in binary plist form. In order to use &lt;code class=&quot;highlighter-rouge&quot;&gt;plistlib&lt;/code&gt; then, I was shelling out using &lt;code class=&quot;highlighter-rouge&quot;&gt;subprocess&lt;/code&gt; and converting the plist to xml form temporarily. As I am trying to stay away from some of the “bad Mac Admin” practices, I found myself needing a way to read preferences without messing with the hard files. I could use &lt;code class=&quot;highlighter-rouge&quot;&gt;subprocess.check_output&lt;/code&gt; and read the results of defaults, but why add more complexity (just my opinion). Here is what I came up with (this example uses the Munki preference file):&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
@@ -300,7 +300,7 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
         
         <category>TIL</category>
         
-        <category>Python</category>
+        <category>python</category>
         
         
       </item>
@@ -315,7 +315,7 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
         
         <category>TIL</category>
         
-        <category>Python</category>
+        <category>python</category>
         
         
       </item>
