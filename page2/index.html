@@ -81,6 +81,40 @@
     
 
     <h1 class="post-title">
+      <a href="https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/">
+        I made a thing..well sorta
+      </a>
+    </h1>
+
+    <p class="post-meta">
+    
+      <span class="categories">
+      python
+      </span> |
+    
+    <span class="post-date">
+    Nov 29, 2016
+    </span>
+    </p>
+
+    <p>It seems that I have learned <em>A LOT</em> in recent months concerning Python. Again huge shout out to <a href="https://github.com/nmcspadden/">Nick McSpadden</a> and <a href="https://github.com/pudquick/">froger</a> for helping me get to where I am knowledge wise today. In between now and my last post, Nick helped me understand the <code class="highlighter-rouge">dict</code> datatype. Turns out python can use translate <code class="highlighter-rouge">dict</code> into the plist equivalents! The more you know eh?</p>
+
+<p>The reason he was helping me on this was because I had an idea to take his <a href="https://github.com/nmcspadden/PrinterGenerator">PrinterGenerator</a> tool and make it work in a different way. The input was roughly the same but the output was instead a printer profile that could be used outside of Munki or with Munki (v2.2 added the ability to install profiles). I had just taken some of the code and translated it to work with a template plist. Instead with his help, I was able to replace a lot of the code and change it into a more efficient tool for plists aka profiles.</p>
+
+<p>I have since added the ability to open the ppd’s (which most are just gzip-ed <code class="highlighter-rouge">ppd</code> text files) and extract the model “NickName”, which Apple uses to determine the exact type of the machine. The code is on GitHub of course. I encourage you to look at it and suggest any fixes and features.
+Link: <a href="https://www.github.com/WardsParadox/PrinterProfileGenerator">PrinterProfileGenerator</a></p>
+
+    <a href="https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/">
+      Continue reading »
+    </a>
+  </article>
+  
+  
+  <article class="post">
+
+    
+
+    <h1 class="post-title">
       <a href="https://wardsparadox.github.io/2016/06/27/til-03-get-model-info-via-python-via-serial/">
         TIL 03 -- Get Model Info via Python via Serial
       </a>
@@ -218,54 +252,13 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
     </a>
   </article>
   
-  
-  <article class="post">
-
-    
-
-    <h1 class="post-title">
-      <a href="https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/">
-        Adding a "Coming Soon" Ribbon to the Munki Showcase
-      </a>
-    </h1>
-
-    <p class="post-meta">
-    
-    <span class="post-date">
-    Dec 12, 2015
-    </span>
-    </p>
-
-    <p>I have been doing some testing and it seems that with the latest OS X El Capitan release, our district can finally move to El Capitan. At the same time I have been doing some testing of Office 2016 for Mac. I have been moving our district to deploying software with Munki. It’s been two years and has already saved us hundreds of man hours.</p>
-
-<p>I was aware of the conditional items ability with Munki. I wanted a little bit of time in case and final issues came about. So I set the optional installs to become available to be the 2nd of January, 2016; the day before our teachers and staff members came back. Make sure you escape the greater than symbol</p>
-
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;key&gt;</span>conditional_items<span class="nt">&lt;/key&gt;</span>
-<span class="nt">&lt;array&gt;</span>
-  <span class="nt">&lt;dict&gt;</span>
-    <span class="nt">&lt;key&gt;</span>condition<span class="nt">&lt;/key&gt;</span>
-    <span class="nt">&lt;string&gt;</span>date `<span class="ni">&amp;gt;</span>` CAST("2016-01-02T00:00:00Z", "NSDate")<span class="nt">&lt;/string&gt;</span>
-    <span class="nt">&lt;key&gt;</span>optional_installs<span class="nt">&lt;/key&gt;</span>
-    <span class="nt">&lt;array&gt;</span>
-      <span class="nt">&lt;string&gt;</span>InstallOSX<span class="nt">&lt;/string&gt;</span>
-      <span class="nt">&lt;string&gt;</span>MSOffice2016<span class="nt">&lt;/string&gt;</span>
-    <span class="nt">&lt;/array&gt;</span>
-  <span class="nt">&lt;/dict&gt;</span>
-<span class="nt">&lt;/array&gt;</span></code></pre></figure>
-
-
-    <a href="https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/">
-      Continue reading »
-    </a>
-  </article>
-  
 </div>
 
 
 <div class="pagination">
 
   
-    <span class="pagination-item older btn-disabled">Older</span>
+      <a class="pagination-item older btn" href="/page3/">Older</a>
   
 
   

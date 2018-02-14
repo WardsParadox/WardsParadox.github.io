@@ -8,10 +8,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>I made a thing..well sorta - Zack McCauley</title>
+    <title>Zack McCauley</title>
     <meta name="description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
 ">
-    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="I made a thing..well sorta - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/"><meta property="article:published_time" content="2016-11-29T17:43:56-07:00"><meta property="article:author" content="https://wardsparadox.github.io/about">
+    <meta property="og:locale" content="en_US"><meta property="og:type" content="website"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="https://wardsparadox.github.io/page3/"><meta property="article:author" content="https://wardsparadox.github.io/about">
 
     
 
@@ -22,7 +22,7 @@
     <link rel="alternate" type="application/rss+xml" href="https://wardsparadox.github.io/feed.xml">
     <link rel="shortcut icon" href="https://wardsparadox.github.io/favicon.ico">
     <link rel="prefetch" href="https://wardsparadox.github.io">
-    <link rel="canonical" href="https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/">
+    <link rel="canonical" href="https://wardsparadox.github.io/page3/">
     <link rel="stylesheet"
     href="https://wardsparadox.github.io/assets/css/main.css">
     <!-- Favicons -->
@@ -73,85 +73,73 @@
       </div>
 
       <div class="container content">
-          <div class="post">
-
+          <div class="posts">
   
-
   
+  <article class="post">
 
-  <header class="post-header">
-    <h1 class="post-title">I made a thing..well sorta</h1>
+    
+
+    <h1 class="post-title">
+      <a href="https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/">
+        Adding a "Coming Soon" Ribbon to the Munki Showcase
+      </a>
+    </h1>
+
     <p class="post-meta">
     
-      <span class="categories">
-      python
-      </span> |
-    
     <span class="post-date">
-    Nov 29, 2016
+    Dec 12, 2015
     </span>
     </p>
-  </header>
 
-  <article class="post-content">
-    <p>It seems that I have learned <em>A LOT</em> in recent months concerning Python. Again huge shout out to <a href="https://github.com/nmcspadden/">Nick McSpadden</a> and <a href="https://github.com/pudquick/">froger</a> for helping me get to where I am knowledge wise today. In between now and my last post, Nick helped me understand the <code class="highlighter-rouge">dict</code> datatype. Turns out python can use translate <code class="highlighter-rouge">dict</code> into the plist equivalents! The more you know eh?</p>
+    <p>I have been doing some testing and it seems that with the latest OS X El Capitan release, our district can finally move to El Capitan. At the same time I have been doing some testing of Office 2016 for Mac. I have been moving our district to deploying software with Munki. It’s been two years and has already saved us hundreds of man hours.</p>
 
-<p>The reason he was helping me on this was because I had an idea to take his <a href="https://github.com/nmcspadden/PrinterGenerator">PrinterGenerator</a> tool and make it work in a different way. The input was roughly the same but the output was instead a printer profile that could be used outside of Munki or with Munki (v2.2 added the ability to install profiles). I had just taken some of the code and translated it to work with a template plist. Instead with his help, I was able to replace a lot of the code and change it into a more efficient tool for plists aka profiles.</p>
+<p>I was aware of the conditional items ability with Munki. I wanted a little bit of time in case and final issues came about. So I set the optional installs to become available to be the 2nd of January, 2016; the day before our teachers and staff members came back. Make sure you escape the greater than symbol</p>
 
-<p>I have since added the ability to open the ppd’s (which most are just gzip-ed <code class="highlighter-rouge">ppd</code> text files) and extract the model “NickName”, which Apple uses to determine the exact type of the machine. The code is on GitHub of course. I encourage you to look at it and suggest any fixes and features.
-Link: <a href="https://www.github.com/WardsParadox/PrinterProfileGenerator">PrinterProfileGenerator</a></p>
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;key&gt;</span>conditional_items<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;array&gt;</span>
+  <span class="nt">&lt;dict&gt;</span>
+    <span class="nt">&lt;key&gt;</span>condition<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>date `<span class="ni">&amp;gt;</span>` CAST("2016-01-02T00:00:00Z", "NSDate")<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>optional_installs<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;array&gt;</span>
+      <span class="nt">&lt;string&gt;</span>InstallOSX<span class="nt">&lt;/string&gt;</span>
+      <span class="nt">&lt;string&gt;</span>MSOffice2016<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;/array&gt;</span>
+  <span class="nt">&lt;/dict&gt;</span>
+<span class="nt">&lt;/array&gt;</span></code></pre></figure>
 
+
+    <a href="https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/">
+      Continue reading »
+    </a>
   </article>
-
-  
-    <div class="related-posts">
-      <h4>Related Posts</h4>
-      <ul>
-        
-          <li>
-            <h5>
-              <a href="https://wardsparadox.github.io/2018/02/14/setting-up-munkireport-php-on-ubuntu-16-with-nginx/">
-                Setting up MunkiReport-PHP on Ubuntu 16 with Nginx
-                <small>14 Feb 2018</small>
-              </a>
-            </h5>
-          </li>
-        
-          <li>
-            <h5>
-              <a href="https://wardsparadox.github.io/2018/01/29/faster-munki-downloads-from-nginx/">
-                Faster Munki Downloads from Nginx
-                <small>29 Jan 2018</small>
-              </a>
-            </h5>
-          </li>
-        
-          <li>
-            <h5>
-              <a href="https://wardsparadox.github.io/2018/01/15/deploying-detectx-swift-with-munki/">
-                Deploying DetectX Swift with Munki
-                <small>15 Jan 2018</small>
-              </a>
-            </h5>
-          </li>
-        
-      </ul>
-    </div>
-  
-
-  <div class="author-info">
-    
-      <div class="author">   <a href="https://wardsparadox.github.io/about">    <img      src="https://wardsparadox.github.io/assets/images/avatar.jpg"      alt="Zack McCauley" width="60" height="60" />  </a>    <h5>Author</h4>  <h6>    <a href="https://wardsparadox.github.io/about">      Zack McCauley    </a>  </h5>  <p>    Find me on            <a title="wardsparadox on GitHub"            href="https://github.com/wardsparadox"            class="github" target="_blank">Github</a>                /        <a title="zack_mccauley @ macadmins.org on slack"            href="https://macadmins.org/"            class="slack" target="_blank">Slack</a>                /        <a title="108452882684071984253 on Google Plus"            href="https://plus.google.com/108452882684071984253"            class="google" target="_blank">Google</a>      </p></div>
-
-    
-
-    
-      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title="mccauley_zack on Twitter"           href="https://twitter.com/intent/tweet?original_referer=https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/&amp;text=I made a thing..well sorta&amp;url=https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/&amp;t=I made a thing..well sorta"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
-    
-  </div>
-
   
 </div>
+
+
+<div class="pagination">
+
+  
+    <span class="pagination-item older btn-disabled">Older</span>
+  
+
+  
+    <a class="pagination-item newer btn " href="/page2/">Newer</a>
+  
+
+</div>
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https://wardsparadox.github.io/"
+    }
+}
+</script>
 
       </div>
       <a href="#0" class="wc-top">Top</a>

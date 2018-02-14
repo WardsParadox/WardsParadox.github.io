@@ -6,9 +6,122 @@
 </description>
     <link>https://wardsparadox.github.io/</link>
     <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 29 Jan 2018 13:59:09 -0700</pubDate>
-    <lastBuildDate>Mon, 29 Jan 2018 13:59:09 -0700</lastBuildDate>
+    <pubDate>Wed, 14 Feb 2018 10:53:02 -0700</pubDate>
+    <lastBuildDate>Wed, 14 Feb 2018 10:53:02 -0700</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</title>
+        <description>&lt;p&gt;This post is still really rough, but should be fully functional.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Follow this guide to get PHP running:
+&lt;a href=&quot;https://www.rosehosting.com/blog/install-php-7-1-with-nginx-on-an-ubuntu-16-04-vps/&quot; title=&quot;Install PHP 7.1 with Nginx on Ubuntu 16.04 by RoseHosting&quot;&gt;Install PHP 7.1 with Nginx on Ubuntu 16.04&lt;/a&gt;
+Follow this guide to get MySQL running:
+&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04&quot; title=&quot;How To Install MySQL on Ubuntu 16.04&quot;&gt;How To Install MySQL on Ubuntu 16.04&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For MRPHP to run, you will need to install the following:&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install php7.1-common php7.1-opcache php7.1-json php7.1-mcrypt php7.1-zip php7.1-xml php7.1-soap php7.1-readline php7.1-cli php7.1-fpm php7.1-mbstring php7.1-mysql php7.1-cgi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Make sure &lt;code class=&quot;highlighter-rouge&quot;&gt;git&lt;/code&gt; is also installed.&lt;/p&gt;
+
+&lt;p&gt;Create a new group that you can add &lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt; to, as well as your service accounts.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /media/
+git clone https://github.com/munkireport/munkireport-php munkireport
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ./munkireport
+&lt;span class=&quot;c&quot;&gt;# Install composer&lt;/span&gt;
+php -r &lt;span class=&quot;s2&quot;&gt;&quot;copy('https://getcomposer.org/installer', 'composer-setup.php');&quot;&lt;/span&gt;
+php -r &lt;span class=&quot;s2&quot;&gt;&quot;if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;&quot;&lt;/span&gt;
+php composer-setup.php
+php -r &lt;span class=&quot;s2&quot;&gt;&quot;unlink('composer-setup.php');&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Run composer tools&lt;/span&gt;
+php composer.phar install --no-dev --no-suggest --optimize-autoloader
+chown -R &lt;span class=&quot;nv&quot;&gt;$USER&lt;/span&gt;:groupthatcontainsuserandwww-data ../munkireport
+chmod -R 755 ../munkireport
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Modify your Nginx config for the server&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# You should look at the following URL's in order to grasp a solid understanding&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# of Nginx configuration files in order to fully unleash the power of Nginx.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# http://wiki.nginx.org/Pitfalls&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# http://wiki.nginx.org/QuickStart&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# http://wiki.nginx.org/Configuration&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Generally, you will want to move this file somewhere, and start with a clean&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# file but keep this around for reference. Or just disable in sites-enabled.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;##&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Default server configuration&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  listen 80 default_server;
+  listen &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;::]:80 default_server;
+
+  root /var/www/html;
+
+  &lt;span class=&quot;c&quot;&gt;# Add index.php to the list if you are using PHP&lt;/span&gt;
+  index index.php index.html index.htm index.nginx-debian.html;
+
+  server_name fqdn.ofyourserver.com;
+
+  location /munkireport &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    try_files &lt;span class=&quot;nv&quot;&gt;$uri&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$uri&lt;/span&gt;/ &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;404;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  location ~ &lt;span class=&quot;se&quot;&gt;\.&lt;/span&gt;php&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    fastcgi_pass unix:/run/php/php7.1-fpm.sock;
+    include snippets/fastcgi-php.conf;
+    fastcgi_param SCRIPT_FILENAME &lt;span class=&quot;nv&quot;&gt;$document_root$fastcgi_script_name&lt;/span&gt;;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  location ~ /&lt;span class=&quot;se&quot;&gt;\.&lt;/span&gt;ht &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    deny all;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Create a symlink from &lt;code class=&quot;highlighter-rouge&quot;&gt;/media/munkireport/public&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/html/munkireport&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ln -s /media/munkireport/public /var/www/html/munkireport
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Modify your munkireport &lt;code class=&quot;highlighter-rouge&quot;&gt;config.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$conf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'connection'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+ &lt;span class=&quot;s1&quot;&gt;'driver'&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'mysql'&lt;/span&gt;,
+ &lt;span class=&quot;s1&quot;&gt;'host'&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'127.0.0.1'&lt;/span&gt;,
+ &lt;span class=&quot;s1&quot;&gt;'port'&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 3306,
+ &lt;span class=&quot;s1&quot;&gt;'database'&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'dbname'&lt;/span&gt;,
+ &lt;span class=&quot;s1&quot;&gt;'username'&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'username'&lt;/span&gt;,
+ &lt;span class=&quot;s1&quot;&gt;'password'&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'password'&lt;/span&gt;,
+ &lt;span class=&quot;s1&quot;&gt;'options'&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;PDO::MYSQL_ATTR_INIT_COMMAND &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'SET NAMES utf8'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;;
+&lt;span class=&quot;nv&quot;&gt;$conf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'subdirectory'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; substr&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$_SERVER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'PHP_SELF'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;,
+            0,
+            strpos&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_SERVER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'PHP_SELF'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;, basename&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;FC&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Restart your server or your services.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 14 Feb 2018 08:22:00 -0700</pubDate>
+        <link>https://wardsparadox.github.io/2018/02/14/setting-up-munkireport-php-on-ubuntu-16-with-nginx/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2018/02/14/setting-up-munkireport-php-on-ubuntu-16-with-nginx/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Faster Munki Downloads from Nginx</title>
@@ -316,33 +429,6 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
         <category>TIL</category>
         
         <category>python</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Adding a &quot;Coming Soon&quot; Ribbon to the Munki Showcase</title>
-        <description>&lt;p&gt;I have been doing some testing and it seems that with the latest OS X El Capitan release, our district can finally move to El Capitan. At the same time I have been doing some testing of Office 2016 for Mac. I have been moving our district to deploying software with Munki. It’s been two years and has already saved us hundreds of man hours.&lt;/p&gt;
-
-&lt;p&gt;I was aware of the conditional items ability with Munki. I wanted a little bit of time in case and final issues came about. So I set the optional installs to become available to be the 2nd of January, 2016; the day before our teachers and staff members came back. Make sure you escape the greater than symbol&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;conditional_items&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;condition&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;date `&lt;span class=&quot;ni&quot;&gt;&amp;amp;gt;&lt;/span&gt;` CAST(&quot;2016-01-02T00:00:00Z&quot;, &quot;NSDate&quot;)&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;optional_installs&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;InstallOSX&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;MSOffice2016&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-</description>
-        <pubDate>Sat, 12 Dec 2015 00:00:00 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
         
         
       </item>
