@@ -8,10 +8,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Setting up MunkiReport-PHP on Ubuntu 16 with Nginx - Zack McCauley</title>
+    <title>Modifying Safari's Auto-Play Preferences - Zack McCauley</title>
     <meta name="description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
 ">
-    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Setting up MunkiReport-PHP on Ubuntu 16 with Nginx - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="https://wardsparadox.github.io/2018/02/14/setting-up-munkireport-php-on-ubuntu-16-with-nginx/"><meta property="article:published_time" content="2018-02-14T08:22:00-07:00"><meta property="article:author" content="https://wardsparadox.github.io/about">
+    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Modifying Safari's Auto-Play Preferences - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="https://wardsparadox.github.io/2018/04/04/modifying-safaris-autoplay-preferences/"><meta property="article:published_time" content="2018-04-04T16:03:46-06:00"><meta property="article:author" content="https://wardsparadox.github.io/about">
 
     
 
@@ -22,7 +22,7 @@
     <link rel="alternate" type="application/rss+xml" href="https://wardsparadox.github.io/feed.xml">
     <link rel="shortcut icon" href="https://wardsparadox.github.io/favicon.ico">
     <link rel="prefetch" href="https://wardsparadox.github.io">
-    <link rel="canonical" href="https://wardsparadox.github.io/2018/02/14/setting-up-munkireport-php-on-ubuntu-16-with-nginx/">
+    <link rel="canonical" href="https://wardsparadox.github.io/2018/04/04/modifying-safaris-autoplay-preferences/">
     <link rel="stylesheet"
     href="https://wardsparadox.github.io/assets/css/main.css">
     <!-- Favicons -->
@@ -80,119 +80,21 @@
   
 
   <header class="post-header">
-    <h1 class="post-title">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</h1>
+    <h1 class="post-title">Modifying Safari's Auto-Play Preferences</h1>
     <p class="post-meta">
     
+      <span class="categories">
+      macos, safari, sqlite
+      </span> |
+    
     <span class="post-date">
-    Feb 14, 2018
+    Apr 4, 2018
     </span>
     </p>
   </header>
 
   <article class="post-content">
-    <p>This post is still really rough, but should be fully functional.</p>
-
-<!--more-->
-
-<p>Follow this guide to get PHP running:
-<a href="https://www.rosehosting.com/blog/install-php-7-1-with-nginx-on-an-ubuntu-16-04-vps/" title="Install PHP 7.1 with Nginx on Ubuntu 16.04 by RoseHosting">Install PHP 7.1 with Nginx on Ubuntu 16.04</a>
-Follow this guide to get MySQL running:
-<a href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04" title="How To Install MySQL on Ubuntu 16.04">How To Install MySQL on Ubuntu 16.04</a></p>
-
-<p>For MRPHP to run, you will need to install the following:</p>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>apt-get install php7.1-common php7.1-opcache php7.1-json php7.1-mcrypt php7.1-zip php7.1-xml php7.1-soap php7.1-readline php7.1-cli php7.1-fpm php7.1-mbstring php7.1-mysql php7.1-cgi
-</code></pre>
-</div>
-
-<p>Make sure <code class="highlighter-rouge">git</code> is also installed.</p>
-
-<p>Create a new group that you can add <code class="highlighter-rouge">www-data</code> to, as well as your service accounts.</p>
-
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> /media/
-git clone https://github.com/munkireport/munkireport-php munkireport
-<span class="nb">cd</span> ./munkireport
-<span class="c"># Install composer</span>
-php -r <span class="s2">"copy('https://getcomposer.org/installer', 'composer-setup.php');"</span>
-php -r <span class="s2">"if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"</span>
-php composer-setup.php
-php -r <span class="s2">"unlink('composer-setup.php');"</span>
-<span class="c"># Run composer tools</span>
-php composer.phar install --no-dev --no-suggest --optimize-autoloader
-chown -R <span class="nv">$USER</span>:groupthatcontainsuserandwww-data ../munkireport
-chmod -R 755 ../munkireport
-</code></pre>
-</div>
-
-<p>Modify your Nginx config for the server</p>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="c">##</span>
-<span class="c"># You should look at the following URL's in order to grasp a solid understanding</span>
-<span class="c"># of Nginx configuration files in order to fully unleash the power of Nginx.</span>
-<span class="c"># http://wiki.nginx.org/Pitfalls</span>
-<span class="c"># http://wiki.nginx.org/QuickStart</span>
-<span class="c"># http://wiki.nginx.org/Configuration</span>
-<span class="c">#</span>
-<span class="c"># Generally, you will want to move this file somewhere, and start with a clean</span>
-<span class="c"># file but keep this around for reference. Or just disable in sites-enabled.</span>
-<span class="c">#</span>
-<span class="c"># Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.</span>
-<span class="c">##</span>
-
-<span class="c"># Default server configuration</span>
-<span class="c">#</span>
-server <span class="o">{</span>
-  listen 80 default_server;
-  listen <span class="o">[</span>::]:80 default_server;
-
-  root /var/www/html;
-
-  <span class="c"># Add index.php to the list if you are using PHP</span>
-  index index.php index.html index.htm index.nginx-debian.html;
-
-  server_name fqdn.ofyourserver.com;
-
-  location /munkireport <span class="o">{</span>
-    try_files <span class="nv">$uri</span> <span class="nv">$uri</span>/ <span class="o">=</span>404;
-  <span class="o">}</span>
-
-  location ~ <span class="se">\.</span>php<span class="nv">$ </span><span class="o">{</span>
-    fastcgi_pass unix:/run/php/php7.1-fpm.sock;
-    include snippets/fastcgi-php.conf;
-    fastcgi_param SCRIPT_FILENAME <span class="nv">$document_root$fastcgi_script_name</span>;
-  <span class="o">}</span>
-
-  location ~ /<span class="se">\.</span>ht <span class="o">{</span>
-    deny all;
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-</div>
-
-<p>Create a symlink from <code class="highlighter-rouge">/media/munkireport/public</code> to <code class="highlighter-rouge">/var/www/html/munkireport</code></p>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>ln -s /media/munkireport/public /var/www/html/munkireport
-</code></pre>
-</div>
-
-<p>Modify your munkireport <code class="highlighter-rouge">config.php</code></p>
-
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="nv">$conf</span><span class="o">[</span><span class="s1">'connection'</span><span class="o">]</span> <span class="o">=</span> <span class="o">[</span>
- <span class="s1">'driver'</span>    <span class="o">=</span>&gt; <span class="s1">'mysql'</span>,
- <span class="s1">'host'</span>      <span class="o">=</span>&gt; <span class="s1">'127.0.0.1'</span>,
- <span class="s1">'port'</span>      <span class="o">=</span>&gt; 3306,
- <span class="s1">'database'</span>  <span class="o">=</span>&gt; <span class="s1">'dbname'</span>,
- <span class="s1">'username'</span>  <span class="o">=</span>&gt; <span class="s1">'username'</span>,
- <span class="s1">'password'</span>  <span class="o">=</span>&gt; <span class="s1">'password'</span>,
- <span class="s1">'options'</span>   <span class="o">=</span>&gt; <span class="o">[</span>PDO::MYSQL_ATTR_INIT_COMMAND <span class="o">=</span>&gt; <span class="s1">'SET NAMES utf8'</span><span class="o">]</span>
-<span class="o">]</span>;
-<span class="nv">$conf</span><span class="o">[</span><span class="s1">'subdirectory'</span><span class="o">]</span> <span class="o">=</span> substr<span class="o">(</span>
-            <span class="nv">$_SERVER</span><span class="o">[</span><span class="s1">'PHP_SELF'</span><span class="o">]</span>,
-            0,
-            strpos<span class="o">(</span><span class="nv">$_SERVER</span><span class="o">[</span><span class="s1">'PHP_SELF'</span><span class="o">]</span>, basename<span class="o">(</span>FC<span class="o">))</span>
-          <span class="o">)</span>;
-</code></pre>
-</div>
-
-<p>Restart your server or your services.</p>
-
+    
 
   </article>
 
@@ -203,9 +105,9 @@ server <span class="o">{</span>
         
           <li>
             <h5>
-              <a href="https://wardsparadox.github.io/2018/04/04/modifying-safaris-autoplay-preferences/">
-                Modifying Safari's Auto-Play Preferences
-                <small>04 Apr 2018</small>
+              <a href="https://wardsparadox.github.io/2018/02/14/setting-up-munkireport-php-on-ubuntu-16-with-nginx/">
+                Setting up MunkiReport-PHP on Ubuntu 16 with Nginx
+                <small>14 Feb 2018</small>
               </a>
             </h5>
           </li>
@@ -239,7 +141,7 @@ server <span class="o">{</span>
     
 
     
-      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title="mccauley_zack on Twitter"           href="https://twitter.com/intent/tweet?original_referer=https://wardsparadox.github.io/2018/02/14/setting-up-munkireport-php-on-ubuntu-16-with-nginx/&amp;text=Setting up MunkiReport-PHP on Ubuntu 16 with Nginx&amp;url=https://wardsparadox.github.io/2018/02/14/setting-up-munkireport-php-on-ubuntu-16-with-nginx/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=https://wardsparadox.github.io/2018/02/14/setting-up-munkireport-php-on-ubuntu-16-with-nginx/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=https://wardsparadox.github.io/2018/02/14/setting-up-munkireport-php-on-ubuntu-16-with-nginx/&amp;t=Setting up MunkiReport-PHP on Ubuntu 16 with Nginx"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
+      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title="mccauley_zack on Twitter"           href="https://twitter.com/intent/tweet?original_referer=https://wardsparadox.github.io/2018/04/04/modifying-safaris-autoplay-preferences/&amp;text=Modifying Safari's Auto-Play Preferences&amp;url=https://wardsparadox.github.io/2018/04/04/modifying-safaris-autoplay-preferences/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=https://wardsparadox.github.io/2018/04/04/modifying-safaris-autoplay-preferences/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=https://wardsparadox.github.io/2018/04/04/modifying-safaris-autoplay-preferences/&amp;t=Modifying Safari's Auto-Play Preferences"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
     
   </div>
 

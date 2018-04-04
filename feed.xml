@@ -6,9 +6,26 @@
 </description>
     <link>https://wardsparadox.github.io/</link>
     <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 Feb 2018 10:53:02 -0700</pubDate>
-    <lastBuildDate>Wed, 14 Feb 2018 10:53:02 -0700</lastBuildDate>
+    <pubDate>Wed, 04 Apr 2018 16:19:21 -0600</pubDate>
+    <lastBuildDate>Wed, 04 Apr 2018 16:19:21 -0600</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>Modifying Safari's Auto-Play Preferences</title>
+        <description>
+</description>
+        <pubDate>Wed, 04 Apr 2018 16:03:46 -0600</pubDate>
+        <link>https://wardsparadox.github.io/2018/04/04/modifying-safaris-autoplay-preferences/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2018/04/04/modifying-safaris-autoplay-preferences/</guid>
+        
+        <category>macos</category>
+        
+        <category>safari</category>
+        
+        <category>sqlite</category>
+        
+        
+      </item>
     
       <item>
         <title>Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</title>
@@ -197,7 +214,7 @@ worker_cpu_affinity 0001 0010 0100 1000;
 &lt;/div&gt;
 
 &lt;p&gt;If you are using MunkiReport-PHP, there is a module I created in the current WIP branch. WIP is not stable for production, but should be entering beta soon. In order to use the module you will need to create a launchDaemon targeting DetectX Swift’s CLI tool to output a JSON file. There is an example in the module READMD file.
-&lt;img src=&quot;/assets/images/content images/detectXWidget.png&quot; alt=&quot;detectXWidget&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/images/2018/01/detectXWidget.png&quot; alt=&quot;detectXWidget&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I am deploying a boot-every script with &lt;a href=&quot;https://github.com/chilcote/outset&quot;&gt;Outset&lt;/a&gt; that does the same thing. I packaged this up as an &lt;code class=&quot;highlighter-rouge&quot;&gt;update_for&lt;/code&gt; in Munki. This will provide a dashboard that will give you in-depth look at the current status of your fleet. The client tab will show you exactly what each client shows for each infection. The command structure for this is as follows:&lt;/p&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
@@ -246,7 +263,7 @@ worker_cpu_affinity 0001 0010 0100 1000;
       <item>
         <title>Hello-IT Setup and Deployment</title>
         <description>&lt;p&gt;I have recently been playing with a tool called &lt;a href=&quot;https://github.com/ygini/Hello-IT&quot;&gt;Hello IT&lt;/a&gt;. It has been a wonderful tool in testing and I am getting excited to send it out here in our district. I believe it will help our staff be able to communicate to us effectively. Our current layout looks like this:
-&lt;img src=&quot;/assets/images/content images/HelloIT Menu Layout.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/images/2017/05/HelloIT Menu Layout.jpg&quot; alt=&quot;helloIT Menu Layout&quot; /&gt;
 &lt;!--more--&gt;
 To do this was pretty easy once I got a good explanation from &lt;a href=&quot;https://github.com/ygini&quot;&gt;@ygini&lt;/a&gt; on the &lt;i class=&quot;fa fa-apple fg-lg&quot;&gt;&lt;/i&gt;&lt;a href=&quot;https://macadmins.org&quot;&gt;MacAdmins.org&lt;/a&gt; slack. He pointed out many flaws with my understanding. Take for example script items. You can choose &lt;code class=&quot;highlighter-rouge&quot;&gt;path&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;script&lt;/code&gt; as the way to call the script. It’s &lt;em&gt;much&lt;/em&gt; easier to use the script method. Drop your script in the &lt;code class=&quot;highlighter-rouge&quot;&gt;CustomScript&lt;/code&gt; directory, check it’s permissions and call it the script like this:&lt;/p&gt;
 &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
@@ -410,21 +427,6 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
         <pubDate>Sun, 06 Mar 2016 00:00:00 -0700</pubDate>
         <link>https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</link>
         <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</guid>
-        
-        <category>TIL</category>
-        
-        <category>python</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>TIL 00 - Welcome to Today I Learned</title>
-        <description>&lt;p&gt;Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I’ve learned. Thank you for reading, I hope you enjoy or learn something as well!&lt;/p&gt;
-</description>
-        <pubDate>Fri, 04 Mar 2016 14:20:02 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/</guid>
         
         <category>TIL</category>
         
