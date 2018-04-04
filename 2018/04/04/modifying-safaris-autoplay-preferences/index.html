@@ -94,7 +94,73 @@
   </header>
 
   <article class="post-content">
-    
+    <p>I saw an interesting question today on the MacAdmins Slack regarding setting the Auto-Play preferences introduced in 10.13’s Safari.</p>
+
+<p><img src="/images/2018/04/screencap.png" alt="slack screencap" /></p>
+
+<p>Curiosity took hold.
+<!--more--></p>
+
+<p>After a quick look through I saw this sqlite3 database:</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>~/Library/Safari/PerSitePreferences.db
+</code></pre>
+</div>
+
+<p>I noticed that after every modification to the domain based Auto-Play preference, this file would change. Opening it up in <a href="http://sqlitebrowser.org/">sqlite browser</a>, I saw some positive results from my curiosity.</p>
+
+<p><img src="/images/2018/04/tables.png" alt="tables.png" /></p>
+
+<p>I played around with some settings and took note of what the values translated to in this database.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Column Value Type</th>
+      <th>Possible Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">domain</code></td>
+      <td>TEXT</td>
+      <td>url of site to be configured</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">preference</code></td>
+      <td>TEXT</td>
+      <td>So far, only <code class="highlighter-rouge">PerSitePreferencesAutoplay</code>. Possible for more values later</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">preference_value</code></td>
+      <td>NUMBER</td>
+      <td>0 = “Allow All Auto-Play” , 1 = “Stop Media with Sound”, 2 = “Never Auto-play”.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After digging some more, I found one could write to this DB and have the changes as long as Safari was not open. Here is the script I used to test it.</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nv">loggedInUser</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>/usr/bin/python -c <span class="s1">'from SystemConfiguration import SCDynamicStoreCopyConsoleUser; import sys; username = (SCDynamicStoreCopyConsoleUser(None, None, None) or [None])[0]; username = [username,""][username in [u"loginwindow", None, u""]]; sys.stdout.write(username + "\n");'</span><span class="k">)</span><span class="s2">"</span>
+
+<span class="nv">urlToModify</span><span class="o">=</span><span class="s2">"munki.bsd7.org"</span>
+<span class="c"># Value to Set</span>
+<span class="c">#  0 = "Allow All Auto-Play" , 1 = "Stop Media with Sound", 2 = "Never Auto-play"</span>
+<span class="nv">valueToSet</span><span class="o">=</span>0
+<span class="nv">current</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>/usr/bin/sqlite3 <span class="s2">"/Users/</span><span class="nv">$loggedInUser</span><span class="s2">/Library/Safari/PerSitePreferences.db"</span> <span class="s2">"SELECT EXISTS(SELECT preference_value FROM preference_values WHERE domain='</span><span class="nv">$urlToModify</span><span class="s2">');"</span><span class="k">)</span><span class="s2">"</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$current</span><span class="s2">"</span> <span class="o">==</span> 0 <span class="o">]</span>; <span class="k">then</span>
+  /usr/bin/sqlite3 <span class="s2">"/Users/</span><span class="nv">$loggedInUser</span><span class="s2">/Library/Safari/PerSitePreferences.db"</span> <span class="s2">"INSERT INTO preference_values (domain, preference, preference_value) VALUES ('</span><span class="nv">$urlToModify</span><span class="s2">', 'PerSitePreferencesAutoplay', </span><span class="nv">$valueToSet</span><span class="s2">);"</span>
+  <span class="nb">echo</span> <span class="s2">"Domain not found in db, setting"</span>
+<span class="k">else</span>
+  /usr/bin/sqlite3 <span class="s2">"/Users/</span><span class="nv">$loggedInUser</span><span class="s2">/Library/Safari/PerSitePreferences.db"</span> <span class="s2">"Update preference_values SET preference_value=</span><span class="nv">$valueToSet</span><span class="s2"> WHERE domain='</span><span class="nv">$urlToModify</span><span class="s2">';"</span>
+  <span class="nb">echo</span> <span class="s2">"Value Updated to Match"</span>
+<span class="k">fi</span>
+</code></pre>
+</div>
+
+<p>Hopefully this helps anyone who needs this and hopefully this gets turned into a configuration profile setting.
+<em>psst file your radars for this! My radar for this is: 39192330</em></p>
 
   </article>
 

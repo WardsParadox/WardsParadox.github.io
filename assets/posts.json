@@ -1,0 +1,77 @@
+{
+    "posts": [
+        
+        {
+            "title": "Modifying Safari's Auto-Play Preferences",
+            "url": "https://wardsparadox.github.io/2018/04/04/modifying-safaris-autoplay-preferences/",
+            "date": "2018-04-04T16:03:46-06:00"
+        },
+        
+        {
+            "title": "Setting up MunkiReport-PHP on Ubuntu 16 with Nginx",
+            "url": "https://wardsparadox.github.io/2018/02/14/setting-up-munkireport-php-on-ubuntu-16-with-nginx/",
+            "date": "2018-02-14T08:22:00-07:00"
+        },
+        
+        {
+            "title": "Faster Munki Downloads from Nginx",
+            "url": "https://wardsparadox.github.io/2018/01/29/faster-munki-downloads-from-nginx/",
+            "date": "2018-01-29T09:22:00-07:00"
+        },
+        
+        {
+            "title": "Deploying DetectX Swift with Munki",
+            "url": "https://wardsparadox.github.io/2018/01/15/deploying-detectx-swift-with-munki/",
+            "date": "2018-01-15T10:25:00-07:00"
+        },
+        
+        {
+            "title": "Dock-maintainer: Defined",
+            "url": "https://wardsparadox.github.io/2017/05/29/dock-maintainer-defined/",
+            "date": "2017-05-29T16:00:00-06:00"
+        },
+        
+        {
+            "title": "Hello-IT Setup and Deployment",
+            "url": "https://wardsparadox.github.io/2017/05/12/hello-it-setup-and-deployment/",
+            "date": "2017-05-12T08:17:00-06:00"
+        },
+        
+        {
+            "title": "I made a thing..well sorta",
+            "url": "https://wardsparadox.github.io/2016/11/29/i-made-a-thingwell-sorta/",
+            "date": "2016-11-29T17:43:56-07:00"
+        },
+        
+        {
+            "title": "TIL 03 -- Get Model Info via Python via Serial",
+            "url": "https://wardsparadox.github.io/2016/06/27/til-03-get-model-info-via-python-via-serial/",
+            "date": "2016-06-27T12:49:00-06:00"
+        },
+        
+        {
+            "title": "TIL 02 - Multiple Inputs For One Argument",
+            "url": "https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/",
+            "date": "2016-06-05T15:43:30-06:00"
+        },
+        
+        {
+            "title": "TIL 01 - Get a OS X Preference via python",
+            "url": "https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/",
+            "date": "2016-03-06T00:00:00-07:00"
+        },
+        
+        {
+            "title": "TIL 00 - Welcome to Today I Learned",
+            "url": "https://wardsparadox.github.io/2016/03/04/til-00-welcome-to-today-i-learned/",
+            "date": "2016-03-04T14:20:02-07:00"
+        },
+        
+        {
+            "title": "Adding a &quot;Coming Soon&quot; Ribbon to the Munki Showcase",
+            "url": "https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/",
+            "date": "2015-12-12T00:00:00-07:00"
+        }
+        
+    ]
+}

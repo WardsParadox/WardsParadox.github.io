@@ -6,13 +6,79 @@
 </description>
     <link>https://wardsparadox.github.io/</link>
     <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 04 Apr 2018 16:28:37 -0600</pubDate>
-    <lastBuildDate>Wed, 04 Apr 2018 16:28:37 -0600</lastBuildDate>
+    <pubDate>Wed, 04 Apr 2018 17:32:34 -0600</pubDate>
+    <lastBuildDate>Wed, 04 Apr 2018 17:32:34 -0600</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
         <title>Modifying Safari's Auto-Play Preferences</title>
-        <description>
+        <description>&lt;p&gt;I saw an interesting question today on the MacAdmins Slack regarding setting the Auto-Play preferences introduced in 10.13’s Safari.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2018/04/screencap.png&quot; alt=&quot;slack screencap&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Curiosity took hold.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;After a quick look through I saw this sqlite3 database:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/Library/Safari/PerSitePreferences.db
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I noticed that after every modification to the domain based Auto-Play preference, this file would change. Opening it up in &lt;a href=&quot;http://sqlitebrowser.org/&quot;&gt;sqlite browser&lt;/a&gt;, I saw some positive results from my curiosity.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2018/04/tables.png&quot; alt=&quot;tables.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I played around with some settings and took note of what the values translated to in this database.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Column Name&lt;/th&gt;
+      &lt;th&gt;Column Value Type&lt;/th&gt;
+      &lt;th&gt;Possible Values&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;domain&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;TEXT&lt;/td&gt;
+      &lt;td&gt;url of site to be configured&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;preference&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;TEXT&lt;/td&gt;
+      &lt;td&gt;So far, only &lt;code class=&quot;highlighter-rouge&quot;&gt;PerSitePreferencesAutoplay&lt;/code&gt;. Possible for more values later&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;preference_value&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;NUMBER&lt;/td&gt;
+      &lt;td&gt;0 = “Allow All Auto-Play” , 1 = “Stop Media with Sound”, 2 = “Never Auto-play”.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;After digging some more, I found one could write to this DB and have the changes as long as Safari was not open. Here is the script I used to test it.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;loggedInUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;/usr/bin/python -c &lt;span class=&quot;s1&quot;&gt;'from SystemConfiguration import SCDynamicStoreCopyConsoleUser; import sys; username = (SCDynamicStoreCopyConsoleUser(None, None, None) or [None])[0]; username = [username,&quot;&quot;][username in [u&quot;loginwindow&quot;, None, u&quot;&quot;]]; sys.stdout.write(username + &quot;\n&quot;);'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;urlToModify&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;munki.bsd7.org&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Value to Set&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#  0 = &quot;Allow All Auto-Play&quot; , 1 = &quot;Stop Media with Sound&quot;, 2 = &quot;Never Auto-play&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;valueToSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;nv&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;/usr/bin/sqlite3 &lt;span class=&quot;s2&quot;&gt;&quot;/Users/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$loggedInUser&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/Library/Safari/PerSitePreferences.db&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;SELECT EXISTS(SELECT preference_value FROM preference_values WHERE domain='&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$urlToModify&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;');&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$current&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+  /usr/bin/sqlite3 &lt;span class=&quot;s2&quot;&gt;&quot;/Users/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$loggedInUser&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/Library/Safari/PerSitePreferences.db&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;INSERT INTO preference_values (domain, preference, preference_value) VALUES ('&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$urlToModify&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;', 'PerSitePreferencesAutoplay', &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$valueToSet&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;);&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Domain not found in db, setting&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+  /usr/bin/sqlite3 &lt;span class=&quot;s2&quot;&gt;&quot;/Users/&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$loggedInUser&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/Library/Safari/PerSitePreferences.db&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Update preference_values SET preference_value=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$valueToSet&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; WHERE domain='&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$urlToModify&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;';&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Value Updated to Match&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Hopefully this helps anyone who needs this and hopefully this gets turned into a configuration profile setting.
+&lt;em&gt;psst file your radars for this! My radar for this is: 39192330&lt;/em&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 04 Apr 2018 16:03:46 -0600</pubDate>
         <link>https://wardsparadox.github.io/2018/04/04/modifying-safaris-autoplay-preferences/</link>
