@@ -144,7 +144,7 @@
 
 <p>I am deploying a boot-every script with <a href="https://github.com/chilcote/outset">Outset</a> that does the same thing. I packaged this up as an <code class="highlighter-rouge">update_for</code> in Munki. This will provide a dashboard that will give you in-depth look at the current status of your fleet. The client tab will show you exactly what each client shows for each infection. The command structure for this is as follows:</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="s2">"/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX</span><span class="se">\ </span><span class="s2">Swift"</span> search -aj <span class="s2">"/usr/local/munki/preflight.d/cache/detectx.json"</span>
+<span class="s2">"/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX Swift"</span> search -aj <span class="s2">"/usr/local/munki/preflight.d/cache/detectx.json"</span>
 </code></pre>
 </div>
 <p>This will scan (if you are running it independently you must run it as root!) all users homes and report on it’s findings. It is fairly quick. If you combine all of this together you get an auto-updating anti-malware solution that reports to a dashboard for every machine you deploy it too. If there are machines supsected of having malware, we call the employee and request they do a quick restart so that the <code class="highlighter-rouge">boot-every</code> script has a chance to report, then perform a Munki update check to send the data to us. So far this has proven effective and useful here.</p>
