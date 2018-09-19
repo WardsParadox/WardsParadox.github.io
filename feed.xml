@@ -6,8 +6,8 @@
 </description>
     <link>https://wardsparadox.github.io/</link>
     <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 04 Apr 2018 17:32:34 -0600</pubDate>
-    <lastBuildDate>Wed, 04 Apr 2018 17:32:34 -0600</lastBuildDate>
+    <pubDate>Wed, 19 Sep 2018 16:25:02 -0600</pubDate>
+    <lastBuildDate>Wed, 19 Sep 2018 16:25:02 -0600</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -274,7 +274,7 @@ worker_cpu_affinity 0001 0010 0100 1000;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;#!/bin/bash
 &quot;/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX Swift&quot; register -key &quot;KEYNUMBER&quot; -email &quot;REGISTEREDEMAIL&quot;
 
-&quot;/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX\ Swift&quot; search -aj &quot;/usr/local/munki/preflight.d/cache/detectx.json&quot;
+&quot;/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX Swift&quot; search -aj &quot;/usr/local/munki/preflight.d/cache/detectx.json&quot;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -284,7 +284,7 @@ worker_cpu_affinity 0001 0010 0100 1000;
 
 &lt;p&gt;I am deploying a boot-every script with &lt;a href=&quot;https://github.com/chilcote/outset&quot;&gt;Outset&lt;/a&gt; that does the same thing. I packaged this up as an &lt;code class=&quot;highlighter-rouge&quot;&gt;update_for&lt;/code&gt; in Munki. This will provide a dashboard that will give you in-depth look at the current status of your fleet. The client tab will show you exactly what each client shows for each infection. The command structure for this is as follows:&lt;/p&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class=&quot;s2&quot;&gt;&quot;/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Swift&quot;&lt;/span&gt; search -aj &lt;span class=&quot;s2&quot;&gt;&quot;/usr/local/munki/preflight.d/cache/detectx.json&quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX Swift&quot;&lt;/span&gt; search -aj &lt;span class=&quot;s2&quot;&gt;&quot;/usr/local/munki/preflight.d/cache/detectx.json&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;This will scan (if you are running it independently you must run it as root!) all users homes and report on it’s findings. It is fairly quick. If you combine all of this together you get an auto-updating anti-malware solution that reports to a dashboard for every machine you deploy it too. If there are machines supsected of having malware, we call the employee and request they do a quick restart so that the &lt;code class=&quot;highlighter-rouge&quot;&gt;boot-every&lt;/code&gt; script has a chance to report, then perform a Munki update check to send the data to us. So far this has proven effective and useful here.&lt;/p&gt;
