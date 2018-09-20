@@ -6,9 +6,46 @@
 </description>
     <link>https://wardsparadox.github.io/</link>
     <atom:link href="https://wardsparadox.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Sep 2018 16:29:57 -0600</pubDate>
-    <lastBuildDate>Wed, 19 Sep 2018 16:29:57 -0600</lastBuildDate>
+    <pubDate>Thu, 20 Sep 2018 10:21:22 -0600</pubDate>
+    <lastBuildDate>Thu, 20 Sep 2018 10:21:22 -0600</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>Force a DEP sync..from your phone!</title>
+        <description>&lt;p&gt;I’ve used Workflow in the past, but I hadn’t really fully explored it as “click this” instead of “launch this app and run this real quick” never bothered me. Things have changed since then. Hello to Siri Shortcuts in iOS 12! I can now run things by voice. &lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;In my &lt;code class=&quot;highlighter-rouge&quot;&gt;$org&lt;/code&gt;, we use &lt;a href=&quot;https://micromdm.io&quot; title=&quot;micromdm&quot;&gt;MicroMDM&lt;/a&gt; to manage our Mac computers. The benefits to this are that it’s API is fully exposed and that makes things SUPER easy to integrate with. Some members in the &lt;a href=&quot;macadmins.org&quot; title=&quot;macadmins slack link&quot;&gt;MacAdmins Slack&lt;/a&gt; had pointed out that there existed an API endpoint to force a DEP sync. This is HUGE! As we are still getting a large number of our devices into DEP, having to wait a while for µmdm to sync was a bit tedious. This was more of a patience issue on my part than a µmdm quirk.  I quickly wrote this up in &lt;a href=&quot;https://www.getpostman.com/&quot; title=&quot;postman&quot;&gt;Postman&lt;/a&gt; and had a nice interface to run it. I am working on getting some shell alias’ setup for this as well.&lt;/p&gt;
+
+&lt;p&gt;I’ve been running iOS 12 since dev beta 1 on my daily driver. It has come a long way, but enjoyable and pleasantly less buggy all the way through to release day. I run it on my daily driver so that I can fully experience any bugs and do more feedback that way. If you find an issue on your daily, it’s rather easy to remember to file feedback (😜)! With Siri Shortcuts + the Shortcuts app now fully available, I started playing around. That’s when I noticed this:
+&lt;img src=&quot;/images/2018/09/getcontentsofurl.jpeg&quot; alt=&quot;get contents of url&quot; width=&quot;350px&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;🤔 Interesting. I can specify some headers and everything. Let’s give it a shot.&lt;/p&gt;
+
+&lt;p&gt;µmdm uses basic auth to authenticate the API calls. This can be sent as a Base64 Encoded string as a header via
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Authorization: Basic BASE64USERPASSSTRING&lt;/code&gt;. In &lt;code class=&quot;highlighter-rouge&quot;&gt;cURL&lt;/code&gt; this looks like&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -X POST &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  https://micromdm.url/v1/dep/syncnow &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  -H &lt;span class=&quot;s1&quot;&gt;'Authorization: Basic U25lYWt5IFNuZWFreSwgTmljZSB0cnkgO1AK'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I was able to convert this curl code to the content needed in the Shortcut. To do this, I tried inspecting the file on my computer. It turns out, &lt;code class=&quot;highlighter-rouge&quot;&gt;.shortcut&lt;/code&gt; files are just binary &lt;code class=&quot;highlighter-rouge&quot;&gt;plists&lt;/code&gt; which remind me of Automator workflows. The file is shared below, but there are some things you will need to adjust for this to work right in your environment. All you should need to swap is Lines &lt;code class=&quot;highlighter-rouge&quot;&gt;15&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;82&lt;/code&gt; (unless you are using more potent forms of authentication). You can also set a vocal command for Siri to run this.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/images/2018/09/microMDM - Force DEP Sync.shortcut&quot;&gt;microMDM - Force DEP Sync.shortcut&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 20 Sep 2018 10:01:00 -0600</pubDate>
+        <link>https://wardsparadox.github.io/2018/09/20/force-a-dep-sync-from-your-phone/</link>
+        <guid isPermaLink="true">https://wardsparadox.github.io/2018/09/20/force-a-dep-sync-from-your-phone/</guid>
+        
+        <category>ios</category>
+        
+        <category>micromdm</category>
+        
+        <category>siri shortcuts</category>
+        
+        
+      </item>
     
       <item>
         <title>Modifying Safari's Auto-Play Preferences</title>
@@ -462,37 +499,6 @@ I am thinking about pull-requesting it back to Nick, but I’m sure there are ot
         <pubDate>Sun, 05 Jun 2016 15:43:30 -0600</pubDate>
         <link>https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/</link>
         <guid isPermaLink="true">https://wardsparadox.github.io/2016/06/05/multiple-inputs-with-one-argument/</guid>
-        
-        <category>TIL</category>
-        
-        <category>python</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>TIL 01 - Get a OS X Preference via python</title>
-        <description>&lt;p&gt;As I am trying to learn more of the Python programming language (version 2.7.* as that is what is currently built-in to OS X), I find little challenges to help process what I have learned of it. Recently I was introduced to the &lt;code class=&quot;highlighter-rouge&quot;&gt;Foundation&lt;/code&gt; frameworks that come with OS X. For a while I was writing scripts that required &lt;code class=&quot;highlighter-rouge&quot;&gt;plistlib&lt;/code&gt; which could only read the XML version of a plist. OS X stores preferences in binary plist form. In order to use &lt;code class=&quot;highlighter-rouge&quot;&gt;plistlib&lt;/code&gt; then, I was shelling out using &lt;code class=&quot;highlighter-rouge&quot;&gt;subprocess&lt;/code&gt; and converting the plist to xml form temporarily. As I am trying to stay away from some of the “bad Mac Admin” practices, I found myself needing a way to read preferences without messing with the hard files. I could use &lt;code class=&quot;highlighter-rouge&quot;&gt;subprocess.check_output&lt;/code&gt; and read the results of defaults, but why add more complexity (just my opinion). Here is what I came up with (this example uses the Munki preference file):&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Foundation&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CFPreferencesCopyValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; \
-                       &lt;span class=&quot;n&quot;&gt;kCFPreferencesAnyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; \
-                       &lt;span class=&quot;n&quot;&gt;kCFPreferencesAnyHost&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getpreferencekey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keytolookup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;'''
-    Returns Value for Requested Key in ManagedInstalls
-    '''&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CFPreferencesCopyValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keytolookup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/Library/Preferences/ManagedInstalls&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                              &lt;span class=&quot;n&quot;&gt;kCFPreferencesAnyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kCFPreferencesAnyHost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;munki_cid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getpreferencekey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ClientIdentifier&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;munki_server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getpreferencekey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SoftwareRepoURL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;munki_cid&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;munki_server&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-</description>
-        <pubDate>Sun, 06 Mar 2016 00:00:00 -0700</pubDate>
-        <link>https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</link>
-        <guid isPermaLink="true">https://wardsparadox.github.io/2016/03/06/til-01-get-a-os-x-preference-via-python/</guid>
         
         <category>TIL</category>
         

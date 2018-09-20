@@ -19,7 +19,13 @@
         
         "safari",
         
-        "sqlite"
+        "sqlite",
+        
+        "ios",
+        
+        "micromdm",
+        
+        "siri shortcuts"
         
     ]
 }

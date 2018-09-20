@@ -8,10 +8,10 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Adding a "Coming Soon" Ribbon to the Munki Showcase - Zack McCauley</title>
+    <title>Force a DEP sync..from your phone! - Zack McCauley</title>
     <meta name="description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
 ">
-    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Adding a "Coming Soon" Ribbon to the Munki Showcase - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/"><meta property="article:published_time" content="2015-12-12T00:00:00-07:00"><meta property="article:author" content="https://wardsparadox.github.io/about">
+    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Force a DEP sync..from your phone! - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="https://wardsparadox.github.io/2018/09/20/force-a-dep-sync-from-your-phone/"><meta property="article:published_time" content="2018-09-20T10:01:00-06:00"><meta property="article:author" content="https://wardsparadox.github.io/about">
 
     
 
@@ -22,7 +22,7 @@
     <link rel="alternate" type="application/rss+xml" href="https://wardsparadox.github.io/feed.xml">
     <link rel="shortcut icon" href="https://wardsparadox.github.io/favicon.ico">
     <link rel="prefetch" href="https://wardsparadox.github.io">
-    <link rel="canonical" href="https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/">
+    <link rel="canonical" href="https://wardsparadox.github.io/2018/09/20/force-a-dep-sync-from-your-phone/">
     <link rel="stylesheet"
     href="https://wardsparadox.github.io/assets/css/main.css">
     <!-- Favicons -->
@@ -80,32 +80,40 @@
   
 
   <header class="post-header">
-    <h1 class="post-title">Adding a "Coming Soon" Ribbon to the Munki Showcase</h1>
+    <h1 class="post-title">Force a DEP sync..from your phone!</h1>
     <p class="post-meta">
     
+      <span class="categories">
+      ios, micromdm, siri shortcuts
+      </span> |
+    
     <span class="post-date">
-    Dec 12, 2015
+    Sep 20, 2018
     </span>
     </p>
   </header>
 
   <article class="post-content">
-    <p>I have been doing some testing and it seems that with the latest OS X El Capitan release, our district can finally move to El Capitan. At the same time I have been doing some testing of Office 2016 for Mac. I have been moving our district to deploying software with Munki. It’s been two years and has already saved us hundreds of man hours.</p>
+    <p>I’ve used Workflow in the past, but I hadn’t really fully explored it as “click this” instead of “launch this app and run this real quick” never bothered me. Things have changed since then. Hello to Siri Shortcuts in iOS 12! I can now run things by voice. <!--more--></p>
 
-<p>I was aware of the conditional items ability with Munki. I wanted a little bit of time in case and final issues came about. So I set the optional installs to become available to be the 2nd of January, 2016; the day before our teachers and staff members came back. Make sure you escape the greater than symbol</p>
+<p>In my <code class="highlighter-rouge">$org</code>, we use <a href="https://micromdm.io" title="micromdm">MicroMDM</a> to manage our Mac computers. The benefits to this are that it’s API is fully exposed and that makes things SUPER easy to integrate with. Some members in the <a href="macadmins.org" title="macadmins slack link">MacAdmins Slack</a> had pointed out that there existed an API endpoint to force a DEP sync. This is HUGE! As we are still getting a large number of our devices into DEP, having to wait a while for µmdm to sync was a bit tedious. This was more of a patience issue on my part than a µmdm quirk.  I quickly wrote this up in <a href="https://www.getpostman.com/" title="postman">Postman</a> and had a nice interface to run it. I am working on getting some shell alias’ setup for this as well.</p>
 
-<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;key&gt;</span>conditional_items<span class="nt">&lt;/key&gt;</span>
-<span class="nt">&lt;array&gt;</span>
-  <span class="nt">&lt;dict&gt;</span>
-    <span class="nt">&lt;key&gt;</span>condition<span class="nt">&lt;/key&gt;</span>
-    <span class="nt">&lt;string&gt;</span>date `<span class="ni">&amp;gt;</span>` CAST("2016-01-02T00:00:00Z", "NSDate")<span class="nt">&lt;/string&gt;</span>
-    <span class="nt">&lt;key&gt;</span>optional_installs<span class="nt">&lt;/key&gt;</span>
-    <span class="nt">&lt;array&gt;</span>
-      <span class="nt">&lt;string&gt;</span>InstallOSX<span class="nt">&lt;/string&gt;</span>
-      <span class="nt">&lt;string&gt;</span>MSOffice2016<span class="nt">&lt;/string&gt;</span>
-    <span class="nt">&lt;/array&gt;</span>
-  <span class="nt">&lt;/dict&gt;</span>
-<span class="nt">&lt;/array&gt;</span></code></pre></figure>
+<p>I’ve been running iOS 12 since dev beta 1 on my daily driver. It has come a long way, but enjoyable and pleasantly less buggy all the way through to release day. I run it on my daily driver so that I can fully experience any bugs and do more feedback that way. If you find an issue on your daily, it’s rather easy to remember to file feedback (😜)! With Siri Shortcuts + the Shortcuts app now fully available, I started playing around. That’s when I noticed this:
+<img src="/images/2018/09/getcontentsofurl.jpeg" alt="get contents of url" width="350px" class="center-image" /></p>
+
+<p>🤔 Interesting. I can specify some headers and everything. Let’s give it a shot.</p>
+
+<p>µmdm uses basic auth to authenticate the API calls. This can be sent as a Base64 Encoded string as a header via
+<code class="highlighter-rouge">Authorization: Basic BASE64USERPASSSTRING</code>. In <code class="highlighter-rouge">cURL</code> this looks like</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="se">\</span>
+  https://micromdm.url/v1/dep/syncnow <span class="se">\</span>
+  -H <span class="s1">'Authorization: Basic U25lYWt5IFNuZWFreSwgTmljZSB0cnkgO1AK'</span>
+</code></pre>
+</div>
+
+<p>I was able to convert this curl code to the content needed in the Shortcut. To do this, I tried inspecting the file on my computer. It turns out, <code class="highlighter-rouge">.shortcut</code> files are just binary <code class="highlighter-rouge">plists</code> which remind me of Automator workflows. The file is shared below, but there are some things you will need to adjust for this to work right in your environment. All you should need to swap is Lines <code class="highlighter-rouge">15</code> and <code class="highlighter-rouge">82</code> (unless you are using more potent forms of authentication). You can also set a vocal command for Siri to run this.</p>
+
+<p><a href="/images/2018/09/microMDM - Force DEP Sync.shortcut">microMDM - Force DEP Sync.shortcut</a></p>
 
 
   </article>
@@ -114,15 +122,6 @@
     <div class="related-posts">
       <h4>Related Posts</h4>
       <ul>
-        
-          <li>
-            <h5>
-              <a href="https://wardsparadox.github.io/2018/09/20/force-a-dep-sync-from-your-phone/">
-                Force a DEP sync..from your phone!
-                <small>20 Sep 2018</small>
-              </a>
-            </h5>
-          </li>
         
           <li>
             <h5>
@@ -142,6 +141,15 @@
             </h5>
           </li>
         
+          <li>
+            <h5>
+              <a href="https://wardsparadox.github.io/2018/01/29/faster-munki-downloads-from-nginx/">
+                Faster Munki Downloads from Nginx
+                <small>29 Jan 2018</small>
+              </a>
+            </h5>
+          </li>
+        
       </ul>
     </div>
   
@@ -153,7 +161,7 @@
     
 
     
-      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title="mccauley_zack on Twitter"           href="https://twitter.com/intent/tweet?original_referer=https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/&amp;text=Adding a "Coming Soon" Ribbon to the Munki Showcase&amp;url=https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=https://wardsparadox.github.io/2015/12/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/&amp;t=Adding a "Coming Soon" Ribbon to the Munki Showcase"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
+      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title="mccauley_zack on Twitter"           href="https://twitter.com/intent/tweet?original_referer=https://wardsparadox.github.io/2018/09/20/force-a-dep-sync-from-your-phone/&amp;text=Force a DEP sync..from your phone!&amp;url=https://wardsparadox.github.io/2018/09/20/force-a-dep-sync-from-your-phone/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=https://wardsparadox.github.io/2018/09/20/force-a-dep-sync-from-your-phone/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=https://wardsparadox.github.io/2018/09/20/force-a-dep-sync-from-your-phone/&amp;t=Force a DEP sync..from your phone!"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
     
   </div>
 
