@@ -81,6 +81,36 @@
     
 
     <h1 class="post-title">
+      <a href="https://wardsparadox.github.io/2018/10/16/google-packages-and-munki/">
+        Google Packages and Munki
+      </a>
+    </h1>
+
+    <p class="post-meta">
+    
+      <span class="categories">
+      munki
+      </span> |
+    
+    <span class="post-date">
+    Oct 16, 2018
+    </span>
+    </p>
+
+    <p>On a few machines, I’ve been getting Munki errors related to the Chrome Remote Desktop Host update packages, and the Google Drive FileStream packages. The packages fail when you disable the Keystone Agent via Profile or via the MasterDisable key in <code class="highlighter-rouge">/Library/Preferences/com.google.Keystone.plist</code>. As we deploy these updates through Munki via AutoPkg, I found that I needed to disable the GoogleSoftwareUpdate package bundled with both of these.</p>
+
+
+    <a href="https://wardsparadox.github.io/2018/10/16/google-packages-and-munki/">
+      Continue reading »
+    </a>
+  </article>
+  
+  
+  <article class="post">
+
+    
+
+    <h1 class="post-title">
       <a href="https://wardsparadox.github.io/2018/09/20/force-a-dep-sync-from-your-phone/">
         Force a DEP sync..from your phone!
       </a>
@@ -191,36 +221,6 @@
 
 
     <a href="https://wardsparadox.github.io/2018/01/29/faster-munki-downloads-from-nginx/">
-      Continue reading »
-    </a>
-  </article>
-  
-  
-  <article class="post">
-
-    
-
-    <h1 class="post-title">
-      <a href="https://wardsparadox.github.io/2018/01/15/deploying-detectx-swift-with-munki/">
-        Deploying DetectX Swift with Munki
-      </a>
-    </h1>
-
-    <p class="post-meta">
-    
-      <span class="categories">
-      munki
-      </span> |
-    
-    <span class="post-date">
-    Jan 15, 2018
-    </span>
-    </p>
-
-    <p>DetectX Swift is an alternative to MalwareBytes Anti-Malware and was more economical for our district to use. It also is faster and more what we were looking for. I highly recommend it! This is a write up based on how we are deploying it here.</p>
-
-
-    <a href="https://wardsparadox.github.io/2018/01/15/deploying-detectx-swift-with-munki/">
       Continue reading »
     </a>
   </article>

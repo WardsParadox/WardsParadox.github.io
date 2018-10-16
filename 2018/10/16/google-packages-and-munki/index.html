@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Google Packages and Munki - Zack McCauley</title>
+    <meta name="description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.
+">
+    <meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Google Packages and Munki - Zack McCauley"><meta property="og:site_name" content="Zack McCauley"><meta property="og:description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning."><meta property="og:url" content="https://wardsparadox.github.io/2018/10/16/google-packages-and-munki/"><meta property="article:published_time" content="2018-10-16T16:12:00-06:00"><meta property="article:author" content="https://wardsparadox.github.io/about">
+
+    
+
+    
+    <meta name="google-site-verification" content="99065592" />
+    
+
+    <link rel="alternate" type="application/rss+xml" href="https://wardsparadox.github.io/feed.xml">
+    <link rel="shortcut icon" href="https://wardsparadox.github.io/favicon.ico">
+    <link rel="prefetch" href="https://wardsparadox.github.io">
+    <link rel="canonical" href="https://wardsparadox.github.io/2018/10/16/google-packages-and-munki/">
+    <link rel="stylesheet"
+    href="https://wardsparadox.github.io/assets/css/main.css">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="https://wardsparadox.github.io/assets/images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://wardsparadox.github.io/assets/images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://wardsparadox.github.io/assets/images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://wardsparadox.github.io/assets/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"  href="https://wardsparadox.github.io/assets/images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"  href="https://wardsparadox.github.io/assets/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"  href="https://wardsparadox.github.io/assets/images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"  href="https://wardsparadox.github.io/assets/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"  href="https://wardsparadox.github.io/assets/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="https://wardsparadox.github.io/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://wardsparadox.github.io/assets/images/favicons/android-chrome-192x192.png"  sizes="192x192">
+    <link rel="icon" type="image/png" href="https://wardsparadox.github.io/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="https://wardsparadox.github.io/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="https://wardsparadox.github.io/assets/images/favicons/manifest.json">
+    <link rel="mask-icon" href="https://wardsparadox.github.io/assets/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#fffff">
+    <meta name="msapplication-TileImage" content="https://wardsparadox.github.io/assets/images/favicons/mstile-144x144.png">
+    <meta name="themesettings-color" content="#ffffff">
+    <!-- /Favicons -->
+
+    <!-- IE Fixes -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+    <style type="text/css">a,.post-title a{color:#2192BB}a:hover{border-bottom-color:#2192BB}.sidebar{background-color:#2192BB}.wc-top,.sidebar-toggle:active,#sidebar-checkbox:checked ~ .sidebar-toggle{background-color:#2192BB}.sidebar a:hover,.sidebar .sidebar-nav a{border-bottom-color:#25a3d1}.sidebar .sidebar-nav{border-top-color:#25a3d1}.sidebar .sidebar-nav a.sidebar-nav-item:hover,.sidebar .sidebar-nav a.sidebar-nav-item:focus{background:#239cc8}.sidebar .sidebar-nav .sidebar-nav-item.active{background-color:#1f88ae}ul.social-media li>a{background-color:#1f88ae;border-color:#25a3d1;border-bottom-color:#25a3d1 !important}ul.social-media li>a:hover{background-color:#e1f3fa}.btn{border-color:#2192BB;background:#2192bb}.btn:hover,.btn:focus{border-color:#1d81a5;background:#1d81a5}</style>
+  </head>
+  <body>
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><div class="sidebar" id="sidebar">    <img    src="https://wardsparadox.github.io/assets/images/avatar.jpg"    alt="Zack McCauley" />    <div class="sidebar-info">      <p>        Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.      </p>  </div>  <nav class="sidebar-nav">    <a class="sidebar-nav-item"      href="https://wardsparadox.github.io/">      Home    </a>                <a class="sidebar-nav-item "      href="https://wardsparadox.github.io/about">      About me    </a>                <a class="sidebar-nav-item "      href="https://wardsparadox.github.io/archive">      Blog Archive    </a>                <a class="sidebar-nav-item "      href="https://wardsparadox.github.io/tags">      Tags    </a>      </nav>  <div class="sidebar-info small">     <p>       Made by <a href="https://github.com/gayanvirajith/gaya" target="_blank">Gayan Virajith</a> For everyone.       Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>     </p>  </div>  <ul class="social-media">        <li>        <a title="mccauley_zack on Twitter"            href="https://twitter.com/mccauley_zack"            class="twitter wc-img-replace" target="_blank">Twitter</a>    </li>            <li>        <a title="108452882684071984253 on Google Plus"            href="https://plus.google.com/108452882684071984253"            class="google wc-img-replace" target="_blank">Google</a>    </li>                <li>        <a title="wardsparadox on Github"            href="https://github.com/wardsparadox"            class="github wc-img-replace" target="_blank">Github</a>    </li>                    <li>        <a title="zack_mccauley @ macadmins.org on Slack"            href="https://www.macadmins.org/"            class="slack wc-img-replace" target="_blank">Slack</a>    </li>        <li>        <a title="Subscribe via RSS"            href="https://wardsparadox.github.io/feed.xml"            class="rss wc-img-replace" target="_blank">            RSS        </a>    </li></ul></div>
+
+    <div class="main-wrapper">
+      <div class="header">
+        <div class="container">
+          <div class="header-logo"><a href="https://wardsparadox.github.io/"   title="Zack McCauley">  <img     src="https://wardsparadox.github.io/assets/images/logo.jpg"    alt="Zack McCauley" /></a></div>
+          <div class="header-title">
+            <a href="https://wardsparadox.github.io/"
+              title="Zack McCauley">
+              <h3>Zack McCauley<small>Fixer of Machines, Breaker of Code</small></h3>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+          <div class="post">
+
+  
+
+  
+
+  <header class="post-header">
+    <h1 class="post-title">Google Packages and Munki</h1>
+    <p class="post-meta">
+    
+      <span class="categories">
+      munki
+      </span> |
+    
+    <span class="post-date">
+    Oct 16, 2018
+    </span>
+    </p>
+  </header>
+
+  <article class="post-content">
+    <p>On a few machines, I’ve been getting Munki errors related to the Chrome Remote Desktop Host update packages, and the Google Drive FileStream packages. The packages fail when you disable the Keystone Agent via Profile or via the MasterDisable key in <code class="highlighter-rouge">/Library/Preferences/com.google.Keystone.plist</code>. As we deploy these updates through Munki via AutoPkg, I found that I needed to disable the GoogleSoftwareUpdate package bundled with both of these.
+<!--more--></p>
+
+<p>Munki has the ability to modify the <a href="https://github.com/munki/munki/wiki/ChoiceChangesXML">ChoiceChanges</a> feature of installer packages to help customize your deployment. You can also test this outside with the <code class="highlighter-rouge">installer</code> tool. The Munki wiki goes over this, but a brief summary is that you run <code class="highlighter-rouge">-showChoicesXML</code> on the package to see which options are available to select or de-select. If the software developer was a good packager, you’ll see <code class="highlighter-rouge">choiceIdentifier</code> making sense (much like how the Munki packages are identified). Listed below are the outputs of <code class="highlighter-rouge">-showChoicesXML</code> from Google Drive FileStream’s package and Google Chrome Remote Desktop Host’s package.</p>
+
+<h3 id="google-drive-filestream">Google Drive FileStream</h3>
+
+<p><code class="highlighter-rouge">installer -showChoicesXML -pkg /Volumes/Install\ Google\ Drive\ File\ Stream/GoogleDriveFileStream.pkg</code></p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="cp">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span>
+<span class="nt">&lt;plist</span> <span class="na">version=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;array&gt;</span>
+	<span class="nt">&lt;dict&gt;</span>
+		<span class="nt">&lt;key&gt;</span>childItems<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;array&gt;</span>
+			<span class="nt">&lt;dict&gt;</span>
+				<span class="nt">&lt;key&gt;</span>childItems<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;array/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceDescription<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIdentifier<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;</span>installer_choice_1<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsEnabled<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;true/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsSelected<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;integer&gt;</span>1<span class="nt">&lt;/integer&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsVisible<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;true/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceSizeInKilobytes<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;integer&gt;</span>0<span class="nt">&lt;/integer&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceTitle<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;</span>Google Software Update<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>pathsOfActivePackagesInChoice<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;array&gt;</span>
+					<span class="nt">&lt;string&gt;</span>file://localhost/Volumes/Install%20Google%20Drive%20File%20Stream/GoogleDriveFileStream.pkg#Google_Software_Update.pkg<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;/array&gt;</span>
+			<span class="nt">&lt;/dict&gt;</span>
+			<span class="nt">&lt;dict&gt;</span>
+				<span class="nt">&lt;key&gt;</span>childItems<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;array/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceDescription<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIdentifier<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;</span>installer_choice_2<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsEnabled<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;true/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsSelected<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;integer&gt;</span>1<span class="nt">&lt;/integer&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsVisible<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;true/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceSizeInKilobytes<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;integer&gt;</span>196075<span class="nt">&lt;/integer&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceTitle<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;</span>Google Drive File Stream<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>pathsOfActivePackagesInChoice<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;array&gt;</span>
+					<span class="nt">&lt;string&gt;</span>file://localhost/Volumes/Install%20Google%20Drive%20File%20Stream/GoogleDriveFileStream.pkg#GoogleDriveFileStream.pkg<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;/array&gt;</span>
+			<span class="nt">&lt;/dict&gt;</span>
+		<span class="nt">&lt;/array&gt;</span>
+		<span class="nt">&lt;key&gt;</span>choiceIdentifier<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;string&gt;</span>__ROOT_CHOICE_IDENT_DISTRIBUTION_TITLE<span class="nt">&lt;/string&gt;</span>
+		<span class="nt">&lt;key&gt;</span>choiceIsEnabled<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;true/&gt;</span>
+		<span class="nt">&lt;key&gt;</span>choiceIsSelected<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;integer&gt;</span>1<span class="nt">&lt;/integer&gt;</span>
+		<span class="nt">&lt;key&gt;</span>choiceIsVisible<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;true/&gt;</span>
+		<span class="nt">&lt;key&gt;</span>choiceSizeInKilobytes<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;integer&gt;</span>0<span class="nt">&lt;/integer&gt;</span>
+		<span class="nt">&lt;key&gt;</span>choiceTitle<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;string&gt;</span>Google Drive File Stream<span class="nt">&lt;/string&gt;</span>
+		<span class="nt">&lt;key&gt;</span>pathsOfActivePackagesInChoice<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;array/&gt;</span>
+	<span class="nt">&lt;/dict&gt;</span>
+<span class="nt">&lt;/array&gt;</span>
+<span class="nt">&lt;/plist&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="google-chrome-remote-desktop-host">Google Chrome Remote Desktop Host:</h3>
+
+<p><code class="highlighter-rouge">installer -showChoicesXML -pkg /Volumes/Chrome\ Remote\ Desktop\ Host\ 70.0.3538.21/Chrome\ Remote\ Desktop\ Host.pkg</code></p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="cp">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span>
+<span class="nt">&lt;plist</span> <span class="na">version=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;array&gt;</span>
+	<span class="nt">&lt;dict&gt;</span>
+		<span class="nt">&lt;key&gt;</span>childItems<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;array&gt;</span>
+			<span class="nt">&lt;dict&gt;</span>
+				<span class="nt">&lt;key&gt;</span>childItems<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;array/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceDescription<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIdentifier<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;</span>installer_choice_1<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsEnabled<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;true/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsSelected<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;integer&gt;</span>1<span class="nt">&lt;/integer&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsVisible<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;true/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceSizeInKilobytes<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;integer&gt;</span>0<span class="nt">&lt;/integer&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceTitle<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;</span>Chrome Remote Desktop Host<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>pathsOfActivePackagesInChoice<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;array&gt;</span>
+					<span class="nt">&lt;string&gt;</span>file://localhost/Volumes/Chrome%20Remote%20Desktop%20Host%2070.0.3538.21/Chrome%20Remote%20Desktop%20Host.pkg#Chrome_Remote_Desktop_Host.pkg<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;/array&gt;</span>
+			<span class="nt">&lt;/dict&gt;</span>
+			<span class="nt">&lt;dict&gt;</span>
+				<span class="nt">&lt;key&gt;</span>childItems<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;array/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceDescription<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIdentifier<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;</span>installer_choice_2<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsEnabled<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;true/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsSelected<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;integer&gt;</span>1<span class="nt">&lt;/integer&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsVisible<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;true/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceSizeInKilobytes<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;integer&gt;</span>0<span class="nt">&lt;/integer&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceTitle<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;</span>Google Software Update<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>pathsOfActivePackagesInChoice<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;array&gt;</span>
+					<span class="nt">&lt;string&gt;</span>file://localhost/Volumes/Chrome%20Remote%20Desktop%20Host%2070.0.3538.21/Chrome%20Remote%20Desktop%20Host.pkg#GoogleSoftwareUpdate.pkg<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;/array&gt;</span>
+			<span class="nt">&lt;/dict&gt;</span>
+			<span class="nt">&lt;dict&gt;</span>
+				<span class="nt">&lt;key&gt;</span>childItems<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;array/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceDescription<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIdentifier<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;</span>installer_choice_3<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsEnabled<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;true/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsSelected<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;integer&gt;</span>1<span class="nt">&lt;/integer&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsVisible<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;true/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceSizeInKilobytes<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;integer&gt;</span>86899<span class="nt">&lt;/integer&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceTitle<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;</span>ChromeRemoteDesktopHostService<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>pathsOfActivePackagesInChoice<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;array&gt;</span>
+					<span class="nt">&lt;string&gt;</span>file://localhost/Volumes/Chrome%20Remote%20Desktop%20Host%2070.0.3538.21/Chrome%20Remote%20Desktop%20Host.pkg#ChromeRemoteDesktopHostService.pkg<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;/array&gt;</span>
+			<span class="nt">&lt;/dict&gt;</span>
+			<span class="nt">&lt;dict&gt;</span>
+				<span class="nt">&lt;key&gt;</span>childItems<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;array/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceDescription<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIdentifier<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;</span>installer_choice_4<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsEnabled<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;true/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsSelected<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;integer&gt;</span>1<span class="nt">&lt;/integer&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceIsVisible<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;true/&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceSizeInKilobytes<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;integer&gt;</span>174<span class="nt">&lt;/integer&gt;</span>
+				<span class="nt">&lt;key&gt;</span>choiceTitle<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;string&gt;</span>ChromeRemoteDesktopHostUninstaller<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;key&gt;</span>pathsOfActivePackagesInChoice<span class="nt">&lt;/key&gt;</span>
+				<span class="nt">&lt;array&gt;</span>
+					<span class="nt">&lt;string&gt;</span>file://localhost/Volumes/Chrome%20Remote%20Desktop%20Host%2070.0.3538.21/Chrome%20Remote%20Desktop%20Host.pkg#ChromeRemoteDesktopHostUninstaller.pkg<span class="nt">&lt;/string&gt;</span>
+				<span class="nt">&lt;/array&gt;</span>
+			<span class="nt">&lt;/dict&gt;</span>
+		<span class="nt">&lt;/array&gt;</span>
+		<span class="nt">&lt;key&gt;</span>choiceIdentifier<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;string&gt;</span>__ROOT_CHOICE_IDENT_DISTRIBUTION_TITLE<span class="nt">&lt;/string&gt;</span>
+		<span class="nt">&lt;key&gt;</span>choiceIsEnabled<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;true/&gt;</span>
+		<span class="nt">&lt;key&gt;</span>choiceIsSelected<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;integer&gt;</span>1<span class="nt">&lt;/integer&gt;</span>
+		<span class="nt">&lt;key&gt;</span>choiceIsVisible<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;true/&gt;</span>
+		<span class="nt">&lt;key&gt;</span>choiceSizeInKilobytes<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;integer&gt;</span>0<span class="nt">&lt;/integer&gt;</span>
+		<span class="nt">&lt;key&gt;</span>choiceTitle<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;string&gt;</span>Chrome Remote Desktop Host<span class="nt">&lt;/string&gt;</span>
+		<span class="nt">&lt;key&gt;</span>pathsOfActivePackagesInChoice<span class="nt">&lt;/key&gt;</span>
+		<span class="nt">&lt;array/&gt;</span>
+	<span class="nt">&lt;/dict&gt;</span>
+<span class="nt">&lt;/array&gt;</span>
+<span class="nt">&lt;/plist&gt;</span>
+</code></pre>
+</div>
+
+<p>Looking at the snippets, you will see the <code class="highlighter-rouge">choiceIdentifier</code> for the packages are super helpful <code class="highlighter-rouge">installer_choice_1-4</code>. 😒 Thanks Google. Not only will your packages fail if the <code class="highlighter-rouge">ksadmin</code> tool is disabled, but the installer choices requires more diving to figure out which option is which. Thankfully there is a file that helps with this. Some packages you can browse as a directory and you can navigate to the <code class="highlighter-rouge">Distribution</code> XML file with no other work needed. As these packages are Flat Packages you will need to expand them with <code class="highlighter-rouge">pkgutil --expand</code> flag in order to get access to the <code class="highlighter-rouge">Distribution</code> file. Let’s look at the Google Drive FileStream package as an example.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pkgutil --expand /Volumes/Install<span class="se">\ </span>Google<span class="se">\ </span>Drive<span class="se">\ </span>File<span class="se">\ </span>Stream/GoogleDriveFileStream.pkg ~/Desktop/GDFS
+</code></pre>
+</div>
+<p>Looking in this file, you will see a lot of definitions that correlate to the Installer menu options.</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;installer-script</span> <span class="na">authoringTool=</span><span class="s">"Packages"</span> <span class="na">authoringToolVersion=</span><span class="s">"1.1.3"</span> <span class="na">authoringToolBuild=</span><span class="s">"2B112"</span> <span class="na">minSpecVersion=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;options</span> <span class="na">customize=</span><span class="s">"never"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;volume-check</span> <span class="na">script=</span><span class="s">"volume_check()"</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--+==========================+
+        |       Presentation       |
+        +==========================+--&gt;</span>
+    <span class="nt">&lt;title&gt;</span>DISTRIBUTION_TITLE<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;background</span> <span class="na">file=</span><span class="s">"background"</span> <span class="na">scaling=</span><span class="s">"proportional"</span> <span class="na">alignment=</span><span class="s">"bottomleft"</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--+==========================+
+        |         Installer        |
+        +==========================+--&gt;</span>
+    <span class="nt">&lt;choices-outline&gt;</span>
+        <span class="nt">&lt;line</span> <span class="na">choice=</span><span class="s">"installer_choice_1"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;line</span> <span class="na">choice=</span><span class="s">"installer_choice_2"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/choices-outline&gt;</span>
+    <span class="nt">&lt;choice</span> <span class="na">id=</span><span class="s">"installer_choice_1"</span> <span class="na">title=</span><span class="s">"Google Software Update"</span> <span class="na">description=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;pkg-ref</span> <span class="na">id=</span><span class="s">"com.google.pkg.Keystone"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/choice&gt;</span>
+    <span class="nt">&lt;choice</span> <span class="na">id=</span><span class="s">"installer_choice_2"</span> <span class="na">title=</span><span class="s">"Google Drive File Stream"</span> <span class="na">description=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;pkg-ref</span> <span class="na">id=</span><span class="s">"com.google.drivefs"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/choice&gt;</span>
+    <span class="c">&lt;!--+==========================+
+        |    Package References    |
+        +==========================+--&gt;</span>
+    <span class="nt">&lt;pkg-ref</span> <span class="na">id=</span><span class="s">"com.google.drivefs"</span> <span class="na">version=</span><span class="s">"27.1.49.2230"</span> <span class="na">auth=</span><span class="s">"Root"</span> <span class="na">installKBytes=</span><span class="s">"196075"</span><span class="nt">&gt;</span>#GoogleDriveFileStream.pkg<span class="nt">&lt;/pkg-ref&gt;</span>
+    <span class="nt">&lt;pkg-ref</span> <span class="na">id=</span><span class="s">"com.google.pkg.Keystone"</span> <span class="na">version=</span><span class="s">"1.2.10.105"</span> <span class="na">auth=</span><span class="s">"Root"</span> <span class="na">installKBytes=</span><span class="s">"0"</span><span class="nt">&gt;</span>#Google_Software_Update.pkg<span class="nt">&lt;/pkg-ref&gt;</span>
+    <span class="c">&lt;!--+==========================+
+        |    JavaScript Scripts    |
+        +==========================+--&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+CUT For Ease of Reading
+</code></pre>
+</div>
+<p>You can now match up your <code class="highlighter-rouge">-showChoicesXML</code> <code class="highlighter-rouge">choiceIdentifier</code>’s to the packages they reference. For Google Drive FileStream this is <code class="highlighter-rouge">installer_choice_1</code> that we want to ‘deselect’. Now we know what to add to the <code class="highlighter-rouge">pkginfo</code> file. For Google Drive FileStream, you’ll want to add this the <code class="highlighter-rouge">pkginfo</code> file to turn off the KeyStone/GoogleSoftwareUpdate package.</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;key&gt;</span>installer_choices_xml<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;array&gt;</span>
+    <span class="nt">&lt;dict&gt;</span>
+        <span class="nt">&lt;key&gt;</span>attributeSetting<span class="nt">&lt;/key&gt;</span>
+        <span class="nt">&lt;integer&gt;</span>0<span class="nt">&lt;/integer&gt;</span>
+        <span class="nt">&lt;key&gt;</span>choiceAttribute<span class="nt">&lt;/key&gt;</span>
+        <span class="nt">&lt;string&gt;</span>selected<span class="nt">&lt;/string&gt;</span>
+        <span class="nt">&lt;key&gt;</span>choiceIdentifier<span class="nt">&lt;/key&gt;</span>
+        <span class="nt">&lt;string&gt;</span>installer_choice_1<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;/dict&gt;</span>
+<span class="nt">&lt;/array&gt;</span>
+</code></pre>
+</div>
+<p>You could also build this as a <code class="highlighter-rouge">plist</code> and add it to the package through <code class="highlighter-rouge">installer</code> with the <code class="highlighter-rouge">-applyChoiceChangesXML</code> flag. This is effectively what Munki does to modify the installer package.</p>
+
+<p>I’ve also updated my AutoPkg Recipe for GDFS to include this by default.</p>
+
+<h3 id="pro-tip">Pro Tip!</h3>
+<p>You can also open packages with <a href="https://www.mothersruin.com/software/SuspiciousPackage/" title="Suspicious Package">Suspicious Package</a> and view the <code class="highlighter-rouge">Distribution</code> XML document under the packages Scripts tab!
+<img src="/images/2018/10/suspisicous_package_gdfs.png" alt="GDFS viewed in SuspiciousPackage" /></p>
+
+
+  </article>
+
+  
+    <div class="related-posts">
+      <h4>Related Posts</h4>
+      <ul>
+        
+          <li>
+            <h5>
+              <a href="https://wardsparadox.github.io/2018/09/20/force-a-dep-sync-from-your-phone/">
+                Force a DEP sync..from your phone!
+                <small>20 Sep 2018</small>
+              </a>
+            </h5>
+          </li>
+        
+          <li>
+            <h5>
+              <a href="https://wardsparadox.github.io/2018/04/04/modifying-safaris-autoplay-preferences/">
+                Modifying Safari's Auto-Play Preferences
+                <small>04 Apr 2018</small>
+              </a>
+            </h5>
+          </li>
+        
+          <li>
+            <h5>
+              <a href="https://wardsparadox.github.io/2018/02/14/setting-up-munkireport-php-on-ubuntu-16-with-nginx/">
+                Setting up MunkiReport-PHP on Ubuntu 16 with Nginx
+                <small>14 Feb 2018</small>
+              </a>
+            </h5>
+          </li>
+        
+      </ul>
+    </div>
+  
+
+  <div class="author-info">
+    
+      <div class="author">   <a href="https://wardsparadox.github.io/about">    <img      src="https://wardsparadox.github.io/assets/images/avatar.jpg"      alt="Zack McCauley" width="60" height="60" />  </a>    <h5>Author</h4>  <h6>    <a href="https://wardsparadox.github.io/about">      Zack McCauley    </a>  </h5>  <p>    Find me on            <a title="wardsparadox on GitHub"            href="https://github.com/wardsparadox"            class="github" target="_blank">Github</a>                /        <a title="zack_mccauley @ macadmins.org on slack"            href="https://macadmins.org/"            class="slack" target="_blank">Slack</a>                /        <a title="108452882684071984253 on Google Plus"            href="https://plus.google.com/108452882684071984253"            class="google" target="_blank">Google</a>      </p></div>
+
+    
+
+    
+      <div class="share-buttons">  <h5>Share this post on</h5>  <ul class="social-media">    <li>        <a title="mccauley_zack on Twitter"           href="https://twitter.com/intent/tweet?original_referer=https://wardsparadox.github.io/2018/10/16/google-packages-and-munki/&amp;text=Google Packages and Munki&amp;url=https://wardsparadox.github.io/2018/10/16/google-packages-and-munki/" class="twitter wc-img-replace" target="_blank">          Twitter        </a>    </li>       <li>        <a title="108452882684071984253 on Google Plus"             href="https://plus.google.com/share?url=https://wardsparadox.github.io/2018/10/16/google-packages-and-munki/"             class="google wc-img-replace" target="_blank">Google</a>    </li>    <li>        <a title=" on Facebook"             href="https://www.facebook.com/sharer/sharer.php?u=https://wardsparadox.github.io/2018/10/16/google-packages-and-munki/&amp;t=Google Packages and Munki"             class="facebook wc-img-replace" target="_blank">Facebook</a>    </li>  </ul></div>
+    
+  </div>
+
+  
+</div>
+
+      </div>
+      <a href="#0" class="wc-top">Top</a>
+
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle">
+      <span></span>
+    </label>
+
+    <script type="text/javascript">
+      var config = {
+        "browser_warning_page": "https://wardsparadox.github.io/browser-warning/",
+        "disqus_shortname": ""
+      };
+      /* Browser support detection */
+      var browserSupport = (function(){
+        var htmlElemClasses = document.querySelector('html').className.split(' ');
+        for ( var i = 0; i < htmlElemClasses.length; i += 1 ){
+          var className = htmlElemClasses[i];
+          if ( className === 'lt-ie9' ){
+            return true;
+          }
+        }
+      }());
+
+      if (browserSupport){
+        window.location="https://wardsparadox.github.io/browser-warning/";
+      }
+
+      /* To avoid render blocking css */
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = 'https://fonts.googleapis.com/css?family=PT+Sans';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+
+
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script async type="text/javascript" src="https://wardsparadox.github.io/assets/js/gaya.min.js"></script>
+
+    
+    
+<script type="text/javascript">var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-99065592-1']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
+
+  </body>
+</html>
