@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on </title>
+    <link>/post/</link>
+    <description>Recent content in Posts on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/post/2015/2015-12-12-adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2015/2015-12-12-adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
+      <description>I have been doing some testing and it seems that with the latest OS X El Capitan release, our district can finally move to El Capitan. At the same time I have been doing some testing of Office 2016 for Mac. I have been moving our district to deploying software with Munki. It&amp;rsquo;s been two years and has already saved us hundreds of man hours.
+I was aware of the conditional items ability with Munki.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2016/2016-03-04-til-00-welcome-to-today-i-learned/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/2016-03-04-til-00-welcome-to-today-i-learned/</guid>
+      <description>Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I&amp;rsquo;ve learned. Thank you for reading, I hope you enjoy or learn something as well!</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2016/2016-03-06-til-01-get-a-os-x-preference-via-python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/2016-03-06-til-01-get-a-os-x-preference-via-python/</guid>
+      <description>As I am trying to learn more of the Python programming language (version 2.7.* as that is what is currently built-in to OS X), I find little challenges to help process what I have learned of it. Recently I was introduced to the Foundation frameworks that come with OS X. For a while I was writing scripts that required plistlib which could only read the XML version of a plist. OS X stores preferences in binary plist form.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2016/2016-06-05-multiple-inputs-with-one-argument/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/2016-06-05-multiple-inputs-with-one-argument/</guid>
+      <description>I use a tool called Outset Dock Profiler made by Nick McSpadden. It&amp;rsquo;s great and for user accounts where I only need to target one profile, it works great! {% icon fa-thumbs-o-up fg-lg %}
+There has always been one thing about it that bothered me. If I had multiple profiles for a user, I couldn&amp;rsquo;t use this tool. Sure I could use it to build an initial package and modify the script.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2016/2016-06-27-til-03-get-model-info-via-python-via-serial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/2016-06-27-til-03-get-model-info-via-python-via-serial/</guid>
+      <description>A while back I learned about this website, Apple Config Code Lookup, when I was building my first info grab script for an inventory. I have since evolved that script into a full Info Viewer (inventory is done via MunkiReport-PHP). One thing I was always missing was the output from the Apple Config Code Lookup; since I am migrating most of my shell scripts to Python, I figured I might as well add it.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2016/2016-11-29-i-made-a-thingwell-sorta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/2016-11-29-i-made-a-thingwell-sorta/</guid>
+      <description>It seems that I have learned A LOT in recent months concerning Python. Again huge shout out to Nick McSpadden and froger for helping me get to where I am knowledge wise today. In between now and my last post, Nick helped me understand the dict datatype. Turns out python can use translate dict into the plist equivalents! The more you know eh?
+The reason he was helping me on this was because I had an idea to take his PrinterGenerator tool and make it work in a different way.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2017/2017-05-12-hello-it-setup-and-deployment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/2017-05-12-hello-it-setup-and-deployment/</guid>
+      <description>&lt;p&gt;I have recently been playing with a tool called &lt;a href=&#34;https://github.com/ygini/Hello-IT&#34;&gt;Hello IT&lt;/a&gt;. It has been a wonderful tool in testing and I am getting excited to send it out here in our district. I believe it will help our staff be able to communicate to us effectively. Our current layout looks like this:
+&lt;img src=&#34;{{ site.baseurl }}/images/2017/05/HelloIT Menu Layout.jpg&#34; alt=&#34;helloIT Menu Layout&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2017/2017-05-29-dock-maintainer-defined/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/2017-05-29-dock-maintainer-defined/</guid>
+      <description>&lt;p&gt;Recently I created a tool called dock-maintainer. This post goes over a couple things but mainly serves to explain why I created it and why I needed it instead of using other solutions. Traditionally this job (maintaining Dock configurations) has been handled in a multitude of ways. There have been many ways to do this. One can use configuration profiles, puppet/salt/chef/etc, &lt;code&gt;outset&lt;/code&gt; with a script (a method I used until recently).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2018/2018-01-15-deploying-detectx-swift-with-munki/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/2018-01-15-deploying-detectx-swift-with-munki/</guid>
+      <description>&lt;p&gt;DetectX Swift is an alternative to MalwareBytes Anti-Malware and was more economical for our district to use. It also is faster and more what we were looking for. I highly recommend it! This is a write up based on how we are deploying it here.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2018/2018-01-29-faster-munki-downloads-from-nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/2018-01-29-faster-munki-downloads-from-nginx/</guid>
+      <description>&lt;p&gt;Through multiple issues over the last month or so, I decided to completely rebuild my Munki server. This server is semi-critical in our district as all configurations are now sent out via Munki. As I was waiting for Ubuntu 16 to install and do some base configurations, I started looking for some guides on how to increase performance. I stumbled across &lt;a href=&#34;http://nginx.org/en/docs/ngx_core_module.html#worker_cpu_affinity&#34;&gt;worker_cpu_affinity&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2018/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/</guid>
+      <description>&lt;p&gt;This post is still really rough, but should be fully functional.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2018/2018-04-04-modifying-safaris-autoplay-preferences/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/2018-04-04-modifying-safaris-autoplay-preferences/</guid>
+      <description>&lt;p&gt;I saw an interesting question today on the MacAdmins Slack regarding setting the Auto-Play preferences introduced in 10.13&amp;rsquo;s Safari.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;{{ site.baseurl }}/images/2018/04/screencap.png&#34; alt=&#34;slack screencap&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Curiosity took hold.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2018/2018-09-20-force-a-dep-sync-from-your-phone/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/2018-09-20-force-a-dep-sync-from-your-phone/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve used Workflow in the past, but I hadn&amp;rsquo;t really fully explored it as &amp;ldquo;click this&amp;rdquo; instead of &amp;ldquo;launch this app and run this real quick&amp;rdquo; never bothered me. Things have changed since then. Hello to Siri Shortcuts in iOS 12! I can now run things by voice.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2018/2018-10-16-google-packages-and-munki/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/2018-10-16-google-packages-and-munki/</guid>
+      <description>&lt;p&gt;On a few machines, I&amp;rsquo;ve been getting Munki errors related to the Chrome Remote Desktop Host update packages, and the Google Drive FileStream packages. The packages fail when you disable the Keystone Agent via Profile or via the MasterDisable key in &lt;code&gt;/Library/Preferences/com.google.Keystone.plist&lt;/code&gt;. As we deploy these updates through Munki via AutoPkg, I found that I needed to disable the GoogleSoftwareUpdate package bundled with both of these.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/2019/2019-02-27-ublock-origin-admin-settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/2019-02-27-ublock-origin-admin-settings/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

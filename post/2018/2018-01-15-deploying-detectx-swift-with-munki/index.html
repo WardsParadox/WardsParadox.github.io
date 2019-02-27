@@ -1,0 +1,285 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="generator" content="Hugo 0.54.0" />
+        <title>  | </title>
+        <meta name="description" content="">
+        <meta itemprop="name" content="">
+        <meta itemprop="description" content="">
+        <meta property="og:title" content="">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?size=200">
+        <meta property="og:url" content="/post/2018/2018-01-15-deploying-detectx-swift-with-munki/">
+        <meta property="og:site_name" content="">
+        <meta property="og:type" content="article">
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="/sass/combined.min.37d0761430549addb3f5eca8fa71d06923df4e724a9c0490e4757063c24b5711.css">
+
+        
+
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="/" class="logo">
+                
+                    <img src="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=mm&size=200" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="/">My cool new blog</a></h3>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+     
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="/post/2018/2018-01-15-deploying-detectx-swift-with-munki/">
+    <i class="fa fa-fw fa-pencil"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="/post/2018/2018-01-15-deploying-detectx-swift-with-munki/"></a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">0001-01-01</span>
+            
+        
+
+        
+
+        
+
+        
+    </div>
+
+    
+        <p>DetectX Swift is an alternative to MalwareBytes Anti-Malware and was more economical for our district to use. It also is faster and more what we were looking for. I highly recommend it! This is a write up based on how we are deploying it here.</p>
+
+<h3 id="first-things-first-if-you-are-reading-this-you-will-need-a-management-license-from-sqwarq-for-detectx-swift-cost-is-299-usd-once-you-have-this-make-note-of-the-information-in-the-email-with-the-account-information"><strong>First things first, if you are reading this, you will need a Management License from Sqwarq for DetectX Swift; Cost is $299 USD. Once you have this, make note of the information in the email with the account information.</strong></h3>
+
+<p>We decided to deploy it to <code>/Applications/Utilities</code>. This makes it still easy to access but out of the standard users view. We deploy it via Munki as well. You will also need to add a <code>post-install</code> script to register the client. Thankfully DetectX Swift allows for re-registering with no issue, so you can &ldquo;register&rdquo; it after every installation. Here is the <code>pkginfo</code> dict for the <a href="https://github.com/autopkg/autopkg">autopkg</a> recipe:</p>
+
+<pre><code class="language-xml">&lt;key&gt;pkginfo&lt;/key&gt;
+&lt;dict&gt;
+  &lt;key&gt;catalogs&lt;/key&gt;
+  &lt;array&gt;
+    &lt;string&gt;testing&lt;/string&gt;
+  &lt;/array&gt;
+  &lt;key&gt;description&lt;/key&gt;
+  &lt;string&gt;DetectX Swift is a shareware security and troubleshooting tool that uses a combination of hardcoded search definitions along with live updates and predictive heuristics to detect both known and unknown threats and issues. It provides the user with multiple analytical capabilities regarding both the system’s current state and changes to its state over time related to its ongoing security and performance.&lt;/string&gt;
+  &lt;key&gt;category&lt;/key&gt;
+  &lt;string&gt;Utlities&lt;/string&gt;
+  &lt;key&gt;developer&lt;/key&gt;
+  &lt;string&gt;Philip Stokes&lt;/string&gt;
+  &lt;key&gt;display_name&lt;/key&gt;
+  &lt;string&gt;DetectX Swift&lt;/string&gt;
+  &lt;key&gt;name&lt;/key&gt;
+  &lt;string&gt;%NAME%&lt;/string&gt;
+  &lt;key&gt;unattended_install&lt;/key&gt;
+  &lt;true/&gt;
+  &lt;key&gt;items_to_copy&lt;/key&gt;
+  &lt;array&gt;
+    &lt;dict&gt;
+      &lt;key&gt;destination_path&lt;/key&gt;
+      &lt;string&gt;/Applications/Utilities&lt;/string&gt;
+      &lt;key&gt;source_item&lt;/key&gt;
+      &lt;string&gt;DetectX Swift.app&lt;/string&gt;
+    &lt;/dict&gt;
+  &lt;/array&gt;
+  &lt;key&gt;minimum_os_version&lt;/key&gt;
+  &lt;string&gt;10.11&lt;/string&gt;
+&lt;/dict&gt;
+&lt;key&gt;postinstall_script&lt;/key&gt;
+&lt;string&gt;#!/bin/bash
+&quot;/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX Swift&quot; register -key &quot;KEYNUMBER&quot; -email &quot;REGISTEREDEMAIL&quot;
+
+&quot;/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX Swift&quot; search -aj &quot;/usr/local/munki/preflight.d/cache/detectx.json&quot;
+&lt;/string&gt;
+</code></pre>
+
+<p>If you are using MunkiReport-PHP, there is a module I created in the current WIP branch. WIP is not stable for production, but should be entering beta soon. In order to use the module you will need to create a launchDaemon targeting DetectX Swift&rsquo;s CLI tool to output a JSON file. There is an example in the module READMD file.
+<img src="{{ site.baseurl }}/images/2018/01/detectXWidget.png" alt="detectXWidget" /></p>
+
+<p>I am deploying a boot-every script with <a href="https://github.com/chilcote/outset">Outset</a> that does the same thing. I packaged this up as an <code>update_for</code> in Munki. This will provide a dashboard that will give you in-depth look at the current status of your fleet. The client tab will show you exactly what each client shows for each infection. The command structure for this is as follows:</p>
+
+<pre><code class="language-bash">#!/bin/bash
+&quot;/Applications/Utilities/DetectX Swift.app/Contents/MacOS/DetectX Swift&quot; search -aj &quot;/usr/local/munki/preflight.d/cache/detectx.json&quot;
+</code></pre>
+
+<p>This will scan (if you are running it independently you must run it as root!) all users homes and report on it&rsquo;s findings. It is fairly quick. If you combine all of this together you get an auto-updating anti-malware solution that reports to a dashboard for every machine you deploy it too. If there are machines supsected of having malware, we call the employee and request they do a quick restart so that the <code>boot-every</code> script has a chance to report, then perform a Munki update check to send the data to us. So far this has proven effective and useful here.</p>
+    
+</div>
+
+    
+<div class="footer no-tags">
+
+
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    
+
+     
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="/post/2019/2019-02-27-ublock-origin-admin-settings/"></a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018/2018-10-16-google-packages-and-munki/"></a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018/2018-09-20-force-a-dep-sync-from-your-phone/"></a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2018
+                
+                by Lednerb
+            </a>
+	    
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+
+        
+
+
+    </body>
+</html>

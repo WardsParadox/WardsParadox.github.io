@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/draft/2018-10-22-farewell/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2015/2015-12-12-adding-a-coming-soon-ribbon-to-the-munki-showcase/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2016/2016-03-04-til-00-welcome-to-today-i-learned/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2016/2016-03-06-til-01-get-a-os-x-preference-via-python/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2016/2016-06-05-multiple-inputs-with-one-argument/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2016/2016-06-27-til-03-get-model-info-via-python-via-serial/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2016/2016-11-29-i-made-a-thingwell-sorta/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2017/2017-05-12-hello-it-setup-and-deployment/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2017/2017-05-29-dock-maintainer-defined/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2018/2018-01-15-deploying-detectx-swift-with-munki/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2018/2018-01-29-faster-munki-downloads-from-nginx/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2018/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2018/2018-04-04-modifying-safaris-autoplay-preferences/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2018/2018-09-20-force-a-dep-sync-from-your-phone/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2018/2018-10-16-google-packages-and-munki/</loc>
+  </url>
+  
+  <url>
+    <loc>/post/2019/2019-02-27-ublock-origin-admin-settings/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/draft/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

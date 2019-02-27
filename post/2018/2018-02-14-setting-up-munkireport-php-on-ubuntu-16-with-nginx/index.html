@@ -1,0 +1,329 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="generator" content="Hugo 0.54.0" />
+        <title>  | </title>
+        <meta name="description" content="">
+        <meta itemprop="name" content="">
+        <meta itemprop="description" content="">
+        <meta property="og:title" content="">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?size=200">
+        <meta property="og:url" content="/post/2018/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/">
+        <meta property="og:site_name" content="">
+        <meta property="og:type" content="article">
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="/sass/combined.min.37d0761430549addb3f5eca8fa71d06923df4e724a9c0490e4757063c24b5711.css">
+
+        
+
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="/" class="logo">
+                
+                    <img src="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=mm&size=200" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="/">My cool new blog</a></h3>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+     
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="/post/2018/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/">
+    <i class="fa fa-fw fa-pencil"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="/post/2018/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/"></a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">0001-01-01</span>
+            
+        
+
+        
+
+        
+
+        
+    </div>
+
+    
+        <p>This post is still really rough, but should be fully functional.</p>
+
+<p>Follow this guide to get PHP running:
+<a href="https://www.rosehosting.com/blog/install-php-7-1-with-nginx-on-an-ubuntu-16-04-vps/" title="Install PHP 7.1 with Nginx on Ubuntu 16.04 by RoseHosting">Install PHP 7.1 with Nginx on Ubuntu 16.04</a>
+Follow this guide to get MySQL running:
+<a href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04" title="How To Install MySQL on Ubuntu 16.04">How To Install MySQL on Ubuntu 16.04</a></p>
+
+<p>For MRPHP to run, you will need to install the following:</p>
+
+<pre><code class="language-sh">apt-get install php7.1-common php7.1-opcache php7.1-json php7.1-mcrypt php7.1-zip php7.1-xml php7.1-soap php7.1-readline php7.1-cli php7.1-fpm php7.1-mbstring php7.1-mysql php7.1-cgi
+</code></pre>
+
+<p>Make sure <code>git</code> is also installed.</p>
+
+<p>Create a new group that you can add <code>www-data</code> to, as well as your service accounts.</p>
+
+<pre><code class="language-sh">cd /media/
+git clone https://github.com/munkireport/munkireport-php munkireport
+cd ./munkireport
+# Install composer
+php -r &quot;copy('https://getcomposer.org/installer', 'composer-setup.php');&quot;
+php -r &quot;if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;&quot;
+php composer-setup.php
+php -r &quot;unlink('composer-setup.php');&quot;
+# Run composer tools
+php composer.phar install --no-dev --no-suggest --optimize-autoloader
+chown -R $USER:groupthatcontainsuserandwww-data ../munkireport
+chmod -R 755 ../munkireport
+</code></pre>
+
+<p>Modify your Nginx config for the server</p>
+
+<pre><code class="language-sh">##
+# You should look at the following URL's in order to grasp a solid understanding
+# of Nginx configuration files in order to fully unleash the power of Nginx.
+# http://wiki.nginx.org/Pitfalls
+# http://wiki.nginx.org/QuickStart
+# http://wiki.nginx.org/Configuration
+#
+# Generally, you will want to move this file somewhere, and start with a clean
+# file but keep this around for reference. Or just disable in sites-enabled.
+#
+# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
+##
+
+# Default server configuration
+#
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  root /var/www/html;
+
+  # Add index.php to the list if you are using PHP
+  index index.php index.html index.htm index.nginx-debian.html;
+
+  server_name fqdn.ofyourserver.com;
+
+  location /munkireport {
+    try_files $uri $uri/ =404;
+  }
+
+  location ~ \.php$ {
+    fastcgi_pass unix:/run/php/php7.1-fpm.sock;
+    include snippets/fastcgi-php.conf;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+  }
+
+  location ~ /\.ht {
+    deny all;
+  }
+}
+</code></pre>
+
+<p>Create a symlink from <code>/media/munkireport/public</code> to <code>/var/www/html/munkireport</code></p>
+
+<pre><code class="language-sh">ln -s /media/munkireport/public /var/www/html/munkireport
+</code></pre>
+
+<p>Modify your munkireport <code>config.php</code></p>
+
+<pre><code class="language-sh">$conf['connection'] = [
+ 'driver'    =&gt; 'mysql',
+ 'host'      =&gt; '127.0.0.1',
+ 'port'      =&gt; 3306,
+ 'database'  =&gt; 'dbname',
+ 'username'  =&gt; 'username',
+ 'password'  =&gt; 'password',
+ 'options'   =&gt; [PDO::MYSQL_ATTR_INIT_COMMAND =&gt; 'SET NAMES utf8']
+];
+$conf['subdirectory'] = substr(
+            $_SERVER['PHP_SELF'],
+            0,
+            strpos($_SERVER['PHP_SELF'], basename(FC))
+          );
+</code></pre>
+
+<p>Restart your server or your services.</p>
+    
+</div>
+
+    
+<div class="footer no-tags">
+
+
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    
+
+     
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="/post/2019/2019-02-27-ublock-origin-admin-settings/"></a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018/2018-10-16-google-packages-and-munki/"></a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018/2018-09-20-force-a-dep-sync-from-your-phone/"></a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2018
+                
+                by Lednerb
+            </a>
+	    
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        
+
+        
+        
+        <script type="text/javascript" src="/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+
+        
+
+
+    </body>
+</html>
