@@ -5,3 +5,8 @@
 .bilberry-hugo-theme article .content h3 a {
     color: rgb(34, 34, 34);
 }
+
+.bilberry-hugo-theme article .content h4 a {
+    font-style: bold;
+    color:#0074D9;
+}
