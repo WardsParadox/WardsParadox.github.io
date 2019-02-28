@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nginx on Zack McCauley - WardsParadox</title>
+    <link>https://wardsparadox.github.io/tags/nginx/</link>
+    <description>Recent content in Nginx on Zack McCauley - WardsParadox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 29 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wardsparadox.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Faster Munki Downloads from Nginx</title>
+      <link>https://wardsparadox.github.io/post/2018-01-29-faster-munki-downloads-from-nginx/</link>
+      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wardsparadox.github.io/post/2018-01-29-faster-munki-downloads-from-nginx/</guid>
+      <description>&lt;p&gt;Through multiple issues over the last month or so, I decided to completely rebuild my Munki server. This server is semi-critical in our district as all configurations are now sent out via Munki. As I was waiting for Ubuntu 16 to install and do some base configurations, I started looking for some guides on how to increase performance. I stumbled across &lt;a href=&#34;http://nginx.org/en/docs/ngx_core_module.html#worker_cpu_affinity&#34;&gt;worker_cpu_affinity&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,604 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Zack McCauley">
+        <meta name="description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.">
+        <meta name="keywords" content="blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts">
+        <meta name="generator" content="Hugo 0.54.0" />
+        <title> Google Packages and Munki | Zack McCauley - WardsParadox</title>
+        <meta name="description" content="Google Packages and Munki - Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.">
+        <meta itemprop="name" content="Google Packages and Munki">
+        <meta itemprop="description" content="Google Packages and Munki - Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.">
+        <meta property="og:title" content="Google Packages and Munki">
+        <meta property="og:description" content="Google Packages and Munki - Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/eb2d7128e3fa7ec5becd7cbff0396b48?size=200">
+        <meta property="og:url" content="https://wardsparadox.github.io/post/2018-10-16-google-packages-and-munki/">
+        <meta property="og:site_name" content="Zack McCauley - WardsParadox">
+        <meta property="og:type" content="article">
+            
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png"
+        sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png"
+        sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png"
+        sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png"
+        sizes="16x16">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg"
+        color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#fffff">
+    <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+    <meta name="themesettings-color" content="#ffffff">
+    
+        <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="/sass/combined.min.590e1c21e04304785b5ca9bc8116bf0bb675cb503a22ae3bd86d2fdb863acda4.css">
+
+        
+
+        
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="/page/about/">About me</a></li>
+                
+            
+                
+                    <li><a href="/tags" target="">Tags</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="/" class="logo">
+                
+                    <img src="/images/avatar.jpg" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="/">Zack McCauley - WardsParadox</a></h3>
+            
+                <span class="subtitle">Hi, I’m a macadmin for a school district in Montana. Never stop learning.</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+     
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="/post/2018-10-16-google-packages-and-munki/">
+    <i class="fa fa-fw fa-pencil"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="/post/2018-10-16-google-packages-and-munki/">Google Packages and Munki</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-10-16</span>
+            
+        
+
+        
+
+        
+            <span class="categories">
+                
+                    <a href="/categories/munki">munki</a>
+                
+            </span>
+        
+
+        
+    </div>
+
+    
+        <p>On a few machines, I&rsquo;ve been getting Munki errors related to the Chrome Remote Desktop Host update packages, and the Google Drive FileStream packages. The packages fail when you disable the Keystone Agent via Profile or via the MasterDisable key in <code>/Library/Preferences/com.google.Keystone.plist</code>. As we deploy these updates through Munki via AutoPkg, I found that I needed to disable the GoogleSoftwareUpdate package bundled with both of these.</p>
+
+<p>Munki has the ability to modify the <a href="https://github.com/munki/munki/wiki/ChoiceChangesXML">ChoiceChanges</a> feature of installer packages to help customize your deployment. You can also test this outside with the <code>installer</code> tool. The Munki wiki goes over this, but a brief summary is that you run <code>-showChoicesXML</code> on the package to see which options are available to select or de-select. If the software developer was a good packager, you&rsquo;ll see <code>choiceIdentifier</code> making sense (much like how the Munki packages are identified). Listed below are the outputs of <code>-showChoicesXML</code> from Google Drive FileStream&rsquo;s package and Google Chrome Remote Desktop Host&rsquo;s package.</p>
+
+<h3 id="google-drive-filestream">Google Drive FileStream</h3>
+
+<p><code>installer -showChoicesXML -pkg /Volumes/Install\ Google\ Drive\ File\ Stream/GoogleDriveFileStream.pkg</code></p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;array&gt;
+	&lt;dict&gt;
+		&lt;key&gt;childItems&lt;/key&gt;
+		&lt;array&gt;
+			&lt;dict&gt;
+				&lt;key&gt;childItems&lt;/key&gt;
+				&lt;array/&gt;
+				&lt;key&gt;choiceDescription&lt;/key&gt;
+				&lt;string&gt;&lt;/string&gt;
+				&lt;key&gt;choiceIdentifier&lt;/key&gt;
+				&lt;string&gt;installer_choice_1&lt;/string&gt;
+				&lt;key&gt;choiceIsEnabled&lt;/key&gt;
+				&lt;true/&gt;
+				&lt;key&gt;choiceIsSelected&lt;/key&gt;
+				&lt;integer&gt;1&lt;/integer&gt;
+				&lt;key&gt;choiceIsVisible&lt;/key&gt;
+				&lt;true/&gt;
+				&lt;key&gt;choiceSizeInKilobytes&lt;/key&gt;
+				&lt;integer&gt;0&lt;/integer&gt;
+				&lt;key&gt;choiceTitle&lt;/key&gt;
+				&lt;string&gt;Google Software Update&lt;/string&gt;
+				&lt;key&gt;pathsOfActivePackagesInChoice&lt;/key&gt;
+				&lt;array&gt;
+					&lt;string&gt;file://localhost/Volumes/Install%20Google%20Drive%20File%20Stream/GoogleDriveFileStream.pkg#Google_Software_Update.pkg&lt;/string&gt;
+				&lt;/array&gt;
+			&lt;/dict&gt;
+			&lt;dict&gt;
+				&lt;key&gt;childItems&lt;/key&gt;
+				&lt;array/&gt;
+				&lt;key&gt;choiceDescription&lt;/key&gt;
+				&lt;string&gt;&lt;/string&gt;
+				&lt;key&gt;choiceIdentifier&lt;/key&gt;
+				&lt;string&gt;installer_choice_2&lt;/string&gt;
+				&lt;key&gt;choiceIsEnabled&lt;/key&gt;
+				&lt;true/&gt;
+				&lt;key&gt;choiceIsSelected&lt;/key&gt;
+				&lt;integer&gt;1&lt;/integer&gt;
+				&lt;key&gt;choiceIsVisible&lt;/key&gt;
+				&lt;true/&gt;
+				&lt;key&gt;choiceSizeInKilobytes&lt;/key&gt;
+				&lt;integer&gt;196075&lt;/integer&gt;
+				&lt;key&gt;choiceTitle&lt;/key&gt;
+				&lt;string&gt;Google Drive File Stream&lt;/string&gt;
+				&lt;key&gt;pathsOfActivePackagesInChoice&lt;/key&gt;
+				&lt;array&gt;
+					&lt;string&gt;file://localhost/Volumes/Install%20Google%20Drive%20File%20Stream/GoogleDriveFileStream.pkg#GoogleDriveFileStream.pkg&lt;/string&gt;
+				&lt;/array&gt;
+			&lt;/dict&gt;
+		&lt;/array&gt;
+		&lt;key&gt;choiceIdentifier&lt;/key&gt;
+		&lt;string&gt;__ROOT_CHOICE_IDENT_DISTRIBUTION_TITLE&lt;/string&gt;
+		&lt;key&gt;choiceIsEnabled&lt;/key&gt;
+		&lt;true/&gt;
+		&lt;key&gt;choiceIsSelected&lt;/key&gt;
+		&lt;integer&gt;1&lt;/integer&gt;
+		&lt;key&gt;choiceIsVisible&lt;/key&gt;
+		&lt;true/&gt;
+		&lt;key&gt;choiceSizeInKilobytes&lt;/key&gt;
+		&lt;integer&gt;0&lt;/integer&gt;
+		&lt;key&gt;choiceTitle&lt;/key&gt;
+		&lt;string&gt;Google Drive File Stream&lt;/string&gt;
+		&lt;key&gt;pathsOfActivePackagesInChoice&lt;/key&gt;
+		&lt;array/&gt;
+	&lt;/dict&gt;
+&lt;/array&gt;
+&lt;/plist&gt;
+</code></pre>
+
+<h3 id="google-chrome-remote-desktop-host">Google Chrome Remote Desktop Host:</h3>
+
+<p><code>installer -showChoicesXML -pkg /Volumes/Chrome\ Remote\ Desktop\ Host\ 70.0.3538.21/Chrome\ Remote\ Desktop\ Host.pkg</code></p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;array&gt;
+	&lt;dict&gt;
+		&lt;key&gt;childItems&lt;/key&gt;
+		&lt;array&gt;
+			&lt;dict&gt;
+				&lt;key&gt;childItems&lt;/key&gt;
+				&lt;array/&gt;
+				&lt;key&gt;choiceDescription&lt;/key&gt;
+				&lt;string&gt;&lt;/string&gt;
+				&lt;key&gt;choiceIdentifier&lt;/key&gt;
+				&lt;string&gt;installer_choice_1&lt;/string&gt;
+				&lt;key&gt;choiceIsEnabled&lt;/key&gt;
+				&lt;true/&gt;
+				&lt;key&gt;choiceIsSelected&lt;/key&gt;
+				&lt;integer&gt;1&lt;/integer&gt;
+				&lt;key&gt;choiceIsVisible&lt;/key&gt;
+				&lt;true/&gt;
+				&lt;key&gt;choiceSizeInKilobytes&lt;/key&gt;
+				&lt;integer&gt;0&lt;/integer&gt;
+				&lt;key&gt;choiceTitle&lt;/key&gt;
+				&lt;string&gt;Chrome Remote Desktop Host&lt;/string&gt;
+				&lt;key&gt;pathsOfActivePackagesInChoice&lt;/key&gt;
+				&lt;array&gt;
+					&lt;string&gt;file://localhost/Volumes/Chrome%20Remote%20Desktop%20Host%2070.0.3538.21/Chrome%20Remote%20Desktop%20Host.pkg#Chrome_Remote_Desktop_Host.pkg&lt;/string&gt;
+				&lt;/array&gt;
+			&lt;/dict&gt;
+			&lt;dict&gt;
+				&lt;key&gt;childItems&lt;/key&gt;
+				&lt;array/&gt;
+				&lt;key&gt;choiceDescription&lt;/key&gt;
+				&lt;string&gt;&lt;/string&gt;
+				&lt;key&gt;choiceIdentifier&lt;/key&gt;
+				&lt;string&gt;installer_choice_2&lt;/string&gt;
+				&lt;key&gt;choiceIsEnabled&lt;/key&gt;
+				&lt;true/&gt;
+				&lt;key&gt;choiceIsSelected&lt;/key&gt;
+				&lt;integer&gt;1&lt;/integer&gt;
+				&lt;key&gt;choiceIsVisible&lt;/key&gt;
+				&lt;true/&gt;
+				&lt;key&gt;choiceSizeInKilobytes&lt;/key&gt;
+				&lt;integer&gt;0&lt;/integer&gt;
+				&lt;key&gt;choiceTitle&lt;/key&gt;
+				&lt;string&gt;Google Software Update&lt;/string&gt;
+				&lt;key&gt;pathsOfActivePackagesInChoice&lt;/key&gt;
+				&lt;array&gt;
+					&lt;string&gt;file://localhost/Volumes/Chrome%20Remote%20Desktop%20Host%2070.0.3538.21/Chrome%20Remote%20Desktop%20Host.pkg#GoogleSoftwareUpdate.pkg&lt;/string&gt;
+				&lt;/array&gt;
+			&lt;/dict&gt;
+			&lt;dict&gt;
+				&lt;key&gt;childItems&lt;/key&gt;
+				&lt;array/&gt;
+				&lt;key&gt;choiceDescription&lt;/key&gt;
+				&lt;string&gt;&lt;/string&gt;
+				&lt;key&gt;choiceIdentifier&lt;/key&gt;
+				&lt;string&gt;installer_choice_3&lt;/string&gt;
+				&lt;key&gt;choiceIsEnabled&lt;/key&gt;
+				&lt;true/&gt;
+				&lt;key&gt;choiceIsSelected&lt;/key&gt;
+				&lt;integer&gt;1&lt;/integer&gt;
+				&lt;key&gt;choiceIsVisible&lt;/key&gt;
+				&lt;true/&gt;
+				&lt;key&gt;choiceSizeInKilobytes&lt;/key&gt;
+				&lt;integer&gt;86899&lt;/integer&gt;
+				&lt;key&gt;choiceTitle&lt;/key&gt;
+				&lt;string&gt;ChromeRemoteDesktopHostService&lt;/string&gt;
+				&lt;key&gt;pathsOfActivePackagesInChoice&lt;/key&gt;
+				&lt;array&gt;
+					&lt;string&gt;file://localhost/Volumes/Chrome%20Remote%20Desktop%20Host%2070.0.3538.21/Chrome%20Remote%20Desktop%20Host.pkg#ChromeRemoteDesktopHostService.pkg&lt;/string&gt;
+				&lt;/array&gt;
+			&lt;/dict&gt;
+			&lt;dict&gt;
+				&lt;key&gt;childItems&lt;/key&gt;
+				&lt;array/&gt;
+				&lt;key&gt;choiceDescription&lt;/key&gt;
+				&lt;string&gt;&lt;/string&gt;
+				&lt;key&gt;choiceIdentifier&lt;/key&gt;
+				&lt;string&gt;installer_choice_4&lt;/string&gt;
+				&lt;key&gt;choiceIsEnabled&lt;/key&gt;
+				&lt;true/&gt;
+				&lt;key&gt;choiceIsSelected&lt;/key&gt;
+				&lt;integer&gt;1&lt;/integer&gt;
+				&lt;key&gt;choiceIsVisible&lt;/key&gt;
+				&lt;true/&gt;
+				&lt;key&gt;choiceSizeInKilobytes&lt;/key&gt;
+				&lt;integer&gt;174&lt;/integer&gt;
+				&lt;key&gt;choiceTitle&lt;/key&gt;
+				&lt;string&gt;ChromeRemoteDesktopHostUninstaller&lt;/string&gt;
+				&lt;key&gt;pathsOfActivePackagesInChoice&lt;/key&gt;
+				&lt;array&gt;
+					&lt;string&gt;file://localhost/Volumes/Chrome%20Remote%20Desktop%20Host%2070.0.3538.21/Chrome%20Remote%20Desktop%20Host.pkg#ChromeRemoteDesktopHostUninstaller.pkg&lt;/string&gt;
+				&lt;/array&gt;
+			&lt;/dict&gt;
+		&lt;/array&gt;
+		&lt;key&gt;choiceIdentifier&lt;/key&gt;
+		&lt;string&gt;__ROOT_CHOICE_IDENT_DISTRIBUTION_TITLE&lt;/string&gt;
+		&lt;key&gt;choiceIsEnabled&lt;/key&gt;
+		&lt;true/&gt;
+		&lt;key&gt;choiceIsSelected&lt;/key&gt;
+		&lt;integer&gt;1&lt;/integer&gt;
+		&lt;key&gt;choiceIsVisible&lt;/key&gt;
+		&lt;true/&gt;
+		&lt;key&gt;choiceSizeInKilobytes&lt;/key&gt;
+		&lt;integer&gt;0&lt;/integer&gt;
+		&lt;key&gt;choiceTitle&lt;/key&gt;
+		&lt;string&gt;Chrome Remote Desktop Host&lt;/string&gt;
+		&lt;key&gt;pathsOfActivePackagesInChoice&lt;/key&gt;
+		&lt;array/&gt;
+	&lt;/dict&gt;
+&lt;/array&gt;
+&lt;/plist&gt;
+</code></pre>
+
+<p>Looking at the snippets, you will see the <code>choiceIdentifier</code> for the packages are super helpful <code>installer_choice_1-4</code>. 😒 Thanks Google. Not only will your packages fail if the <code>ksadmin</code> tool is disabled, but the installer choices requires more diving to figure out which option is which. Thankfully there is a file that helps with this. Some packages you can browse as a directory and you can navigate to the <code>Distribution</code> XML file with no other work needed. As these packages are Flat Packages you will need to expand them with <code>pkgutil --expand</code> flag in order to get access to the <code>Distribution</code> file. Let&rsquo;s look at the Google Drive FileStream package as an example.</p>
+
+<pre><code class="language-bash">pkgutil --expand /Volumes/Install\ Google\ Drive\ File\ Stream/GoogleDriveFileStream.pkg ~/Desktop/GDFS
+</code></pre>
+
+<p>Looking in this file, you will see a lot of definitions that correlate to the Installer menu options.</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;installer-script authoringTool=&quot;Packages&quot; authoringToolVersion=&quot;1.1.3&quot; authoringToolBuild=&quot;2B112&quot; minSpecVersion=&quot;1.0&quot;&gt;
+    &lt;options customize=&quot;never&quot;/&gt;
+    &lt;volume-check script=&quot;volume_check()&quot;/&gt;
+    &lt;!--+==========================+
+        |       Presentation       |
+        +==========================+--&gt;
+    &lt;title&gt;DISTRIBUTION_TITLE&lt;/title&gt;
+    &lt;background file=&quot;background&quot; scaling=&quot;proportional&quot; alignment=&quot;bottomleft&quot;/&gt;
+    &lt;!--+==========================+
+        |         Installer        |
+        +==========================+--&gt;
+    &lt;choices-outline&gt;
+        &lt;line choice=&quot;installer_choice_1&quot;/&gt;
+        &lt;line choice=&quot;installer_choice_2&quot;/&gt;
+    &lt;/choices-outline&gt;
+    &lt;choice id=&quot;installer_choice_1&quot; title=&quot;Google Software Update&quot; description=&quot;&quot;&gt;
+        &lt;pkg-ref id=&quot;com.google.pkg.Keystone&quot;/&gt;
+    &lt;/choice&gt;
+    &lt;choice id=&quot;installer_choice_2&quot; title=&quot;Google Drive File Stream&quot; description=&quot;&quot;&gt;
+        &lt;pkg-ref id=&quot;com.google.drivefs&quot;/&gt;
+    &lt;/choice&gt;
+    &lt;!--+==========================+
+        |    Package References    |
+        +==========================+--&gt;
+    &lt;pkg-ref id=&quot;com.google.drivefs&quot; version=&quot;27.1.49.2230&quot; auth=&quot;Root&quot; installKBytes=&quot;196075&quot;&gt;#GoogleDriveFileStream.pkg&lt;/pkg-ref&gt;
+    &lt;pkg-ref id=&quot;com.google.pkg.Keystone&quot; version=&quot;1.2.10.105&quot; auth=&quot;Root&quot; installKBytes=&quot;0&quot;&gt;#Google_Software_Update.pkg&lt;/pkg-ref&gt;
+    &lt;!--+==========================+
+        |    JavaScript Scripts    |
+        +==========================+--&gt;
+    &lt;script&gt;
+CUT For Ease of Reading
+</code></pre>
+
+<p>You can now match up your <code>-showChoicesXML</code> <code>choiceIdentifier</code>&rsquo;s to the packages they reference. For Google Drive FileStream this is <code>installer_choice_1</code> that we want to &lsquo;deselect&rsquo;. Now we know what to add to the <code>pkginfo</code> file. For Google Drive FileStream, you&rsquo;ll want to add this the <code>pkginfo</code> file to turn off the KeyStone/GoogleSoftwareUpdate package.</p>
+
+<pre><code class="language-xml">&lt;key&gt;installer_choices_xml&lt;/key&gt;
+&lt;array&gt;
+    &lt;dict&gt;
+        &lt;key&gt;attributeSetting&lt;/key&gt;
+        &lt;integer&gt;0&lt;/integer&gt;
+        &lt;key&gt;choiceAttribute&lt;/key&gt;
+        &lt;string&gt;selected&lt;/string&gt;
+        &lt;key&gt;choiceIdentifier&lt;/key&gt;
+        &lt;string&gt;installer_choice_1&lt;/string&gt;
+    &lt;/dict&gt;
+&lt;/array&gt;
+</code></pre>
+
+<p>You could also build this as a <code>plist</code> and add it to the package through <code>installer</code> with the <code>-applyChoiceChangesXML</code> flag. This is effectively what Munki does to modify the installer package.</p>
+
+<p>I&rsquo;ve also updated my AutoPkg Recipe for GDFS to include this by default.</p>
+
+<h3 id="pro-tip">Pro Tip!</h3>
+
+<p>You can also open packages with <a href="https://www.mothersruin.com/software/SuspiciousPackage/" title="Suspicious Package">Suspicious Package</a> and view the <code>Distribution</code> XML document under the packages Scripts tab!
+<img src="/images/2018/10/suspisicous_package_gdfs.png" alt="GDFS viewed in SuspiciousPackage" /></p>
+    
+</div>
+
+    
+<div class="footer no-tags">
+
+
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    
+
+     
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="/post/2018-10-16-google-packages-and-munki/">Google Packages and Munki</a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018-09-20-force-a-dep-sync-from-your-phone/">Force a DEP sync..from your phone!</a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018-04-04-modifying-safaris-autoplay-preferences/">Modifying Safari&#39;s Auto-Play Preferences</a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018-01-29-faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018-01-15-deploying-detectx-swift-with-munki/">Deploying DetectX Swift with Munki</a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2017-05-29-dock-maintainer-defined/">Dock-maintainer: Defined</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="/tags/"><strong>Tags</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="/tags/python">Python (6)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/til">Til (4)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/munki">Munki (3)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/dock-maintainer">Dock maintainer (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/hello-it">Hello it (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/ios">Ios (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/macos">Macos (1)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                    <a href="https://twitter.com/mccauley_zack" target="_blank"><i class="fa fa-twitter-adblock-proof"></i></a>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/WardsParadox" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2019
+                
+                by Zack McCauley
+            </a>
+	    
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-99065592-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+        
+
+        
+        
+        <script type="text/javascript" src="/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Zack McCauley - WardsParadox</title>
+    <link>https://wardsparadox.github.io/page/</link>
+    <description>Recent content in Pages on Zack McCauley - WardsParadox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://wardsparadox.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About me</title>
+      <link>https://wardsparadox.github.io/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wardsparadox.github.io/page/about/</guid>
+      <description>Hello!
+My name is Zack McCauley, often using the alias WardsParadox for many things.
+This is just a little bio page for my Github account. Funny enough, I am not a developer; at least in my eyes. I just on occasion tweak or explore things. Sometimes I write up my own little scripts and stuff for others to use if it helps them. I am currently trying to learn more about some of the languages my favorite projects.</description>
+    </item>
+    
+    <item>
+      <title>Tags</title>
+      <link>https://wardsparadox.github.io/page/tags/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wardsparadox.github.io/page/tags/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

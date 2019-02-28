@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Munki on Zack McCauley - WardsParadox</title>
+    <link>https://wardsparadox.github.io/tags/munki/</link>
+    <description>Recent content in Munki on Zack McCauley - WardsParadox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 14 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wardsparadox.github.io/tags/munki/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</title>
+      <link>https://wardsparadox.github.io/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/</link>
+      <pubDate>Wed, 14 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wardsparadox.github.io/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/</guid>
+      <description>&lt;p&gt;This post is still really rough, but should be fully functional.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Faster Munki Downloads from Nginx</title>
+      <link>https://wardsparadox.github.io/post/2018-01-29-faster-munki-downloads-from-nginx/</link>
+      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wardsparadox.github.io/post/2018-01-29-faster-munki-downloads-from-nginx/</guid>
+      <description>&lt;p&gt;Through multiple issues over the last month or so, I decided to completely rebuild my Munki server. This server is semi-critical in our district as all configurations are now sent out via Munki. As I was waiting for Ubuntu 16 to install and do some base configurations, I started looking for some guides on how to increase performance. I stumbled across &lt;a href=&#34;http://nginx.org/en/docs/ngx_core_module.html#worker_cpu_affinity&#34;&gt;worker_cpu_affinity&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Deploying DetectX Swift with Munki</title>
+      <link>https://wardsparadox.github.io/post/2018-01-15-deploying-detectx-swift-with-munki/</link>
+      <pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wardsparadox.github.io/post/2018-01-15-deploying-detectx-swift-with-munki/</guid>
+      <description>&lt;p&gt;DetectX Swift is an alternative to MalwareBytes Anti-Malware and was more economical for our district to use. It also is faster and more what we were looking for. I highly recommend it! This is a write up based on how we are deploying it here.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

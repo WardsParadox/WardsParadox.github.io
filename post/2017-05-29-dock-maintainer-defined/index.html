@@ -1,0 +1,360 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Zack McCauley">
+        <meta name="description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.">
+        <meta name="keywords" content="blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts">
+        <meta name="generator" content="Hugo 0.54.0" />
+        <title> Dock-maintainer: Defined | Zack McCauley - WardsParadox</title>
+        <meta name="description" content="Dock-maintainer: Defined - Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.">
+        <meta itemprop="name" content="Dock-maintainer: Defined">
+        <meta itemprop="description" content="Dock-maintainer: Defined - Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.">
+        <meta property="og:title" content="Dock-maintainer: Defined">
+        <meta property="og:description" content="Dock-maintainer: Defined - Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.">
+        <meta property="og:image" content="https://www.gravatar.com/avatar/eb2d7128e3fa7ec5becd7cbff0396b48?size=200">
+        <meta property="og:url" content="https://wardsparadox.github.io/post/2017-05-29-dock-maintainer-defined/">
+        <meta property="og:site_name" content="Zack McCauley - WardsParadox">
+        <meta property="og:type" content="article">
+            
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png"
+        sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png"
+        sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png"
+        sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png"
+        sizes="16x16">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg"
+        color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#fffff">
+    <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+    <meta name="themesettings-color" content="#ffffff">
+    
+        <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="/sass/combined.min.590e1c21e04304785b5ca9bc8116bf0bb675cb503a22ae3bd86d2fdb863acda4.css">
+
+        
+
+        
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="/page/about/">About me</a></li>
+                
+            
+                
+                    <li><a href="/tags" target="">Tags</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="/" class="logo">
+                
+                    <img src="/images/avatar.jpg" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-home"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="/">Zack McCauley - WardsParadox</a></h3>
+            
+                <span class="subtitle">Hi, I’m a macadmin for a school district in Montana. Never stop learning.</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+     
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="/post/2017-05-29-dock-maintainer-defined/">
+    <i class="fa fa-fw fa-pencil"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="/post/2017-05-29-dock-maintainer-defined/">Dock-maintainer: Defined</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2017-05-29</span>
+            
+        
+
+        
+
+        
+
+        
+    </div>
+
+    
+        <p>Recently I created a tool called dock-maintainer. This post goes over a couple things but mainly serves to explain why I created it and why I needed it instead of using other solutions. Traditionally this job (maintaining Dock configurations) has been handled in a multitude of ways. There have been many ways to do this. One can use configuration profiles, puppet/salt/chef/etc, <code>outset</code> with a script (a method I used until recently).</p>
+
+<p>I found a few problems with the previous methods. With configuration profiles, I could not find a reliable way to deploy a Dock payload for a specified user. If you installed it via <a href="https://www.munki.org/">munki</a>, this forced it for all users. I forked and changed Nick McSpadden’s tool, <a href="https://github.com/nmcspadden/outsetDockProfiler">Outset Dock Profiler</a>. This packaged the profile and created a script to load it via <code>outset</code> at login. The rewrite allowed for multiple profiles to be loaded via <code>outset</code> per user. This created another issue; upon login due to parental controls being loaded, it would prompt for a password to allow managed preferences changes. There was also issues that it created a singular install script that could affect other things in edge cases. This was purely due to my fork and the script part not being correctly modified to handle multiple profiles.</p>
+
+<p>I have never used puppet, chef or anything like them, so that method was out due to lack of experience and time to learn it. From what had been explained and what I had found online out of the box didn&rsquo;t allow the dock customization per user that I needed either. I eventually settled on using <a href="https://github.com/chilcote/outset"><code>outset</code></a> to deploy an initial Dock setup script using <code>[dockutil](https://github.com/kcrawford/dockutil)</code>. This included a shortcut in the Dock to the <code>/Applications</code> folder for ease of use. I thought that this may be enough for most needs.</p>
+
+<p>Due to our district using parental controls (soon to be changing, more on that soon), Chrome V58 stopped working with accounts using parental controls again. It would not launch correctly, if at all. I had many teachers come to me asking if I could add Firefox to the Docks on the student labs. I informed them to use Spotlight or the Applications folder shortcut already on the Dock. They stated it was difficult for the K-3 students to use those two and that it would really help to have it on the Dock. I lock the dock (our students being notorious for removing icons) using several managed preferences I found during my research into using Configuration profiles. This made it difficult for staff to add icons to dock without knowing how to use <code>dockutil</code> via terminal. What is nice is that the managed preferences don’t prevent <code>dockutil</code> from editing the <code>plist</code> as needed.</p>
+
+<p>As I had already deployed <code>dockutil</code> to all the machines district wide, I knew that I needed to find a solution that to wrap <code>dockutil</code> and make it easier to setup and adjust docks without having to run a script on each machine for each change using ARD. This made me consider writing a tool to do this for me. I saw <a href="https://github.com/ygini/DockServiceManager">ygini</a> had created a wrapper for MDMs and <code>dockutil</code> but that wasn&rsquo;t in the same way I wanted. I settled and wrote dock-maintainer which allowed me to specify an account whose dock I wanted to modify, and host the files on a simple web server. It uses <code>outset</code> to handle the updater and script to maintain the dock, and uses <code>dockutil</code> to modify the dock itself. It also auto downloads the file based on the “Last Modified” header (huge tip from @elios on the <a href="http://macadmins.org">macadmins</a> slack for recommending this!), so only if it needs to by storing those dates in extended attributes of the file. If it detects any changes, it clears the entire dock to ensure a clean run of adding all the items back in. It also exits cleanly if it detects no changes and doesn&rsquo;t mess the dock.</p>
+
+<p>To take advantage of this tool, you will need to have a web server, a text editor, and have the short name of the account you wish to manage handy. I would recommend using a <code>munki</code> repo if you already have one as it is setup in the same fashion. I created a folder in my <code>munki</code> repo called <code>docksetups</code>. In this I created a <code>plist</code> for every user that I wish to manage (remember it&rsquo;s the short name that is returned not the users full name), with no file extension. In each <code>plist</code> there must be two arrays, one called Apps and one called Others. In each array use string elements with the full path to the item you want in the dock. In the Others array you can use ~ to reference items in the HOME directory of that user. You will then need to set the preferences up on the machines you wish to manage. The domain is <code>com.github.wardsparadox.dock-maintainer</code>. There are two keys, <code>ManagedUser</code> and <code>ServerURL</code>. The <code>ManagedUser</code> key must be the same as the name of <code>plist</code> and the the short name as the user you wish to manage. The server URL key is the path to the server folder you setup i.e.: <code>http://munki.example.com/munki_repo/docksetups</code>.</p>
+
+<p>I plan to add more logging features in the future. I hope this article makes the creation of yet another tool more understood.</p>
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="/tags/dock-maintainer">dock-maintainer</a>
+                
+                    <a href="/tags/python">python</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    
+
+     
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="/post/2018-10-16-google-packages-and-munki/">Google Packages and Munki</a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018-09-20-force-a-dep-sync-from-your-phone/">Force a DEP sync..from your phone!</a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018-04-04-modifying-safaris-autoplay-preferences/">Modifying Safari&#39;s Auto-Play Preferences</a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018-01-29-faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2018-01-15-deploying-detectx-swift-with-munki/">Deploying DetectX Swift with Munki</a>
+                    </li>
+                
+                    <li>
+                        <a href="/post/2017-05-29-dock-maintainer-defined/">Dock-maintainer: Defined</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="/tags/"><strong>Tags</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="/tags/python">Python (6)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/til">Til (4)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/munki">Munki (3)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/dock-maintainer">Dock maintainer (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/hello-it">Hello it (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/ios">Ios (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/macos">Macos (1)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                    <a href="https://twitter.com/mccauley_zack" target="_blank"><i class="fa fa-twitter-adblock-proof"></i></a>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/WardsParadox" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/Lednerb" target="_blank">
+                &copy;
+                
+                    2019
+                
+                by Zack McCauley
+            </a>
+	    
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-99065592-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+        
+
+        
+        
+        <script type="text/javascript" src="/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>
