@@ -59,6 +59,8 @@
 
         
             
+                <link rel="stylesheet" href="https://wardsparadox.github.io/assets/custom.css">
+            
         
     </head>
     <body class="bilberry-hugo-theme">
@@ -118,7 +120,7 @@
     
         <div class="article-wrapper u-cf">
             
-                <a class="bubble" href="/post/2018-10-16-google-packages-and-munki/">
+                <a class="bubble" href="/2019/02/ublock-origin-admin-settings-deployment/">
     <i class="fa fa-fw fa-pencil"></i>
 </a>
 
@@ -126,40 +128,45 @@
     
 
     <div class="content">
-    <h3><a href="/post/2018-10-16-google-packages-and-munki/">Google Packages and Munki</a></h3>
+    <h3><a href="/2019/02/ublock-origin-admin-settings-deployment/">uBlock Origin Admin Settings Deployment</a></h3>
     <div class="meta">
         
             
-                <span class="date moment">2018-10-16</span>
+                <span class="date moment">2019-02-27</span>
             
         
 
         
 
-        
-            <span class="categories">
-                
-                    <a href="/categories/munki">munki</a>
-                
-            </span>
         
 
         
     </div>
 
     
-        <p>On a few machines, I&rsquo;ve been getting Munki errors related to the Chrome Remote Desktop Host update packages, and the Google Drive FileStream packages. The packages fail when you disable the Keystone Agent via Profile or via the MasterDisable key in <code>/Library/Preferences/com.google.Keystone.plist</code>. As we deploy these updates through Munki via AutoPkg, I found that I needed to disable the GoogleSoftwareUpdate package bundled with both of these.</p>
+        <p>As our district has made the decision to push out uBlock, we had to include a whitelist. The documentation on uBlock's github wiki was not clear enough for me on how to deploy settings. On the macOS side of things, pushing out the configuration profile was easy enough, but the ChromeOS configuration was a bit trickier.</p>
 
         
-            <a href="/post/2018-10-16-google-packages-and-munki/" class="more">Continue reading</a>
+            <a href="/2019/02/ublock-origin-admin-settings-deployment/" class="more">Continue reading</a>
         
     
 </div>
 
     
-<div class="footer no-tags">
+<div class="footer">
 
 
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="/tags/chromeos">chromeos</a>
+                
+                    <a href="/tags/profiles">profiles</a>
+                
+            </div>
+        </div>
     
 
     
@@ -172,7 +179,7 @@
     
         <div class="article-wrapper u-cf">
             
-                <a class="bubble" href="/post/2018-09-20-force-a-dep-sync-from-your-phone/">
+                <a class="bubble" href="/2018/10/google-packages-and-munki/">
     <i class="fa fa-fw fa-pencil"></i>
 </a>
 
@@ -180,7 +187,64 @@
     
 
     <div class="content">
-    <h3><a href="/post/2018-09-20-force-a-dep-sync-from-your-phone/">Force a DEP sync..from your phone!</a></h3>
+    <h3><a href="/2018/10/google-packages-and-munki/">Google Packages and Munki</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-10-16</span>
+            
+        
+
+        
+
+        
+
+        
+    </div>
+
+    
+        <p>On a few machines, I've been getting Munki errors related to the Chrome Remote Desktop Host update packages, and the Google Drive FileStream packages. The packages fail when you disable the Keystone Agent via Profile or via the MasterDisable key in <code>/Library/Preferences/com.google.Keystone.plist</code>. As we deploy these updates through Munki via AutoPkg, I found that I needed to disable the GoogleSoftwareUpdate package bundled with both of these.</p>
+
+        
+            <a href="/2018/10/google-packages-and-munki/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="/tags/munki">munki</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="/2018/09/force-a-dep-sync..from-your-phone/">
+    <i class="fa fa-fw fa-pencil"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="/2018/09/force-a-dep-sync..from-your-phone/">Force a DEP sync..from your phone!</a></h3>
     <div class="meta">
         
             
@@ -196,10 +260,10 @@
     </div>
 
     
-        <p>I&rsquo;ve used Workflow in the past, but I hadn&rsquo;t really fully explored it as &ldquo;click this&rdquo; instead of &ldquo;launch this app and run this real quick&rdquo; never bothered me. Things have changed since then. Hello to Siri Shortcuts in iOS 12! I can now run things by voice.</p>
+        <p>I've used Workflow in the past, but I hadn't really fully explored it as &quot;click this&quot; instead of &quot;launch this app and run this real quick&quot; never bothered me. Things have changed since then. Hello to Siri Shortcuts in iOS 12! I can now run things by voice.</p>
 
         
-            <a href="/post/2018-09-20-force-a-dep-sync-from-your-phone/" class="more">Continue reading</a>
+            <a href="/2018/09/force-a-dep-sync..from-your-phone/" class="more">Continue reading</a>
         
     
 </div>
@@ -233,7 +297,7 @@
     
         <div class="article-wrapper u-cf">
             
-                <a class="bubble" href="/post/2018-04-04-modifying-safaris-autoplay-preferences/">
+                <a class="bubble" href="/2018/04/modifying-safaris-auto-play-preferences/">
     <i class="fa fa-fw fa-pencil"></i>
 </a>
 
@@ -241,7 +305,7 @@
     
 
     <div class="content">
-    <h3><a href="/post/2018-04-04-modifying-safaris-autoplay-preferences/">Modifying Safari&#39;s Auto-Play Preferences</a></h3>
+    <h3><a href="/2018/04/modifying-safaris-auto-play-preferences/">Modifying Safari&#39;s Auto-Play Preferences</a></h3>
     <div class="meta">
         
             
@@ -257,14 +321,14 @@
     </div>
 
     
-        <p>I saw an interesting question today on the MacAdmins Slack regarding setting the Auto-Play preferences introduced in 10.13&rsquo;s Safari.</p>
+        <p>I saw an interesting question today on the MacAdmins Slack regarding setting the Auto-Play preferences introduced in 10.13's Safari.</p>
 
 <p><img src="/images/2018/04/screencap.png" alt="slack screencap" /></p>
 
 <p>Curiosity took hold.</p>
 
         
-            <a href="/post/2018-04-04-modifying-safaris-autoplay-preferences/" class="more">Continue reading</a>
+            <a href="/2018/04/modifying-safaris-auto-play-preferences/" class="more">Continue reading</a>
         
     
 </div>
@@ -298,7 +362,7 @@
     
         <div class="article-wrapper u-cf">
             
-                <a class="bubble" href="/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/">
+                <a class="bubble" href="/2018/02/setting-up-munkireport-php-on-ubuntu-16-with-nginx/">
     <i class="fa fa-fw fa-pencil"></i>
 </a>
 
@@ -306,7 +370,7 @@
     
 
     <div class="content">
-    <h3><a href="/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a></h3>
+    <h3><a href="/2018/02/setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a></h3>
     <div class="meta">
         
             
@@ -325,7 +389,7 @@
         <p>This post is still really rough, but should be fully functional.</p>
 
         
-            <a href="/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/" class="more">Continue reading</a>
+            <a href="/2018/02/setting-up-munkireport-php-on-ubuntu-16-with-nginx/" class="more">Continue reading</a>
         
     
 </div>
@@ -340,358 +404,6 @@
             <div class="links">
                 
                     <a href="/tags/munki">munki</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="/post/2018-01-29-faster-munki-downloads-from-nginx/">
-    <i class="fa fa-fw fa-pencil"></i>
-</a>
-
-<article class="default article">
-    
-
-    <div class="content">
-    <h3><a href="/post/2018-01-29-faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2018-01-29</span>
-            
-        
-
-        
-
-        
-
-        
-    </div>
-
-    
-        <p>Through multiple issues over the last month or so, I decided to completely rebuild my Munki server. This server is semi-critical in our district as all configurations are now sent out via Munki. As I was waiting for Ubuntu 16 to install and do some base configurations, I started looking for some guides on how to increase performance. I stumbled across <a href="http://nginx.org/en/docs/ngx_core_module.html#worker_cpu_affinity">worker_cpu_affinity</a>.</p>
-
-        
-            <a href="/post/2018-01-29-faster-munki-downloads-from-nginx/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="/tags/munki">munki</a>
-                
-                    <a href="/tags/nginx">nginx</a>
-                
-                    <a href="/tags/webserver">webserver</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="/post/2018-01-15-deploying-detectx-swift-with-munki/">
-    <i class="fa fa-fw fa-pencil"></i>
-</a>
-
-<article class="default article">
-    
-
-    <div class="content">
-    <h3><a href="/post/2018-01-15-deploying-detectx-swift-with-munki/">Deploying DetectX Swift with Munki</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2018-01-15</span>
-            
-        
-
-        
-
-        
-
-        
-    </div>
-
-    
-        <p>DetectX Swift is an alternative to MalwareBytes Anti-Malware and was more economical for our district to use. It also is faster and more what we were looking for. I highly recommend it! This is a write up based on how we are deploying it here.</p>
-
-        
-            <a href="/post/2018-01-15-deploying-detectx-swift-with-munki/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="/tags/munki">munki</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="/post/2017-05-29-dock-maintainer-defined/">
-    <i class="fa fa-fw fa-pencil"></i>
-</a>
-
-<article class="default article">
-    
-
-    <div class="content">
-    <h3><a href="/post/2017-05-29-dock-maintainer-defined/">Dock-maintainer: Defined</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2017-05-29</span>
-            
-        
-
-        
-
-        
-
-        
-    </div>
-
-    
-        <p>Recently I created a tool called dock-maintainer. This post goes over a couple things but mainly serves to explain why I created it and why I needed it instead of using other solutions. Traditionally this job (maintaining Dock configurations) has been handled in a multitude of ways. There have been many ways to do this. One can use configuration profiles, puppet/salt/chef/etc, <code>outset</code> with a script (a method I used until recently).</p>
-
-        
-            <a href="/post/2017-05-29-dock-maintainer-defined/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="/tags/dock-maintainer">dock-maintainer</a>
-                
-                    <a href="/tags/python">python</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="/post/2017-05-12-hello-it-setup-and-deployment/">
-    <i class="fa fa-fw fa-pencil"></i>
-</a>
-
-<article class="default article">
-    
-
-    <div class="content">
-    <h3><a href="/post/2017-05-12-hello-it-setup-and-deployment/">Hello-IT Setup and Deployment</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2017-05-12</span>
-            
-        
-
-        
-
-        
-
-        
-    </div>
-
-    
-        <p>I have recently been playing with a tool called <a href="https://github.com/ygini/Hello-IT">Hello IT</a>. It has been a wonderful tool in testing and I am getting excited to send it out here in our district. I believe it will help our staff be able to communicate to us effectively. Our current layout looks like this:
-<img src="/images/2017/05/HelloIT Menu Layout.jpg" alt="helloIT Menu Layout" /></p>
-
-        
-            <a href="/post/2017-05-12-hello-it-setup-and-deployment/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="/tags/hello-it">Hello IT</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="/post/2016-11-29-i-made-a-thingwell-sorta/">
-    <i class="fa fa-fw fa-pencil"></i>
-</a>
-
-<article class="default article">
-    
-
-    <div class="content">
-    <h3><a href="/post/2016-11-29-i-made-a-thingwell-sorta/">I made a thing..well sorta</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2016-11-29</span>
-            
-        
-
-        
-
-        
-
-        
-    </div>
-
-    
-        It seems that I have learned A LOT in recent months concerning Python. Again huge shout out to Nick McSpadden and froger for helping me get to where I am knowledge wise today. In between now and my last post, Nick helped me understand the dict datatype. Turns out python can use translate dict into the plist equivalents! The more you know eh?
-The reason he was helping me on this was because I had an idea to take his PrinterGenerator tool and make it work in a different way.
-
-        
-            <a href="/post/2016-11-29-i-made-a-thingwell-sorta/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="/tags/python">python</a>
-                
-            </div>
-        </div>
-    
-
-    
-</div>
-
-</article>
-
-            
-        </div>
-    
-        <div class="article-wrapper u-cf">
-            
-                <a class="bubble" href="/post/2016-06-27-til-03-get-model-info-via-python-via-serial/">
-    <i class="fa fa-fw fa-pencil"></i>
-</a>
-
-<article class="default article">
-    
-
-    <div class="content">
-    <h3><a href="/post/2016-06-27-til-03-get-model-info-via-python-via-serial/">TIL 03 -- Get Model Info via Python via Serial</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2016-06-27</span>
-            
-        
-
-        
-
-        
-
-        
-    </div>
-
-    
-        A while back I learned about this website, Apple Config Code Lookup, when I was building my first info grab script for an inventory. I have since evolved that script into a full Info Viewer (inventory is done via MunkiReport-PHP). One thing I was always missing was the output from the Apple Config Code Lookup; since I am migrating most of my shell scripts to Python, I figured I might as well add it.
-
-        
-            <a href="/post/2016-06-27-til-03-get-model-info-via-python-via-serial/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer">
-
-
-    
-        <div class="tags">
-            <i class="fa fa-tags"></i>
-            <div class="links">
-                
-                    <a href="/tags/til">TIL</a>
-                
-                    <a href="/tags/python">python</a>
                 
             </div>
         </div>
@@ -729,31 +441,31 @@ The reason he was helping me on this was because I had an idea to take his Print
                 <ul>
                 
                     <li>
-                        <a href="/post/2018-10-16-google-packages-and-munki/">Google Packages and Munki</a>
+                        <a href="/2019/02/ublock-origin-admin-settings-deployment/">uBlock Origin Admin Settings Deployment</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-09-20-force-a-dep-sync-from-your-phone/">Force a DEP sync..from your phone!</a>
+                        <a href="/2018/10/google-packages-and-munki/">Google Packages and Munki</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-04-04-modifying-safaris-autoplay-preferences/">Modifying Safari&#39;s Auto-Play Preferences</a>
+                        <a href="/2018/09/force-a-dep-sync..from-your-phone/">Force a DEP sync..from your phone!</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a>
+                        <a href="/2018/04/modifying-safaris-auto-play-preferences/">Modifying Safari&#39;s Auto-Play Preferences</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-01-29-faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a>
+                        <a href="/2018/02/setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-01-15-deploying-detectx-swift-with-munki/">Deploying DetectX Swift with Munki</a>
+                        <a href="/2018/01/faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2017-05-29-dock-maintainer-defined/">Dock-maintainer: Defined</a>
+                        <a href="/2018/01/deploying-detectx-swift-with-munki/">Deploying DetectX Swift with Munki</a>
                     </li>
                 
                 </ul>
@@ -770,11 +482,15 @@ The reason he was helping me on this was because I had an idea to take his Print
                     </li>
                 
                     <li>
+                        <a href="/tags/munki">Munki (4)</a>
+                    </li>
+                
+                    <li>
                         <a href="/tags/til">Til (4)</a>
                     </li>
                 
                     <li>
-                        <a href="/tags/munki">Munki (3)</a>
+                        <a href="/tags/chromeos">Chromeos (1)</a>
                     </li>
                 
                     <li>
@@ -787,10 +503,6 @@ The reason he was helping me on this was because I had an idea to take his Print
                 
                     <li>
                         <a href="/tags/ios">Ios (1)</a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags/macos">Macos (1)</a>
                     </li>
                 
             </ul>

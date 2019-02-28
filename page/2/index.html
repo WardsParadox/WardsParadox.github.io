@@ -59,6 +59,8 @@
 
         
             
+                <link rel="stylesheet" href="https://wardsparadox.github.io/assets/custom.css">
+            
         
     </head>
     <body class="bilberry-hugo-theme">
@@ -123,7 +125,7 @@
         
     <div class="article-wrapper u-cf">
         
-            <a class="bubble" href="/post/2016-06-05-multiple-inputs-with-one-argument/">
+            <a class="bubble" href="/2018/01/faster-munki-downloads-from-nginx/">
     <i class="fa fa-fw fa-pencil"></i>
 </a>
 
@@ -131,11 +133,11 @@
     
 
     <div class="content">
-    <h3><a href="/post/2016-06-05-multiple-inputs-with-one-argument/">TIL 02 - Multiple Inputs For One Argument</a></h3>
+    <h3><a href="/2018/01/faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a></h3>
     <div class="meta">
         
             
-                <span class="date moment">2016-06-05</span>
+                <span class="date moment">2018-01-29</span>
             
         
 
@@ -147,11 +149,10 @@
     </div>
 
     
-        I use a tool called Outset Dock Profiler made by Nick McSpadden. It&rsquo;s great and for user accounts where I only need to target one profile, it works great! {% icon fa-thumbs-o-up fg-lg %}
-There has always been one thing about it that bothered me. If I had multiple profiles for a user, I couldn&rsquo;t use this tool. Sure I could use it to build an initial package and modify the script.
+        <p>Through multiple issues over the last month or so, I decided to completely rebuild my Munki server. This server is semi-critical in our district as all configurations are now sent out via Munki. As I was waiting for Ubuntu 16 to install and do some base configurations, I started looking for some guides on how to increase performance. I stumbled across <a href="http://nginx.org/en/docs/ngx_core_module.html#worker_cpu_affinity">worker_cpu_affinity</a>.</p>
 
         
-            <a href="/post/2016-06-05-multiple-inputs-with-one-argument/" class="more">Continue reading</a>
+            <a href="/2018/01/faster-munki-downloads-from-nginx/" class="more">Continue reading</a>
         
     
 </div>
@@ -165,7 +166,129 @@ There has always been one thing about it that bothered me. If I had multiple pro
             <i class="fa fa-tags"></i>
             <div class="links">
                 
-                    <a href="/tags/til">TIL</a>
+                    <a href="/tags/munki">munki</a>
+                
+                    <a href="/tags/nginx">nginx</a>
+                
+                    <a href="/tags/webserver">webserver</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            <a class="bubble" href="/2018/01/deploying-detectx-swift-with-munki/">
+    <i class="fa fa-fw fa-pencil"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="/2018/01/deploying-detectx-swift-with-munki/">Deploying DetectX Swift with Munki</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-01-15</span>
+            
+        
+
+        
+
+        
+
+        
+    </div>
+
+    
+        <p>DetectX Swift is an alternative to MalwareBytes Anti-Malware and was more economical for our district to use. It also is faster and more what we were looking for. I highly recommend it! This is a write up based on how we are deploying it here.</p>
+
+        
+            <a href="/2018/01/deploying-detectx-swift-with-munki/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="/tags/munki">munki</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    <div class="article-wrapper u-cf">
+        
+            <a class="bubble" href="/2017/05/dock-maintainer-defined/">
+    <i class="fa fa-fw fa-pencil"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="/2017/05/dock-maintainer-defined/">Dock-maintainer: Defined</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2017-05-29</span>
+            
+        
+
+        
+
+        
+
+        
+    </div>
+
+    
+        <p>Recently I created a tool called dock-maintainer. This post goes over a couple things but mainly serves to explain why I created it and why I needed it instead of using other solutions. Traditionally this job (maintaining Dock configurations) has been handled in a multitude of ways. There have been many ways to do this. One can use configuration profiles, puppet/salt/chef/etc, <code>outset</code> with a script (a method I used until recently).</p>
+
+        
+            <a href="/2017/05/dock-maintainer-defined/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="/tags/dock-maintainer">dock-maintainer</a>
                 
                     <a href="/tags/python">python</a>
                 
@@ -185,7 +308,7 @@ There has always been one thing about it that bothered me. If I had multiple pro
         
     <div class="article-wrapper u-cf">
         
-            <a class="bubble" href="/post/2016-03-06-til-01-get-a-os-x-preference-via-python/">
+            <a class="bubble" href="/2017/05/hello-it-setup-and-deployment/">
     <i class="fa fa-fw fa-pencil"></i>
 </a>
 
@@ -193,11 +316,11 @@ There has always been one thing about it that bothered me. If I had multiple pro
     
 
     <div class="content">
-    <h3><a href="/post/2016-03-06-til-01-get-a-os-x-preference-via-python/">TIL 01 - Get a OS X Preference via python</a></h3>
+    <h3><a href="/2017/05/hello-it-setup-and-deployment/">Hello-IT Setup and Deployment</a></h3>
     <div class="meta">
         
             
-                <span class="date moment">2016-03-06</span>
+                <span class="date moment">2017-05-12</span>
             
         
 
@@ -209,10 +332,11 @@ There has always been one thing about it that bothered me. If I had multiple pro
     </div>
 
     
-        As I am trying to learn more of the Python programming language (version 2.7.* as that is what is currently built-in to OS X), I find little challenges to help process what I have learned of it. Recently I was introduced to the Foundation frameworks that come with OS X. For a while I was writing scripts that required plistlib which could only read the XML version of a plist. OS X stores preferences in binary plist form.
+        <p>I have recently been playing with a tool called <a href="https://github.com/ygini/Hello-IT">Hello IT</a>. It has been a wonderful tool in testing and I am getting excited to send it out here in our district. I believe it will help our staff be able to communicate to us effectively. Our current layout looks like this:
+<img src="/images/2017/05/HelloIT Menu Layout.jpg" alt="helloIT Menu Layout" /></p>
 
         
-            <a href="/post/2016-03-06-til-01-get-a-os-x-preference-via-python/" class="more">Continue reading</a>
+            <a href="/2017/05/hello-it-setup-and-deployment/" class="more">Continue reading</a>
         
     
 </div>
@@ -226,9 +350,7 @@ There has always been one thing about it that bothered me. If I had multiple pro
             <i class="fa fa-tags"></i>
             <div class="links">
                 
-                    <a href="/tags/til">TIL</a>
-                
-                    <a href="/tags/python">python</a>
+                    <a href="/tags/hello-it">Hello IT</a>
                 
             </div>
         </div>
@@ -246,7 +368,7 @@ There has always been one thing about it that bothered me. If I had multiple pro
         
     <div class="article-wrapper u-cf">
         
-            <a class="bubble" href="/post/2016-03-04-til-00-welcome-to-today-i-learned/">
+            <a class="bubble" href="/2016/11/i-made-a-thing..well-sorta/">
     <i class="fa fa-fw fa-pencil"></i>
 </a>
 
@@ -254,11 +376,11 @@ There has always been one thing about it that bothered me. If I had multiple pro
     
 
     <div class="content">
-    <h3><a href="/post/2016-03-04-til-00-welcome-to-today-i-learned/">TIL 00 - Welcome to Today I Learned</a></h3>
+    <h3><a href="/2016/11/i-made-a-thing..well-sorta/">I made a thing..well sorta</a></h3>
     <div class="meta">
         
             
-                <span class="date moment">2016-03-04</span>
+                <span class="date moment">2016-11-29</span>
             
         
 
@@ -270,8 +392,11 @@ There has always been one thing about it that bothered me. If I had multiple pro
     </div>
 
     
-        Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I&rsquo;ve learned. Thank you for reading, I hope you enjoy or learn something as well!
+        It seems that I have learned A LOT in recent months concerning Python. Again huge shout out to Nick McSpadden and froger for helping me get to where I am knowledge wise today. In between now and my last post, Nick helped me understand the dict datatype. Turns out python can use translate dict into the plist equivalents! The more you know eh?
+The reason he was helping me on this was because I had an idea to take his PrinterGenerator tool and make it work in a different way.
 
+        
+            <a href="/2016/11/i-made-a-thing..well-sorta/" class="more">Continue reading</a>
         
     
 </div>
@@ -285,63 +410,10 @@ There has always been one thing about it that bothered me. If I had multiple pro
             <i class="fa fa-tags"></i>
             <div class="links">
                 
-                    <a href="/tags/til">TIL</a>
-                
                     <a href="/tags/python">python</a>
                 
             </div>
         </div>
-    
-
-    
-</div>
-
-</article>
-
-        
-    </div>
-
-    
-        
-    <div class="article-wrapper u-cf">
-        
-            <a class="bubble" href="/post/2015-12-12-adding-a-coming-soon-ribbon-to-the-munki-showcase/">
-    <i class="fa fa-fw fa-pencil"></i>
-</a>
-
-<article class="default article">
-    
-
-    <div class="content">
-    <h3><a href="/post/2015-12-12-adding-a-coming-soon-ribbon-to-the-munki-showcase/">Adding a &#34;Coming Soon&#34; Ribbon to the Munki Showcase</a></h3>
-    <div class="meta">
-        
-            
-                <span class="date moment">2015-12-12</span>
-            
-        
-
-        
-
-        
-
-        
-    </div>
-
-    
-        I have been doing some testing and it seems that with the latest OS X El Capitan release, our district can finally move to El Capitan. At the same time I have been doing some testing of Office 2016 for Mac. I have been moving our district to deploying software with Munki. It&rsquo;s been two years and has already saved us hundreds of man hours.
-I was aware of the conditional items ability with Munki.
-
-        
-            <a href="/post/2015-12-12-adding-a-coming-soon-ribbon-to-the-munki-showcase/" class="more">Continue reading</a>
-        
-    
-</div>
-
-    
-<div class="footer no-tags">
-
-
     
 
     
@@ -356,6 +428,8 @@ I was aware of the conditional items ability with Munki.
 
     
     <div class="paginator">
+        
+            <a href="/page/3/" class="older"><i class="fa fa-angle-double-left"></i> Older posts</a>
         
 
         
@@ -377,31 +451,31 @@ I was aware of the conditional items ability with Munki.
                 <ul>
                 
                     <li>
-                        <a href="/post/2018-10-16-google-packages-and-munki/">Google Packages and Munki</a>
+                        <a href="/2019/02/ublock-origin-admin-settings-deployment/">uBlock Origin Admin Settings Deployment</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-09-20-force-a-dep-sync-from-your-phone/">Force a DEP sync..from your phone!</a>
+                        <a href="/2018/10/google-packages-and-munki/">Google Packages and Munki</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-04-04-modifying-safaris-autoplay-preferences/">Modifying Safari&#39;s Auto-Play Preferences</a>
+                        <a href="/2018/09/force-a-dep-sync..from-your-phone/">Force a DEP sync..from your phone!</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a>
+                        <a href="/2018/04/modifying-safaris-auto-play-preferences/">Modifying Safari&#39;s Auto-Play Preferences</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-01-29-faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a>
+                        <a href="/2018/02/setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-01-15-deploying-detectx-swift-with-munki/">Deploying DetectX Swift with Munki</a>
+                        <a href="/2018/01/faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2017-05-29-dock-maintainer-defined/">Dock-maintainer: Defined</a>
+                        <a href="/2018/01/deploying-detectx-swift-with-munki/">Deploying DetectX Swift with Munki</a>
                     </li>
                 
                 </ul>
@@ -418,11 +492,15 @@ I was aware of the conditional items ability with Munki.
                     </li>
                 
                     <li>
+                        <a href="/tags/munki">Munki (4)</a>
+                    </li>
+                
+                    <li>
                         <a href="/tags/til">Til (4)</a>
                     </li>
                 
                     <li>
-                        <a href="/tags/munki">Munki (3)</a>
+                        <a href="/tags/chromeos">Chromeos (1)</a>
                     </li>
                 
                     <li>
@@ -435,10 +513,6 @@ I was aware of the conditional items ability with Munki.
                 
                     <li>
                         <a href="/tags/ios">Ios (1)</a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags/macos">Macos (1)</a>
                     </li>
                 
             </ul>

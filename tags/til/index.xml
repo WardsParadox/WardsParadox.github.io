@@ -12,39 +12,39 @@
     
     <item>
       <title>TIL 03 -- Get Model Info via Python via Serial</title>
-      <link>https://wardsparadox.github.io/post/2016-06-27-til-03-get-model-info-via-python-via-serial/</link>
+      <link>https://wardsparadox.github.io/2016/06/til-03-get-model-info-via-python-via-serial/</link>
       <pubDate>Mon, 27 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://wardsparadox.github.io/post/2016-06-27-til-03-get-model-info-via-python-via-serial/</guid>
+      <guid>https://wardsparadox.github.io/2016/06/til-03-get-model-info-via-python-via-serial/</guid>
       <description>A while back I learned about this website, Apple Config Code Lookup, when I was building my first info grab script for an inventory. I have since evolved that script into a full Info Viewer (inventory is done via MunkiReport-PHP). One thing I was always missing was the output from the Apple Config Code Lookup; since I am migrating most of my shell scripts to Python, I figured I might as well add it.</description>
     </item>
     
     <item>
       <title>TIL 02 - Multiple Inputs For One Argument</title>
-      <link>https://wardsparadox.github.io/post/2016-06-05-multiple-inputs-with-one-argument/</link>
+      <link>https://wardsparadox.github.io/2016/06/til-02-multiple-inputs-for-one-argument/</link>
       <pubDate>Sun, 05 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://wardsparadox.github.io/post/2016-06-05-multiple-inputs-with-one-argument/</guid>
-      <description>I use a tool called Outset Dock Profiler made by Nick McSpadden. It&amp;rsquo;s great and for user accounts where I only need to target one profile, it works great! {% icon fa-thumbs-o-up fg-lg %}
-There has always been one thing about it that bothered me. If I had multiple profiles for a user, I couldn&amp;rsquo;t use this tool. Sure I could use it to build an initial package and modify the script.</description>
+      <guid>https://wardsparadox.github.io/2016/06/til-02-multiple-inputs-for-one-argument/</guid>
+      <description>I use a tool called Outset Dock Profiler made by Nick McSpadden. It&#39;s great and for user accounts where I only need to target one profile, it works great! {% icon fa-thumbs-o-up fg-lg &amp;gt;}}
+There has always been one thing about it that bothered me. If I had multiple profiles for a user, I couldn&#39;t use this tool. Sure I could use it to build an initial package and modify the script.</description>
     </item>
     
     <item>
       <title>TIL 01 - Get a OS X Preference via python</title>
-      <link>https://wardsparadox.github.io/post/2016-03-06-til-01-get-a-os-x-preference-via-python/</link>
+      <link>https://wardsparadox.github.io/2016/03/til-01-get-a-os-x-preference-via-python/</link>
       <pubDate>Sun, 06 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://wardsparadox.github.io/post/2016-03-06-til-01-get-a-os-x-preference-via-python/</guid>
+      <guid>https://wardsparadox.github.io/2016/03/til-01-get-a-os-x-preference-via-python/</guid>
       <description>As I am trying to learn more of the Python programming language (version 2.7.* as that is what is currently built-in to OS X), I find little challenges to help process what I have learned of it. Recently I was introduced to the Foundation frameworks that come with OS X. For a while I was writing scripts that required plistlib which could only read the XML version of a plist. OS X stores preferences in binary plist form.</description>
     </item>
     
     <item>
       <title>TIL 00 - Welcome to Today I Learned</title>
-      <link>https://wardsparadox.github.io/post/2016-03-04-til-00-welcome-to-today-i-learned/</link>
+      <link>https://wardsparadox.github.io/2016/03/til-00-welcome-to-today-i-learned/</link>
       <pubDate>Fri, 04 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://wardsparadox.github.io/post/2016-03-04-til-00-welcome-to-today-i-learned/</guid>
-      <description>Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I&amp;rsquo;ve learned. Thank you for reading, I hope you enjoy or learn something as well!</description>
+      <guid>https://wardsparadox.github.io/2016/03/til-00-welcome-to-today-i-learned/</guid>
+      <description>Welcome to a series called Today I Learned. This is a series primarily dedicated to documenting things I&#39;ve learned. Thank you for reading, I hope you enjoy or learn something as well!</description>
     </item>
     
   </channel>

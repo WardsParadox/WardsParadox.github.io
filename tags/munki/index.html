@@ -59,6 +59,8 @@
 
         
             
+                <link rel="stylesheet" href="https://wardsparadox.github.io/assets/custom.css">
+            
         
     </head>
     <body class="bilberry-hugo-theme">
@@ -118,7 +120,7 @@
     
         <div class="article-wrapper u-cf">
             
-                <a class="bubble" href="/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/">
+                <a class="bubble" href="/2018/10/google-packages-and-munki/">
     <i class="fa fa-fw fa-pencil"></i>
 </a>
 
@@ -126,11 +128,11 @@
     
 
     <div class="content">
-    <h3><a href="/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a></h3>
+    <h3><a href="/2018/10/google-packages-and-munki/">Google Packages and Munki</a></h3>
     <div class="meta">
         
             
-                <span class="date moment">2018-02-14</span>
+                <span class="date moment">2018-10-16</span>
             
         
 
@@ -142,10 +144,10 @@
     </div>
 
     
-        <p>This post is still really rough, but should be fully functional.</p>
+        <p>On a few machines, I've been getting Munki errors related to the Chrome Remote Desktop Host update packages, and the Google Drive FileStream packages. The packages fail when you disable the Keystone Agent via Profile or via the MasterDisable key in <code>/Library/Preferences/com.google.Keystone.plist</code>. As we deploy these updates through Munki via AutoPkg, I found that I needed to disable the GoogleSoftwareUpdate package bundled with both of these.</p>
 
         
-            <a href="/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/" class="more">Continue reading</a>
+            <a href="/2018/10/google-packages-and-munki/" class="more">Continue reading</a>
         
     
 </div>
@@ -175,7 +177,7 @@
     
         <div class="article-wrapper u-cf">
             
-                <a class="bubble" href="/post/2018-01-29-faster-munki-downloads-from-nginx/">
+                <a class="bubble" href="/2018/02/setting-up-munkireport-php-on-ubuntu-16-with-nginx/">
     <i class="fa fa-fw fa-pencil"></i>
 </a>
 
@@ -183,7 +185,64 @@
     
 
     <div class="content">
-    <h3><a href="/post/2018-01-29-faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a></h3>
+    <h3><a href="/2018/02/setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2018-02-14</span>
+            
+        
+
+        
+
+        
+
+        
+    </div>
+
+    
+        <p>This post is still really rough, but should be fully functional.</p>
+
+        
+            <a href="/2018/02/setting-up-munkireport-php-on-ubuntu-16-with-nginx/" class="more">Continue reading</a>
+        
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="/tags/munki">munki</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+            
+        </div>
+    
+        <div class="article-wrapper u-cf">
+            
+                <a class="bubble" href="/2018/01/faster-munki-downloads-from-nginx/">
+    <i class="fa fa-fw fa-pencil"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="/2018/01/faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a></h3>
     <div class="meta">
         
             
@@ -202,7 +261,7 @@
         <p>Through multiple issues over the last month or so, I decided to completely rebuild my Munki server. This server is semi-critical in our district as all configurations are now sent out via Munki. As I was waiting for Ubuntu 16 to install and do some base configurations, I started looking for some guides on how to increase performance. I stumbled across <a href="http://nginx.org/en/docs/ngx_core_module.html#worker_cpu_affinity">worker_cpu_affinity</a>.</p>
 
         
-            <a href="/post/2018-01-29-faster-munki-downloads-from-nginx/" class="more">Continue reading</a>
+            <a href="/2018/01/faster-munki-downloads-from-nginx/" class="more">Continue reading</a>
         
     
 </div>
@@ -236,7 +295,7 @@
     
         <div class="article-wrapper u-cf">
             
-                <a class="bubble" href="/post/2018-01-15-deploying-detectx-swift-with-munki/">
+                <a class="bubble" href="/2018/01/deploying-detectx-swift-with-munki/">
     <i class="fa fa-fw fa-pencil"></i>
 </a>
 
@@ -244,7 +303,7 @@
     
 
     <div class="content">
-    <h3><a href="/post/2018-01-15-deploying-detectx-swift-with-munki/">Deploying DetectX Swift with Munki</a></h3>
+    <h3><a href="/2018/01/deploying-detectx-swift-with-munki/">Deploying DetectX Swift with Munki</a></h3>
     <div class="meta">
         
             
@@ -263,7 +322,7 @@
         <p>DetectX Swift is an alternative to MalwareBytes Anti-Malware and was more economical for our district to use. It also is faster and more what we were looking for. I highly recommend it! This is a write up based on how we are deploying it here.</p>
 
         
-            <a href="/post/2018-01-15-deploying-detectx-swift-with-munki/" class="more">Continue reading</a>
+            <a href="/2018/01/deploying-detectx-swift-with-munki/" class="more">Continue reading</a>
         
     
 </div>
@@ -313,31 +372,31 @@
                 <ul>
                 
                     <li>
-                        <a href="/post/2018-10-16-google-packages-and-munki/">Google Packages and Munki</a>
+                        <a href="/2019/02/ublock-origin-admin-settings-deployment/">uBlock Origin Admin Settings Deployment</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-09-20-force-a-dep-sync-from-your-phone/">Force a DEP sync..from your phone!</a>
+                        <a href="/2018/10/google-packages-and-munki/">Google Packages and Munki</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-04-04-modifying-safaris-autoplay-preferences/">Modifying Safari&#39;s Auto-Play Preferences</a>
+                        <a href="/2018/09/force-a-dep-sync..from-your-phone/">Force a DEP sync..from your phone!</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a>
+                        <a href="/2018/04/modifying-safaris-auto-play-preferences/">Modifying Safari&#39;s Auto-Play Preferences</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-01-29-faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a>
+                        <a href="/2018/02/setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2018-01-15-deploying-detectx-swift-with-munki/">Deploying DetectX Swift with Munki</a>
+                        <a href="/2018/01/faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a>
                     </li>
                 
                     <li>
-                        <a href="/post/2017-05-29-dock-maintainer-defined/">Dock-maintainer: Defined</a>
+                        <a href="/2018/01/deploying-detectx-swift-with-munki/">Deploying DetectX Swift with Munki</a>
                     </li>
                 
                 </ul>
@@ -354,11 +413,15 @@
                     </li>
                 
                     <li>
+                        <a href="/tags/munki">Munki (4)</a>
+                    </li>
+                
+                    <li>
                         <a href="/tags/til">Til (4)</a>
                     </li>
                 
                     <li>
-                        <a href="/tags/munki">Munki (3)</a>
+                        <a href="/tags/chromeos">Chromeos (1)</a>
                     </li>
                 
                     <li>
@@ -371,10 +434,6 @@
                 
                     <li>
                         <a href="/tags/ios">Ios (1)</a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags/macos">Macos (1)</a>
                     </li>
                 
             </ul>

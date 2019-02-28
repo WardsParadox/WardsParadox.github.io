@@ -3,72 +3,77 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2018-10-16-google-packages-and-munki/</loc>
+    <loc>https://wardsparadox.github.io/2019/02/ublock-origin-admin-settings-deployment/</loc>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wardsparadox.github.io/2018/10/google-packages-and-munki/</loc>
     <lastmod>2018-10-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2018-09-20-force-a-dep-sync-from-your-phone/</loc>
+    <loc>https://wardsparadox.github.io/2018/09/force-a-dep-sync..from-your-phone/</loc>
     <lastmod>2018-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2018-04-04-modifying-safaris-autoplay-preferences/</loc>
+    <loc>https://wardsparadox.github.io/2018/04/modifying-safaris-auto-play-preferences/</loc>
     <lastmod>2018-04-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2018-02-14-setting-up-munkireport-php-on-ubuntu-16-with-nginx/</loc>
+    <loc>https://wardsparadox.github.io/2018/02/setting-up-munkireport-php-on-ubuntu-16-with-nginx/</loc>
     <lastmod>2018-02-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2018-01-29-faster-munki-downloads-from-nginx/</loc>
+    <loc>https://wardsparadox.github.io/2018/01/faster-munki-downloads-from-nginx/</loc>
     <lastmod>2018-01-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2018-01-15-deploying-detectx-swift-with-munki/</loc>
+    <loc>https://wardsparadox.github.io/2018/01/deploying-detectx-swift-with-munki/</loc>
     <lastmod>2018-01-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2017-05-29-dock-maintainer-defined/</loc>
+    <loc>https://wardsparadox.github.io/2017/05/dock-maintainer-defined/</loc>
     <lastmod>2017-05-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2017-05-12-hello-it-setup-and-deployment/</loc>
+    <loc>https://wardsparadox.github.io/2017/05/hello-it-setup-and-deployment/</loc>
     <lastmod>2017-05-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2016-11-29-i-made-a-thingwell-sorta/</loc>
+    <loc>https://wardsparadox.github.io/2016/11/i-made-a-thing..well-sorta/</loc>
     <lastmod>2016-11-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2016-06-27-til-03-get-model-info-via-python-via-serial/</loc>
+    <loc>https://wardsparadox.github.io/2016/06/til-03-get-model-info-via-python-via-serial/</loc>
     <lastmod>2016-06-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2016-06-05-multiple-inputs-with-one-argument/</loc>
+    <loc>https://wardsparadox.github.io/2016/06/til-02-multiple-inputs-for-one-argument/</loc>
     <lastmod>2016-06-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2016-03-06-til-01-get-a-os-x-preference-via-python/</loc>
+    <loc>https://wardsparadox.github.io/2016/03/til-01-get-a-os-x-preference-via-python/</loc>
     <lastmod>2016-03-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2016-03-04-til-00-welcome-to-today-i-learned/</loc>
+    <loc>https://wardsparadox.github.io/2016/03/til-00-welcome-to-today-i-learned/</loc>
     <lastmod>2016-03-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/post/2015-12-12-adding-a-coming-soon-ribbon-to-the-munki-showcase/</loc>
+    <loc>https://wardsparadox.github.io/2015/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</loc>
     <lastmod>2015-12-12T00:00:00+00:00</lastmod>
   </url>
   
@@ -83,6 +88,12 @@
   
   <url>
     <loc>https://wardsparadox.github.io/catagories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wardsparadox.github.io/tags/chromeos/</loc>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -118,7 +129,7 @@
   
   <url>
     <loc>https://wardsparadox.github.io/tags/munki/</loc>
-    <lastmod>2018-02-14T00:00:00+00:00</lastmod>
+    <lastmod>2018-10-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -135,7 +146,13 @@
   
   <url>
     <loc>https://wardsparadox.github.io/post/</loc>
-    <lastmod>2018-10-16T00:00:00+00:00</lastmod>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wardsparadox.github.io/tags/profiles/</loc>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -165,7 +182,7 @@
   
   <url>
     <loc>https://wardsparadox.github.io/tags/</loc>
-    <lastmod>2017-05-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -186,8 +203,13 @@
   </url>
   
   <url>
+    <loc>https://wardsparadox.github.io/year/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://wardsparadox.github.io/</loc>
-    <lastmod>2018-10-16T00:00:00+00:00</lastmod>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

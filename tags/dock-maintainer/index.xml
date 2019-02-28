@@ -12,10 +12,10 @@
     
     <item>
       <title>Dock-maintainer: Defined</title>
-      <link>https://wardsparadox.github.io/post/2017-05-29-dock-maintainer-defined/</link>
+      <link>https://wardsparadox.github.io/2017/05/dock-maintainer-defined/</link>
       <pubDate>Mon, 29 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://wardsparadox.github.io/post/2017-05-29-dock-maintainer-defined/</guid>
+      <guid>https://wardsparadox.github.io/2017/05/dock-maintainer-defined/</guid>
       <description>&lt;p&gt;Recently I created a tool called dock-maintainer. This post goes over a couple things but mainly serves to explain why I created it and why I needed it instead of using other solutions. Traditionally this job (maintaining Dock configurations) has been handled in a multitude of ways. There have been many ways to do this. One can use configuration profiles, puppet/salt/chef/etc, &lt;code&gt;outset&lt;/code&gt; with a script (a method I used until recently).&lt;/p&gt;</description>
     </item>
     

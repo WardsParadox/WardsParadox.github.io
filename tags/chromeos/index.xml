@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chromeos on Zack McCauley - WardsParadox</title>
+    <link>https://wardsparadox.github.io/tags/chromeos/</link>
+    <description>Recent content in Chromeos on Zack McCauley - WardsParadox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 27 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://wardsparadox.github.io/tags/chromeos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>uBlock Origin Admin Settings Deployment</title>
+      <link>https://wardsparadox.github.io/2019/02/ublock-origin-admin-settings-deployment/</link>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://wardsparadox.github.io/2019/02/ublock-origin-admin-settings-deployment/</guid>
+      <description>&lt;p&gt;As our district has made the decision to push out uBlock, we had to include a whitelist. The documentation on uBlock&#39;s github wiki was not clear enough for me on how to deploy settings. On the macOS side of things, pushing out the configuration profile was easy enough, but the ChromeOS configuration was a bit trickier.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

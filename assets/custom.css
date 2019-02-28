@@ -1,0 +1,7 @@
+.bilberry-hugo-theme article .content a {
+    font-style: normal;
+    color:#0074D9;
+}
+.bilberry-hugo-theme article .content h3 a {
+    color: rgb(34, 34, 34);
+}
