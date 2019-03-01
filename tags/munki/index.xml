@@ -46,5 +46,15 @@
       <description>&lt;p&gt;DetectX Swift is an alternative to MalwareBytes Anti-Malware and was more economical for our district to use. It also is faster and more what we were looking for. I highly recommend it! This is a write up based on how we are deploying it here.&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>Adding a &#34;Coming Soon&#34; Ribbon to the Munki Showcase</title>
+      <link>https://wardsparadox.github.io/2015/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</link>
+      <pubDate>Sat, 12 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://wardsparadox.github.io/2015/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
+      <description>I have been doing some testing and it seems that with the latest OS X El Capitan release, our district can finally move to El Capitan. At the same time I have been doing some testing of Office 2016 for Mac. I have been moving our district to deploying software with Munki. It&#39;s been two years and has already saved us hundreds of man hours.
+I was aware of the conditional items ability with Munki.</description>
+    </item>
+    
   </channel>
 </rss>
