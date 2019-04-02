@@ -5,7 +5,6 @@
     <link>https://wardsparadox.github.io/page/</link>
     <description>Recent content in Pages on Zack McCauley - WardsParadox</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 01 Mar 2019 13:26:52 -0700</lastBuildDate>
     
 	<atom:link href="https://wardsparadox.github.io/page/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +12,7 @@
     <item>
       <title>Home</title>
       <link>https://wardsparadox.github.io/page/home/</link>
-      <pubDate>Fri, 01 Mar 2019 13:26:52 -0700</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wardsparadox.github.io/page/home/</guid>
       <description></description>
@@ -36,6 +35,15 @@ This is just a little bio page for my Github account. Funny enough, I am not a d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://wardsparadox.github.io/page/tags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://wardsparadox.github.io/page/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wardsparadox.github.io/page/projects/</guid>
       <description></description>
     </item>
     

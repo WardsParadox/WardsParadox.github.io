@@ -4,7 +4,14 @@
   
   <url>
     <loc>https://wardsparadox.github.io/page/home/</loc>
-    <lastmod>2019-03-01T13:26:52-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wardsparadox.github.io/page/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://wardsparadox.github.io/page/tags/</loc>
   </url>
   
   <url>
@@ -83,10 +90,6 @@
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/page/about/</loc>
-  </url>
-  
-  <url>
     <loc>https://wardsparadox.github.io/author/</loc>
     <priority>0</priority>
   </url>
@@ -146,7 +149,6 @@
   
   <url>
     <loc>https://wardsparadox.github.io/page/</loc>
-    <lastmod>2019-03-01T13:26:52-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -160,6 +162,10 @@
     <loc>https://wardsparadox.github.io/tags/profiles/</loc>
     <lastmod>2019-02-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://wardsparadox.github.io/page/projects/</loc>
   </url>
   
   <url>
@@ -193,10 +199,6 @@
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/page/tags/</loc>
-  </url>
-  
-  <url>
     <loc>https://wardsparadox.github.io/tags/til/</loc>
     <lastmod>2016-06-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -215,7 +217,7 @@
   
   <url>
     <loc>https://wardsparadox.github.io/</loc>
-    <lastmod>2019-03-01T13:26:52-07:00</lastmod>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
