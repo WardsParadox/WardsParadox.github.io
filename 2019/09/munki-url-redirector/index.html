@@ -167,14 +167,7 @@
 
 <p>If you want to spin up a separate Nginx server, you can but because of how minimal impact this has, I decided to add this to our munki server.</p>
 
-<p>This is done via a return + location directive/match regex.</p>
-
-<pre><code class="language-Nginx">location ~* (.*msc\/)(.*) {
-            return 301 munki://$1;
-        }
-</code></pre>
-
-<p>To understand location directives a bit more, I suggest reading this quote from <a href="https://www.digitalocean.com/community/tutorials/understanding-Nginx-server-and-location-block-selection-algorithms">Understanding Nginx Server and Location Block Selection Algorithms</a></p>
+<p>This is done via a return + location directive/match regex. To understand location directives a bit more, I suggest reading this quote from <a href="https://www.digitalocean.com/community/tutorials/understanding-Nginx-server-and-location-block-selection-algorithms">Understanding Nginx Server and Location Block Selection Algorithms</a></p>
 
 <blockquote>
 <p>The location_match in the above defines what Nginx should check the request URI against. The existence or nonexistence of the modifier in the above example affects the way that the Nginx attempts to match the location block. The modifiers below will cause the associated location block to be interpreted as follows:</p>
@@ -217,16 +210,27 @@ MSC: debug  Requested pagename is detail-msc.htm
 
 <p><a name="tldr"></a></p>
 
-<p>I was able to simplify my location code to this (it also didn't like the escaped forward slash <code>/</code>):</p>
+<p>I was able to simplify my location code to this (This also simplified the regex which seemed to help speed).:</p>
 
-<pre><code class="language-nginx">location ~* .*msc.(.*) {
+<pre><code class="language-nginx">location ~* msc.(.*) {
             return 301 munki://detail-$1;
         }
 </code></pre>
 
+<p><em>If you want to use additional munki links, you can drop the <code>detail</code> part of the return, just make sure to specify that in the link you use like: <code>https://mymunkiserver/msc/detail-foo</code></em></p>
+
+<p>With this you can now specify a link like such:
+<a href="https://mymunkiserver/msc/foo">https://mymunkiserver/msc/foo</a> which will redirect to <code>munki://detail-Foo</code></p>
+
 <p>Make sure you add this inside your <code>server</code> block.</p>
 
-<p>I'll be sure to add a video demonstrating this soon.</p>
+<p><del>I'll be sure to add a video demonstrating this soon.</del>
+EDIT: Video :D</p>
+
+<video controls>
+  <source src="/images/2019/09/msc_urlredirectdemo.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
     
 </div>
 
