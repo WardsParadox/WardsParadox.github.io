@@ -15,6 +15,15 @@
   </url>
   
   <url>
+    <loc>https://wardsparadox.github.io/page/projects/</loc>
+  </url>
+  
+  <url>
+    <loc>https://wardsparadox.github.io/2019/09/munki-url-redirector/</loc>
+    <lastmod>2019-09-18T11:57:36-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://wardsparadox.github.io/2019/02/ublock-origin-admin-settings-deployment/</loc>
     <lastmod>2019-02-27T00:00:00+00:00</lastmod>
   </url>
@@ -106,6 +115,10 @@
   </url>
   
   <url>
+    <loc>https://wardsparadox.github.io/projects/destiny-ghost/</loc>
+  </url>
+  
+  <url>
     <loc>https://wardsparadox.github.io/tags/dock-maintainer/</loc>
     <lastmod>2017-05-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -137,13 +150,13 @@
   
   <url>
     <loc>https://wardsparadox.github.io/tags/munki/</loc>
-    <lastmod>2018-10-16T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-18T11:57:36-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://wardsparadox.github.io/tags/nginx/</loc>
-    <lastmod>2018-01-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-18T11:57:36-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -154,7 +167,7 @@
   
   <url>
     <loc>https://wardsparadox.github.io/post/</loc>
-    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-18T11:57:36-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -165,7 +178,8 @@
   </url>
   
   <url>
-    <loc>https://wardsparadox.github.io/page/projects/</loc>
+    <loc>https://wardsparadox.github.io/projects/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -217,7 +231,7 @@
   
   <url>
     <loc>https://wardsparadox.github.io/</loc>
-    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-18T11:57:36-06:00</lastmod>
     <priority>0</priority>
   </url>
   

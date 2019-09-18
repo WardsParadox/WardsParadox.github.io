@@ -5,10 +5,19 @@
     <link>https://wardsparadox.github.io/tags/nginx/</link>
     <description>Recent content in Nginx on Zack McCauley - WardsParadox</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 29 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2019 11:57:36 -0600</lastBuildDate>
     
 	<atom:link href="https://wardsparadox.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Munki URL Redirector</title>
+      <link>https://wardsparadox.github.io/2019/09/munki-url-redirector/</link>
+      <pubDate>Wed, 18 Sep 2019 11:57:36 -0600</pubDate>
+      
+      <guid>https://wardsparadox.github.io/2019/09/munki-url-redirector/</guid>
+      <description>&lt;p&gt;Due to recent requests by staff who are struggling to find software in the Managed Software Center, I tried to find a way to send links to the users via email when they have requests. We use GSuite for Education, and Gmail will strip any links that have custom URL Schemes (like what Munki uses &lt;code&gt;munki://&lt;/code&gt;) for security reasons.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Faster Munki Downloads from Nginx</title>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Zack McCauley - WardsParadox</title>
+    <link>https://wardsparadox.github.io/projects/</link>
+    <description>Recent content in Projects on Zack McCauley - WardsParadox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://wardsparadox.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Destiny Ghost</title>
+      <link>https://wardsparadox.github.io/projects/destiny-ghost/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wardsparadox.github.io/projects/destiny-ghost/</guid>
+      <description> Pulls data out of your Follett Destiny/Asset Manager and changes values on the machine to match. </description>
+    </item>
+    
+  </channel>
+</rss>

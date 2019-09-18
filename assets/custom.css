@@ -1,12 +1,77 @@
 .bilberry-hugo-theme article .content a {
     font-style: normal;
-    color:#0074D9;
+    color: #0074D9;
 }
+
 .bilberry-hugo-theme article .content h3 a {
     color: rgb(34, 34, 34);
 }
 
 .bilberry-hugo-theme article .content h4 a {
     font-style: bold;
-    color:#0074D9;
+    color: #0074D9;
+}
+
+.bilberry-hugo-theme article.project h5 {
+    text-align: center;
+}
+
+.bilberry-hugo-theme article.project {
+    background-color: #2d3642;
+    min-height: 4em;
+}
+
+.bilberry-hugo-theme article.project.title {
+    border-right-color: #2d3642;
+    min-height: 7em;
+}
+
+.bilberry-hugo-theme article.project:after {
+    border-right-color: #2d3642
+}
+
+.bilberry-hugo-theme article.project:hover {
+    background-color: #5c8b59;
+    transition: all .3s ease-in-out
+}
+
+.bilberry-hugo-theme article.project:hover:after {
+    border-right-color: #5c8b59;
+    transition: all .3s ease-in-out
+}
+
+.bilberry-hugo-theme article.project .featured-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    opacity: .25
+}
+
+.bilberry-hugo-theme article.project a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10
+}
+
+.bilberry-hugo-theme article.project a h4 {
+    font-variant: small-caps;
+    font-size: 2em;
+    margin: 2rem
+}
+
+.bilberry-hugo-theme article.project a p {
+    margin: 2em;
+    margin-top: 0
 }

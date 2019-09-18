@@ -5,10 +5,19 @@
     <link>https://wardsparadox.github.io/</link>
     <description>Recent content on Zack McCauley - WardsParadox</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 27 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2019 11:57:36 -0600</lastBuildDate>
     
         <atom:link href="https://wardsparadox.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Munki URL Redirector</title>
+      <link>https://wardsparadox.github.io/2019/09/munki-url-redirector/</link>
+      <pubDate>Wed, 18 Sep 2019 11:57:36 -0600</pubDate>
+      
+      <guid>https://wardsparadox.github.io/2019/09/munki-url-redirector/</guid>
+      <description>&lt;p&gt;Due to recent requests by staff who are struggling to find software in the Managed Software Center, I tried to find a way to send links to the users via email when they have requests. We use GSuite for Education, and Gmail will strip any links that have custom URL Schemes (like what Munki uses &lt;code&gt;munki://&lt;/code&gt;) for security reasons.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>uBlock Origin Admin Settings Deployment</title>
@@ -151,6 +160,15 @@ There has always been one thing about it that bothered me. If I had multiple pro
       <guid>https://wardsparadox.github.io/2015/12/adding-a-coming-soon-ribbon-to-the-munki-showcase/</guid>
       <description>I have been doing some testing and it seems that with the latest OS X El Capitan release, our district can finally move to El Capitan. At the same time I have been doing some testing of Office 2016 for Mac. I have been moving our district to deploying software with Munki. It&#39;s been two years and has already saved us hundreds of man hours.
 I was aware of the conditional items ability with Munki.</description>
+    </item>
+    
+    <item>
+      <title>Destiny Ghost</title>
+      <link>https://wardsparadox.github.io/projects/destiny-ghost/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wardsparadox.github.io/projects/destiny-ghost/</guid>
+      <description> Pulls data out of your Follett Destiny/Asset Manager and changes values on the machine to match. </description>
     </item>
     
   </channel>

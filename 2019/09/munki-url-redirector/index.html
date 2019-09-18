@@ -1,0 +1,438 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Zack McCauley">
+        <meta name="description" content="Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.">
+        <meta name="keywords" content="blog,personal,technology,macos,macadmin,python,github">
+        <meta name="generator" content="Hugo 0.54.0" />
+        <title> Munki URL Redirector | Zack McCauley - WardsParadox</title>
+        <meta name="description" content="Munki URL Redirector - Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.">
+        <meta itemprop="name" content="Munki URL Redirector">
+        <meta itemprop="description" content="Munki URL Redirector - Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.">
+        <meta property="og:title" content="Munki URL Redirector">
+        <meta property="og:description" content="Munki URL Redirector - Hi, I’m a macadmin for a school district in Montana. I like to program things sometimes. I am always learning.">
+        <meta property="og:image" content="/images/avatar.jpg">
+        <meta property="og:url" content="https://wardsparadox.github.io/2019/09/munki-url-redirector/">
+        <meta property="og:site_name" content="Zack McCauley - WardsParadox">
+        <meta property="og:type" content="article">
+            
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png"
+        sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png"
+        sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png"
+        sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png"
+        sizes="16x16">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg"
+        color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#fffff">
+    <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+    <meta name="themesettings-color" content="#ffffff">
+    
+        <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+
+	
+
+        
+        
+        
+        
+        <link rel="stylesheet" href="/sass/combined.min.9712af705f99df4936d847014cfb11cf8cfc2bd284989ac45f5bfe711ab162a8.css">
+
+        
+
+        
+            
+                <link rel="stylesheet" href="https://wardsparadox.github.io/assets/custom.css">
+            
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atom-one-light.min.css">
+            
+        
+    </head>
+    <body class="bilberry-hugo-theme">
+        
+<nav>
+
+    <div class="container">
+        <ul class="topnav">
+            
+                
+                    <li><a href="/" target="">Home</a></li>
+                
+            
+                
+                    <li><a href="/page/about/">About me</a></li>
+                
+            
+                
+                    <li><a href="/tags" target="">Tags</a></li>
+                
+            
+                
+                    <li><a href="/projects" target="">Projects</a></li>
+                
+            
+        </ul>
+
+        
+    </div>
+</nav>
+
+
+        <header>
+    <div class="container">
+        <div class="logo">
+            <a href="/" class="logo">
+                
+                    <img src="/images/avatar.jpg" alt="">
+                
+
+                <span class="overlay"><i class="fa fa-spin fa-circle-o-notch"></i></span>
+            </a>
+        </div>
+        <div class="titles">
+            <h3 class="title"><a href="/">Zack McCauley - WardsParadox</a></h3>
+            
+                <span class="subtitle">Hi, I’m a macadmin for a school district in Montana. Never stop learning.</span>
+            
+        </div>
+
+    
+
+        
+        <div class="toggler">
+        
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+    </div>
+</header>
+
+
+        <div class="main container">
+            
+     
+    <div class="article-wrapper u-cf single">
+        
+            <a class="bubble" href="/2019/09/munki-url-redirector/">
+    <i class="fa fa-fw fa-pencil"></i>
+</a>
+
+<article class="default article">
+    
+
+    <div class="content">
+    <h3><a href="/2019/09/munki-url-redirector/">Munki URL Redirector</a></h3>
+    <div class="meta">
+        
+            
+                <span class="date moment">2019-09-18</span>
+            
+        
+
+        
+
+        
+
+        
+    </div>
+
+    
+        <p>Due to recent requests by staff who are struggling to find software in the Managed Software Center, I tried to find a way to send links to the users via email when they have requests. We use GSuite for Education, and Gmail will strip any links that have custom URL Schemes (like what Munki uses <code>munki://</code>) for security reasons.</p>
+
+<p><a href="#tldr">TL;DR</a></p>
+
+<p>After doing some research I found <a href="https://Nginx.com/blog/creating-Nginx-rewrite-rules/">Nginx has some nice rewrite rules that can use Regex</a>. To use the appropriate regex engine, you'll want to make sure it works the PCRE engine. I struggled to figure out the regex pattern even using Regex101. Turns out there are some variables in rewrite/return rules that you can make use of. More on that later.</p>
+
+<blockquote>
+<p>ProTip:  Best Regex tool (Thank you Ben Toms for pointing this out in the MacAdmins Slack!)</p>
+
+<p><a href="https://regex101.com/"><img src="https://img.shields.io/badge/Regex101-Learn%2FTest%20Regular%20Expressions-Blue" alt="Regex101" /></a></p>
+</blockquote>
+
+<p>You'll first want to decide what the url is going to be on your Nginx server. I wanted it shorter and easier to type. So I went with the location <code>msc</code>. This can be anything as long as you match it in the regex. The more important part is that you still must us the <code>name</code> key not the <code>display_name</code> key in the pkginfo file, just like with the <a href="https://github.com/munki/munki/wiki/Munki-Links">Munki Links</a> capabilities.</p>
+
+<p>If you want to spin up a separate Nginx server, you can but because of how minimal impact this has, I decided to add this to our munki server.</p>
+
+<p>This is done via a return + location directive/match regex.</p>
+
+<pre><code class="language-Nginx">location ~* (.*msc\/)(.*) {
+            return 301 munki://$1;
+        }
+</code></pre>
+
+<p>To understand location directives a bit more, I suggest reading this quote from:<a href="https://www.digitalocean.com/community/tutorials/understanding-Nginx-server-and-location-block-selection-algorithms">Understanding Nginx Server and Location Block Selection Algorithms</a></p>
+
+<blockquote>
+<p>The location_match in the above defines what Nginx should check the request URI against. The existence or nonexistence of the modifier in the above example affects the way that the Nginx attempts to match the location block. The modifiers below will cause the associated location block to be interpreted as follows:</p>
+
+<ul>
+<li><code>(none)</code>: If no modifiers are present, the location is interpreted as a prefix match. This means that the location given will be matched against the beginning of the request URI to determine a match.</li>
+<li><code>=</code>: If an equal sign is used, this block will be considered a match if the request URI exactly matches the location given.</li>
+<li><code>~</code>: If a tilde modifier is present, this location will be interpreted as a case-sensitive regular expression match.</li>
+<li><code>~*</code>: If a tilde and asterisk modifier is used, the location block will be interpreted as a case-insensitive regular expression match.</li>
+<li><code>^~</code>: If a carat and tilde modifier is present, and if this block is selected as the best non-regular expression match, regular expression matching will not take place.</li>
+</ul>
+</blockquote>
+
+<p>I first used the <code>~</code> wildcard as that's what I had seen with a lot of the Nginx examples before. I was struggling to get this working. Managed Software Center was opening, but not to anything that was useful.</p>
+
+<p><img src="/images/2019/09/msc_nothinghelpful.png" alt="msc_nothinghelpful.png" /></p>
+
+<p>Turns out the External URL event is logged to MSC, but you need to enable the <a href="https://github.com/munki/munki/wiki/MSC-Logging">MSC Log + Debug Log</a>. You can also use the <code>log</code> command in macOS to narrow this down. (Thanks to Eric Holtam for the commands and Thanks to Elios for the enable log path! <i class="fa fa-thumbs-o-up"></i> <i class="fa fa-thumbs-o-up"></i> <i class="fa fa-thumbs-o-up"></i> ) Either way works for narrowing this down.</p>
+
+<pre><code class="language-bash">log stream --debug --predicate='processImagePath contains[c] &quot;Managed Software Center&quot; AND eventMessage contains[c] &quot;munki://&quot;'
+</code></pre>
+
+<p>What I was seeing in the log was this:</p>
+
+<pre><code class="language-log">MSC: debug  Got load request for
+file:///Users/zackmccauley/Library/Caches/com.googlecode.munki.ManagedSoftwareCenter/html/
+detail-msc.html
+MSC: debug  Got URL scheme: file
+MSC: debug  build_page for detail-msc.html
+MSC: debug  buildDetailPage for msc
+MSC: debug  No detail found for msc
+MSC: debug  generate_page for detail-msc.html
+MSC: debug  Requested pagename is detail-msc.htm
+</code></pre>
+
+<p>I was thoroughly stumped. Thankfully I found this:
+<a href="https://www.Nginx.com/blog/regular-expression-tester-nginx/">A Regular Expression Tester for NGINX and NGINX Plus</a></p>
+
+<p>This is a tool provided by Nginx to help build regex expressions. It runs on docker and includes a <code>docker-compose</code> file to help bring it up. With that I was able to narrow down the issue to the <code>$1</code> I was specifying. It ended up specifing the wrong Regex group (nginx uses <code>$1</code> instead of <code>$0</code> to specify the first element in regex group).</p>
+
+<p><a name="tldr"></a></p>
+
+<p>I was able to simplify my location code to this (it also didn't like the escaped forward slash <code>/</code>):</p>
+
+<pre><code class="language-nginx">location ~* .*msc.(.*) {
+            return 301 munki://detail-$1;
+        }
+</code></pre>
+
+<p>Make sure you add this inside your <code>server</code> block.</p>
+
+<p>I'll be sure to add a video demonstrating this soon.</p>
+    
+</div>
+
+    
+<div class="footer">
+
+
+    
+        <div class="tags">
+            <i class="fa fa-tags"></i>
+            <div class="links">
+                
+                    <a href="/tags/munki">munki</a>
+                
+                    <a href="/tags/nginx">nginx</a>
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+</article>
+
+        
+    </div>
+
+    
+        
+    
+
+     
+
+        </div>
+
+        
+<footer>
+    <div class="container">
+
+        
+        <div class="recent-posts">
+            <strong>Latest posts</strong>
+                <ul>
+                
+                    <li>
+                        <a href="/2019/09/munki-url-redirector/">Munki URL Redirector</a>
+                    </li>
+                
+                    <li>
+                        <a href="/2019/02/ublock-origin-admin-settings-deployment/">uBlock Origin Admin Settings Deployment</a>
+                    </li>
+                
+                    <li>
+                        <a href="/2018/10/google-packages-and-munki/">Google Packages and Munki</a>
+                    </li>
+                
+                    <li>
+                        <a href="/2018/09/force-a-dep-sync..from-your-phone/">Force a DEP sync..from your phone!</a>
+                    </li>
+                
+                    <li>
+                        <a href="/2018/04/modifying-safaris-auto-play-preferences/">Modifying Safari&#39;s Auto-Play Preferences</a>
+                    </li>
+                
+                    <li>
+                        <a href="/2018/02/setting-up-munkireport-php-on-ubuntu-16-with-nginx/">Setting up MunkiReport-PHP on Ubuntu 16 with Nginx</a>
+                    </li>
+                
+                    <li>
+                        <a href="/2018/01/faster-munki-downloads-from-nginx/">Faster Munki Downloads from Nginx</a>
+                    </li>
+                
+                </ul>
+        </div>
+        
+
+        
+        <div class="categories">
+            <a href="/tags/"><strong>Tags</strong></a>
+                <ul>
+                
+                    <li>
+                        <a href="/tags/munki">Munki (6)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/python">Python (6)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/til">Til (4)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/nginx">Nginx (2)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/chromeos">Chromeos (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/dock-maintainer">Dock maintainer (1)</a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags/hello-it">Hello it (1)</a>
+                    </li>
+                
+            </ul>
+        </div>
+        
+
+        <div class="right">
+            
+            <div class="external-profiles">
+                <strong>Social media</strong>
+
+                
+                
+                    <a href="https://twitter.com/mccauley_zack" target="_blank"><i class="fa fa-twitter-adblock-proof"></i></a>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <a href="https://github.com/WardsParadox" target="_blank"><i class="fa fa-github"></i></a>
+                
+                
+                
+                    <a href="https://macadmins.slack.com/team/U0862G7K9" target="_blank"><i class="fa fa-slack"></i></a>
+                
+            </div>
+            
+
+            
+        </div>
+    </div>
+</footer>
+
+
+<div class="credits">
+    <div class="container">
+        <div class="copyright">
+            <a href="https://github.com/WardsParadox" target="_blank">
+                &copy;
+                
+                    2019
+                
+                by Zack McCauley
+            </a>
+	    
+        </div>
+        <div class="author">
+            <a href="https://github.com/Lednerb/bilberry-hugo-theme" target="_blank">Bilberry Hugo Theme</a>
+        </div>
+    </div>
+</div>
+
+
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-99065592-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+        
+
+        
+        
+        <script type="text/javascript" src="/js/externalDependencies.39c47e10e241eae2947b3fe21809c572.js" integrity="md5-OcR&#43;EOJB6uKUez/iGAnFcg=="></script>
+
+        
+        
+        <script type="text/javascript" src="/js/theme.ff50ae6dc1bfc220b23bf69dbb41b54e.js" integrity="md5-/1CubcG/wiCyO/adu0G1Tg=="></script>
+
+        <script>
+            $(".moment").each(function() {
+                $(this).text(
+                    moment( $(this).text() )
+                        .locale( "en" )
+                        .format('LL')
+                );
+            });
+
+            $(".footnote-return sup").html("");
+        </script>
+
+        
+            
+        
+
+        
+
+
+    </body>
+</html>
