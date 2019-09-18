@@ -151,19 +151,19 @@
     </div>
 
     
-        <p>Due to recent requests by staff who are struggling to find software in the Managed Software Center, I tried to find a way to send links to the users via email when they have requests. We use GSuite for Education, and Gmail will strip any links that have custom URL Schemes (like what Munki uses <code>munki://</code>) for security reasons.</p>
+        <p>Due to recent requests by staff who are struggling to find software in the Managed Software Center, I tried to find a way to send links to the users via email when they have requested. We use GSuite for Education, and Gmail will strip any links that have custom URL Schemes (like what Munki uses <code>munki://</code>) for security reasons.</p>
 
 <p><a href="#tldr">TL;DR</a></p>
 
 <p>After doing some research I found <a href="https://Nginx.com/blog/creating-Nginx-rewrite-rules/">Nginx has some nice rewrite rules that can use Regex</a>. To use the appropriate regex engine, you'll want to make sure it works the PCRE engine. I struggled to figure out the regex pattern even using Regex101. Turns out there are some variables in rewrite/return rules that you can make use of. More on that later.</p>
 
 <blockquote>
-<p>ProTip:  Best Regex tool (Thank you Ben Toms for pointing this out in the MacAdmins Slack!)</p>
+<p>ProTip: Best Regex tool (Thank you, Ben Toms, for pointing this out in the MacAdmins Slack!)</p>
 
 <p><a href="https://regex101.com/"><img src="https://img.shields.io/badge/Regex101-Learn%2FTest%20Regular%20Expressions-Blue" alt="Regex101" /></a></p>
 </blockquote>
 
-<p>You'll first want to decide what the url is going to be on your Nginx server. I wanted it shorter and easier to type. So I went with the location <code>msc</code>. This can be anything as long as you match it in the regex. The more important part is that you still must us the <code>name</code> key not the <code>display_name</code> key in the pkginfo file, just like with the <a href="https://github.com/munki/munki/wiki/Munki-Links">Munki Links</a> capabilities.</p>
+<p>You'll first want to decide what the URL is going to be on your Nginx server. I wanted it shorter and easier to type. So I went with the location <code>msc</code>. This can be anything as long as you match it in the regex. The more important part is that you still must use the <code>name</code> key not the <code>display_name</code> key in the pkginfo file, just like with the <a href="https://github.com/munki/munki/wiki/Munki-Links">Munki Links</a> capabilities.</p>
 
 <p>If you want to spin up a separate Nginx server, you can but because of how minimal impact this has, I decided to add this to our munki server.</p>
 
@@ -174,7 +174,7 @@
         }
 </code></pre>
 
-<p>To understand location directives a bit more, I suggest reading this quote from:<a href="https://www.digitalocean.com/community/tutorials/understanding-Nginx-server-and-location-block-selection-algorithms">Understanding Nginx Server and Location Block Selection Algorithms</a></p>
+<p>To understand location directives a bit more, I suggest reading this quote from <a href="https://www.digitalocean.com/community/tutorials/understanding-Nginx-server-and-location-block-selection-algorithms">Understanding Nginx Server and Location Block Selection Algorithms</a></p>
 
 <blockquote>
 <p>The location_match in the above defines what Nginx should check the request URI against. The existence or nonexistence of the modifier in the above example affects the way that the Nginx attempts to match the location block. The modifiers below will cause the associated location block to be interpreted as follows:</p>
@@ -188,7 +188,7 @@
 </ul>
 </blockquote>
 
-<p>I first used the <code>~</code> wildcard as that's what I had seen with a lot of the Nginx examples before. I was struggling to get this working. Managed Software Center was opening, but not to anything that was useful.</p>
+<p>I first used the <code>~</code> wildcard as that's what I had seen with a lot of the Nginx examples before. I was struggling to get this working. Managed Software Center was opening, but not to anything useful.</p>
 
 <p><img src="/images/2019/09/msc_nothinghelpful.png" alt="msc_nothinghelpful.png" /></p>
 
@@ -213,7 +213,7 @@ MSC: debug  Requested pagename is detail-msc.htm
 <p>I was thoroughly stumped. Thankfully I found this:
 <a href="https://www.Nginx.com/blog/regular-expression-tester-nginx/">A Regular Expression Tester for NGINX and NGINX Plus</a></p>
 
-<p>This is a tool provided by Nginx to help build regex expressions. It runs on docker and includes a <code>docker-compose</code> file to help bring it up. With that I was able to narrow down the issue to the <code>$1</code> I was specifying. It ended up specifing the wrong Regex group (nginx uses <code>$1</code> instead of <code>$0</code> to specify the first element in regex group).</p>
+<p>This is a tool provided by Nginx to help build regex expressions. It runs on docker and includes a docker-compose file to help bring it up. With that, I was able to narrow down the issue to the <code>$1</code> I was specifying. It ended up specifying the wrong Regex group (Nginx uses <code>$1</code> instead of <code>$0</code> to specify the first element in the regex group)..</p>
 
 <p><a name="tldr"></a></p>
 
